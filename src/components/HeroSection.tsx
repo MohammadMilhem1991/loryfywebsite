@@ -181,7 +181,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.4 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[11%] xl:top-[12%]'} left-0 -translate-x-[45%] xl:-translate-x-[65%] 2xl:-translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[11%] xl:top-[12%]'} left-0 ${isRtl ? '-translate-x-[55%] xl:-translate-x-[70%] 2xl:-translate-x-[85%]' : '-translate-x-[60%] xl:-translate-x-[80%] 2xl:-translate-x-[92%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                    <Building2 className="w-4 h-4" />
@@ -230,7 +230,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.8 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 -translate-x-[45%] xl:-translate-x-[65%] 2xl:-translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[55%] xl:-translate-x-[70%] 2xl:-translate-x-[85%]' : '-translate-x-[60%] xl:-translate-x-[80%] 2xl:-translate-x-[92%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                   <Handshake className="w-4 h-4" />

@@ -20,15 +20,15 @@ export interface CarouselScreenItem {
 export const DEFAULT_CREATE_AD_SCREENS: CarouselScreenItem[] = [
   {
     id: 1,
-    title: "Create Listing - Sell",
-    titleAr: "إنشاء إعلان - بيع مشروع أو رخصة",
-    src: "https://i.postimg.cc/bNR4JpPy/Create-ad-sell.png",
-  },
-  {
-    id: 2,
     title: "Create Listing - Find Partner",
     titleAr: "إنشاء إعلان - البحث عن شريك أو مستثمر",
     src: "https://i.postimg.cc/X7gtJ4WV/Create-ad-Find-partner.png",
+  },
+  {
+    id: 2,
+    title: "Create Listing - Sell",
+    titleAr: "إنشاء إعلان - بيع مشروع أو رخصة",
+    src: "https://i.postimg.cc/bNR4JpPy/Create-ad-sell.png",
   },
   {
     id: 3,
@@ -79,7 +79,7 @@ export const FIND_BUSINESS_PARTNER_SCREENS: CarouselScreenItem[] = [
     id: 4,
     title: "Filter & Search",
     titleAr: "تصفية وبحث",
-    src: "https://i.postimg.cc/WbGyhjM6/e4.png",
+    src: "https://i.postimg.cc/Bbg1VR3N/e4.png",
   },
   {
     id: 5,

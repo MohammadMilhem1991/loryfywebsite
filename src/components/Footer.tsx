@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
   return (
     <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8 pb-8 border-b border-slate-800" staggerDelay={0.06}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-8 border-b border-slate-800" staggerDelay={0.06}>
           {/* Col 1: Brand, Direct WhatsApp & Official Channels (2 cols on large screens) */}
           <StaggerItem className="lg:col-span-2 space-y-4">
             <button
@@ -264,10 +264,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
             <ul className="space-y-2 text-sm text-slate-300">
               <li>
                 <a
-                  href={`/${currentLang}/find-business-partner-uae`}
+                  href={`/${currentLang}/for-owners`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleLinkClick("find-business-partner-uae", "Footer Looking to Find Partners or Sell");
+                    handleLinkClick("for-owners", "Footer For Owners & Founders");
                   }}
                   className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
                 >
@@ -276,62 +276,14 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               </li>
               <li>
                 <a
-                  href={`/${currentLang}/find-partners-investors`}
+                  href={`/${currentLang}/discover`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleLinkClick("find-partners-investors", "Footer Looking to Partner, Invest or Buy");
+                    handleLinkClick("discover", "Footer For Partners & Investors");
                   }}
                   className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
                 >
                   {t.nav.discover}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`/${currentLang}/running-businesses-uae`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("running-businesses-uae", "Footer Running Businesses");
-                  }}
-                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
-                >
-                  {currentLang === "en" ? "Running Businesses" : "مشاريع قائمة"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`/${currentLang}/businesses-for-sale-uae`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("businesses-for-sale-uae", "Footer Businesses for Sale");
-                  }}
-                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
-                >
-                  {currentLang === "en" ? "Businesses for Sale" : "مشاريع للبيع"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`/${currentLang}/startup-opportunities-uae`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("startup-opportunities-uae", "Footer Startup Ideas");
-                  }}
-                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
-                >
-                  {currentLang === "en" ? "Startup Opportunities" : "أفكار مشاريع"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`/${currentLang}/trade-license-opportunities-uae`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick("trade-license-opportunities-uae", "Footer Trade Licenses");
-                  }}
-                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
-                >
-                  {currentLang === "en" ? "Trade Licenses" : "رخص تجارية"}
                 </a>
               </li>
             </ul>

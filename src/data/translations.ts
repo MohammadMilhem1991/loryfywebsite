@@ -309,7 +309,7 @@ export const translations: Record<"en" | "ar", TranslationContent> = {
       },
     },
     howItWorks: {
-      heading: "From discovery to conversation",
+      heading: "From Discovery to Conversation",
       subheading: "A straightforward pathway whether you are listing an opportunity or seeking one.",
       ownersFlowTitle: "For Business & Idea Owners",
       ownersFlowSummary: "Create Listing → Select Category → Add Required Information → Publish",

@@ -3,12 +3,13 @@
  * Premium gradient background, bold conversion messaging, official store buttons.
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { Language, PageRoute } from "../types";
 import { translations } from "../data/translations";
 import { trackEvent, handleAppStoreClick } from "../utils/analytics";
 import { Smartphone } from "lucide-react";
 import { AppleStoreIcon, GooglePlayIcon } from "./OfficialStoreIcons";
+import { QrDownloadModal, QrDownloadButton } from "./QrDownloadModal";
 import { FadeInUp } from "./ScrollAnimations";
 import { motion } from "motion/react";
 
@@ -19,6 +20,7 @@ interface FinalCtaSectionProps {
 
 export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ currentLang, onNavigate }) => {
   const t = translations[currentLang];
+  const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   return (
     <section id="final-download-cta-section" className="py-6 sm:py-8 bg-white relative overflow-hidden">
@@ -52,7 +54,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ currentLang, o
               {t.finalCta.subheading}
             </p>
 
-            {/* App Store Buttons */}
+            {/* App Store & QR Download Buttons */}
             <div className="pt-3 flex flex-col items-center gap-4">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto flex-wrap">
                 {/* Standard Apple App Store Button */}
@@ -90,11 +92,26 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ currentLang, o
                     </div>
                   </div>
                 </motion.button>
+
+                {/* Download via QR Code Button */}
+                <QrDownloadButton
+                  currentLang={currentLang}
+                  variant="dark"
+                  className="w-full sm:w-auto"
+                  onClick={() => setIsQrModalOpen(true)}
+                />
               </div>
             </div>
           </FadeInUp>
         </div>
       </div>
+
+      {/* QR Code Modal Popup */}
+      <QrDownloadModal
+        isOpen={isQrModalOpen}
+        onClose={() => setIsQrModalOpen(false)}
+        currentLang={currentLang}
+      />
     </section>
   );
 };
