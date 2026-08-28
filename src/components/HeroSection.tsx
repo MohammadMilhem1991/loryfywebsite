@@ -172,7 +172,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "spring", stiffness: 45, damping: 14, delay: 0.15 }}
               />
 
-              {/* 1. Running Businesses: Upper-left of the phone, relatively high (~6% top) */}
+              {/* 1. Running Businesses: Upper-left of the phone */}
               <motion.button
                 id="hero-floating-running-businesses"
                 onClick={() => handleCategoryBadgeClick("running-businesses-uae")}
@@ -181,7 +181,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.4 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[14%] lg:top-[15%]' : 'top-[11%] lg:top-[12%]'} left-0 -translate-x-[95%] lg:-translate-x-[90%] z-20 hidden sm:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[11%] xl:top-[12%]'} left-0 -translate-x-[45%] xl:-translate-x-[65%] 2xl:-translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                    <Building2 className="w-4 h-4" />
@@ -196,7 +196,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 </div>
               </motion.button>
 
-              {/* 2. Startup Ideas: Upper-right of the phone, distinct vertical level (~17% top) */}
+              {/* 2. Startup Ideas: Upper-right of the phone */}
               <motion.button
                 id="hero-floating-startup-ideas"
                 onClick={() => handleCategoryBadgeClick("startup-opportunities-uae")}
@@ -205,7 +205,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.6 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[14%] lg:top-[15%]' : 'top-[18%] lg:top-[17%]'} right-0 translate-x-[95%] lg:translate-x-[90%] z-20 hidden sm:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.14)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.22)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.14)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.22)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
@@ -221,7 +221,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 </div>
               </motion.button>
 
-              {/* 3. Partnership Opportunities: Left / lower side of the phone (~60% top) */}
+              {/* 3. Partnership Opportunities: Left / lower side of the phone */}
               <motion.button
                 id="hero-floating-partnership-opportunities"
                 onClick={() => handleCategoryBadgeClick("business-partnership-opportunities-uae")}
@@ -230,7 +230,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.8 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] lg:top-[68%]' : 'top-[64%] lg:top-[66%]'} left-0 -translate-x-[95%] lg:-translate-x-[90%] z-20 hidden sm:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 -translate-x-[45%] xl:-translate-x-[65%] 2xl:-translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                   <Handshake className="w-4 h-4" />
@@ -245,7 +245,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 </div>
               </motion.button>
 
-              {/* 4. Trade Licenses: Lower-right side of the phone (~71% top, distinct from Partnership Opportunities) */}
+              {/* 4. Trade Licenses: Lower-right side of the phone */}
               <motion.button
                 id="hero-floating-trade-licenses"
                 onClick={() => handleCategoryBadgeClick("trade-license-opportunities-uae")}
@@ -254,7 +254,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 1.0 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] lg:top-[68%]' : 'top-[69%] lg:top-[71%]'} right-0 translate-x-[95%] lg:translate-x-[90%] z-20 hidden sm:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%] z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
@@ -271,8 +271,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               </motion.button>
             </div>
 
-            {/* MOBILE ONLY (< sm): Clean 2x2 Grid below the Phone */}
-            <div className="grid grid-cols-2 gap-2 sm:hidden mt-2.5 w-full max-w-sm px-1">
+            {/* Clean 2x2 Grid below the Phone on Mobile, Tablet & Mid-screens (< xl) */}
+            <div className="grid grid-cols-2 gap-2 xl:hidden mt-3 sm:mt-4 w-full max-w-md px-1">
               {/* 1. Running Businesses */}
               <motion.button
                 id="hero-mobile-running-businesses"
