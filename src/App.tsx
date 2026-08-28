@@ -49,21 +49,8 @@ export default function App() {
     if (resolved.slug) {
       setSelectedOpportunitySlug(resolved.slug);
     }
-
-    if (resolved.page === "for-owners") {
-      setCurrentPage("find-business-partner-uae");
-      const pageUrl = `/${resolved.lang}/find-business-partner-uae`;
-      window.history.replaceState({}, "", pageUrl);
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    } else if (resolved.page === "discover") {
-      setCurrentPage("find-partners-investors");
-      const pageUrl = `/${resolved.lang}/find-partners-investors`;
-      window.history.replaceState({}, "", pageUrl);
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    } else {
-      setCurrentPage(resolved.page);
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }
+    setCurrentPage(resolved.page);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
     // Handle browser back/forward buttons
     const handlePopState = () => {
@@ -72,21 +59,8 @@ export default function App() {
       if (popResolved.slug) {
         setSelectedOpportunitySlug(popResolved.slug);
       }
-      
-      if (popResolved.page === "for-owners") {
-        setCurrentPage("find-business-partner-uae");
-        const pageUrl = `/${popResolved.lang}/find-business-partner-uae`;
-        window.history.replaceState({}, "", pageUrl);
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      } else if (popResolved.page === "discover") {
-        setCurrentPage("find-partners-investors");
-        const pageUrl = `/${popResolved.lang}/find-partners-investors`;
-        window.history.replaceState({}, "", pageUrl);
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      } else {
-        setCurrentPage(popResolved.page);
-        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      }
+      setCurrentPage(popResolved.page);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     };
 
     window.addEventListener("popstate", handlePopState);
@@ -113,16 +87,6 @@ export default function App() {
     }
     if (page === "llms") {
       setTechnicalModal("llms");
-      return;
-    }
-
-    if (page === "for-owners") {
-      handleNavigate("find-business-partner-uae");
-      return;
-    }
-
-    if (page === "discover") {
-      handleNavigate("find-partners-investors");
       return;
     }
 
