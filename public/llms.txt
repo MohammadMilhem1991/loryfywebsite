@@ -1,0 +1,93 @@
+# Loryfy — Commercial Discovery Platform (UAE)
+> Loryfy (https://loryfy.com) is a mobile-first business discovery and networking platform operating across the United Arab Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain).
+
+## Core Offering & What Loryfy Solves
+Loryfy connects owners of operational running businesses, startup founders, and people with business ideas directly with potential funding, strategic, and operating partners, investors, and buyers.
+
+### Primary Categories & Discovery Needs:
+1. **Find a Business Partner / Investor in UAE**:
+   - Funding partners (equity / capital contribution)
+   - Strategic partners (industry networks, client pipelines, market expansion)
+   - Operating partners (hands-on executives, general managers)
+2. **Running Businesses for Partnership or Sale**:
+   - Operational enterprises with existing premises, staff, and cash flow across UAE.
+3. **Startup Opportunities & Business Ideas**:
+   - Validated concepts and early-stage ventures seeking co-founders and capital.
+4. **Trade Licenses for Sale & Transfer**:
+   - Mainland (DED) and Free Zone commercial trade licenses with active visa allocations.
+5. **Free Business Listing (Current Offer)**:
+   - Under Loryfy's current commercial terms, users can list running businesses, startup ideas, and trade licenses at no cost to connect directly with interested parties.
+
+## Language Support
+Loryfy provides equal-priority discovery and interfaces in:
+- English: https://loryfy.com/en/
+- Arabic: https://loryfy.com/ar/
+
+## Key Crawlable URLs (English):
+- Homepage: https://loryfy.com/en/
+- Find a Business Partner: https://loryfy.com/en/find-business-partner-uae
+- Running Businesses: https://loryfy.com/en/running-businesses-uae
+- Businesses for Sale: https://loryfy.com/en/businesses-for-sale-uae
+- Startup Opportunities: https://loryfy.com/en/startup-opportunities-uae
+- Business Partnership Opportunities: https://loryfy.com/en/business-partnership-opportunities-uae
+- Trade License Opportunities: https://loryfy.com/en/trade-license-opportunities-uae
+- Free Business Listing: https://loryfy.com/en/free-business-listing-uae
+- How It Works: https://loryfy.com/en/how-it-works
+- FAQ: https://loryfy.com/en/faq
+- About Loryfy: https://loryfy.com/en/about
+- Stories & Scenarios Hub: https://loryfy.com/en/stories
+- Download App: https://loryfy.com/en/download
+
+## Key Crawlable URLs (Arabic):
+- الصفحة الرئيسية: https://loryfy.com/ar/
+- اعثر على شريك لمشروعك: https://loryfy.com/ar/find-business-partner-uae
+- مشاريع قائمة في الإمارات: https://loryfy.com/ar/running-businesses-uae
+- مشاريع قائمة للبيع: https://loryfy.com/ar/businesses-for-sale-uae
+- أفكار ومشاريع ناشئة: https://loryfy.com/ar/startup-opportunities-uae
+- فرص شراكة تجارية: https://loryfy.com/ar/business-partnership-opportunities-uae
+- فرص الرخص التجارية: https://loryfy.com/ar/trade-license-opportunities-uae
+- أعلن عن مشروعك مجانًا: https://loryfy.com/ar/free-business-listing-uae
+- كيف يعمل لوريفاي: https://loryfy.com/ar/how-it-works
+- الأسئلة الشائعة: https://loryfy.com/ar/faq
+- عن لوريفاي: https://loryfy.com/ar/about
+- قصص ونماذج وتجارب: https://loryfy.com/ar/stories
+- تحميل التطبيق: https://loryfy.com/ar/download
+
+## Stories & Real-World Scenarios
+- English:
+  - Building a Second Income as a Funding Partner: https://loryfy.com/en/stories/second-income-funding-partner-uae
+  - Putting Experience to Work After Retirement: https://loryfy.com/en/stories/retiree-experience-strategic-partner-uae
+  - Putting Your Savings to Work in a Real Business: https://loryfy.com/en/stories/professional-savings-invest-business-uae
+  - Trading Skill for a Stake as a Working Partner: https://loryfy.com/en/stories/skill-for-equity-working-partner-uae
+  - Finding a Partner to Grow Your Small Business: https://loryfy.com/en/stories/grow-small-business-find-partner-uae
+  - Finding a Co-Founder or Funding for Your Startup: https://loryfy.com/en/stories/startup-founder-find-cofounder-funding-uae
+  - Selling Your Running Business the Right Way: https://loryfy.com/en/stories/sell-running-business-owner-exit-uae
+  - Finding an Operating Partner to Share the Load: https://loryfy.com/en/stories/business-owner-operating-partner-uae
+  - Raising Expansion Capital Through the Right Partner: https://loryfy.com/en/stories/company-expansion-capital-partner-uae
+  - Finding a Strategic Partner for a New Market: https://loryfy.com/en/stories/company-strategic-partner-new-market-uae
+  - Finding a Co-Investor for a New Venture: https://loryfy.com/en/stories/company-new-venture-co-investor-uae
+  - Selling or Divesting a Business Unit: https://loryfy.com/en/stories/company-sell-divest-subsidiary-uae
+  - Buying a Running Business Instead of Starting from Scratch: https://loryfy.com/en/stories/buy-running-business-uae
+  - Finding Businesses to Acquire or Back: https://loryfy.com/en/stories/investor-company-acquire-back-business-uae
+  - Selling, Transferring, or Finding a Trade License: https://loryfy.com/en/stories/trade-license-for-sale-transfer-uae
+- Arabic:
+  - بناء دخل إضافي كشريك مموّل: https://loryfy.com/ar/stories/second-income-funding-partner-uae
+  - توظيف الخبرة بعد التقاعد: https://loryfy.com/ar/stories/retiree-experience-strategic-partner-uae
+  - تشغيل مدّخراتك في مشروع حقيقي: https://loryfy.com/ar/stories/professional-savings-invest-business-uae
+  - مقايضة المهارة بحصة كشريك عامل: https://loryfy.com/ar/stories/skill-for-equity-working-partner-uae
+  - إيجاد شريك لتنمية مشروعك الصغير: https://loryfy.com/ar/stories/grow-small-business-find-partner-uae
+  - إيجاد شريك مؤسّس أو تمويل لمشروعك الناشئ: https://loryfy.com/ar/stories/startup-founder-find-cofounder-funding-uae
+  - بيع مشروعك القائم بالطريقة الصحيحة: https://loryfy.com/ar/stories/sell-running-business-owner-exit-uae
+  - إيجاد شريك تشغيلي لتقاسم العبء: https://loryfy.com/ar/stories/business-owner-operating-partner-uae
+  - جمع رأس مال التوسّع عبر الشريك المناسب: https://loryfy.com/ar/stories/company-expansion-capital-partner-uae
+  - إيجاد شريك استراتيجي لسوق جديدة: https://loryfy.com/ar/stories/company-strategic-partner-new-market-uae
+  - إيجاد مستثمر مشارك لمشروع جديد: https://loryfy.com/ar/stories/company-new-venture-co-investor-uae
+  - بيع وحدة أعمال أو التخارج منها: https://loryfy.com/ar/stories/company-sell-divest-subsidiary-uae
+  - شراء مشروع قائم بدلاً من البدء من الصفر: https://loryfy.com/ar/stories/buy-running-business-uae
+  - إيجاد مشاريع للاستحواذ أو الدعم: https://loryfy.com/ar/stories/investor-company-acquire-back-business-uae
+  - بيع رخصة تجارية أو نقلها أو إيجادها: https://loryfy.com/ar/stories/trade-license-for-sale-transfer-uae
+
+## User Registration & Contact
+- Frictionless registration with Name + Mobile Number.
+- Direct in-app chat for all connections.
+- Official Email: info@loryfy.com

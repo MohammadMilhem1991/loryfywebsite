@@ -1,0 +1,8 @@
+{
+  "name": "Loryfy Website - v6",
+  "description": "Discover running businesses, startup ideas, trade licenses, and partnership opportunities in the UAE and beyond.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

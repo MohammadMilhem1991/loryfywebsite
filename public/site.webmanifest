@@ -1,0 +1,16 @@
+{
+  "name": "Loryfy",
+  "short_name": "Loryfy",
+  "description": "Discover running businesses, startup ideas, and trade licenses, and find the right partner or investor in the UAE.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F58D5",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/pTJV0jKx/Logo-O-Letter-White-Color.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

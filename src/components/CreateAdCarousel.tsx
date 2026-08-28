@@ -1,0 +1,365 @@
+/**
+ * Loryfy Create Ad & Listing Mobile App Showcase Carousel
+ * Displays scrolling mobile app screens for "Create Ad - Sell" and "Create Ad - Find Partner".
+ * Uses the exact continuous infinite-scrolling carousel design, center alignment, and smooth animations.
+ */
+
+import React, { useRef, useEffect, useState, useCallback } from "react";
+import { Language } from "../types";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getLocalizedImage } from "../utils/imageMap";
+import { motion } from "motion/react";
+
+export interface CarouselScreenItem {
+  id: number;
+  title: string;
+  titleAr: string;
+  src: string;
+}
+
+export const DEFAULT_CREATE_AD_SCREENS: CarouselScreenItem[] = [
+  {
+    id: 1,
+    title: "Create Listing - Sell",
+    titleAr: "إنشاء إعلان - بيع مشروع أو رخصة",
+    src: "https://i.postimg.cc/bNR4JpPy/Create-ad-sell.png",
+  },
+  {
+    id: 2,
+    title: "Create Listing - Find Partner",
+    titleAr: "إنشاء إعلان - البحث عن شريك أو مستثمر",
+    src: "https://i.postimg.cc/X7gtJ4WV/Create-ad-Find-partner.png",
+  },
+  {
+    id: 3,
+    title: "App Screen 1",
+    titleAr: "شاشة التطبيق 1",
+    src: "https://i.postimg.cc/Y9hbpBxZ/1.png",
+  },
+  {
+    id: 4,
+    title: "App Screen 2",
+    titleAr: "شاشة التطبيق 2",
+    src: "https://i.postimg.cc/hjP12Wwr/2.png",
+  },
+  {
+    id: 5,
+    title: "App Screen 4",
+    titleAr: "شاشة التطبيق 4",
+    src: "https://i.postimg.cc/sXD4Td8m/4.png",
+  },
+  {
+    id: 6,
+    title: "App Screen 5",
+    titleAr: "شاشة التطبيق 5",
+    src: "https://i.postimg.cc/X7k5rDXk/5.png",
+  },
+];
+
+export const FIND_BUSINESS_PARTNER_SCREENS: CarouselScreenItem[] = [
+  {
+    id: 1,
+    title: "Explore Opportunities",
+    titleAr: "استكشف الفرص",
+    src: "https://i.postimg.cc/TYVspGrn/e1.png",
+  },
+  {
+    id: 2,
+    title: "Partner Listings",
+    titleAr: "إعلانات الشركاء",
+    src: "https://i.postimg.cc/jdH1LKzz/e2.png",
+  },
+  {
+    id: 3,
+    title: "Listing Details",
+    titleAr: "تفاصيل الإعلان",
+    src: "https://i.postimg.cc/kXQHB9xN/e3.png",
+  },
+  {
+    id: 4,
+    title: "Filter & Search",
+    titleAr: "تصفية وبحث",
+    src: "https://i.postimg.cc/WbGyhjM6/e4.png",
+  },
+  {
+    id: 5,
+    title: "Chat & Connect",
+    titleAr: "المحادثة والتواصل",
+    src: "https://i.postimg.cc/zXCQV5nd/e5.png",
+  },
+  {
+    id: 6,
+    title: "Business Network",
+    titleAr: "شبكة الأعمال",
+    src: "https://i.postimg.cc/02Y4bxpV/e6.png",
+  },
+];
+
+export const CREATE_AD_SCREENS = DEFAULT_CREATE_AD_SCREENS;
+
+interface CreateAdCarouselProps {
+  currentLang: Language;
+  className?: string;
+  screens?: CarouselScreenItem[];
+  pageSlug?: string;
+}
+
+export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
+  currentLang,
+  className = "",
+  screens,
+  pageSlug,
+}) => {
+  const isRtl = currentLang === "ar";
+
+  // Select active screens based on pageSlug or custom screens prop
+  const activeScreens = React.useMemo(() => {
+    if (screens && screens.length > 0) return screens;
+    if (pageSlug === "find-business-partner-uae") {
+      return FIND_BUSINESS_PARTNER_SCREENS;
+    }
+    return DEFAULT_CREATE_AD_SCREENS;
+  }, [screens, pageSlug]);
+
+  const baseCount = activeScreens.length;
+  const initialIndex = baseCount * 3;
+
+  // Extended screens repeated 6 times for smooth infinite looping
+  const extendedScreens = React.useMemo(() => {
+    return [
+      ...activeScreens,
+      ...activeScreens,
+      ...activeScreens,
+      ...activeScreens,
+      ...activeScreens,
+      ...activeScreens,
+    ];
+  }, [activeScreens]);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(380);
+  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  // Reset current index when activeScreens change
+  useEffect(() => {
+    setCurrentIndex(activeScreens.length * 3);
+  }, [activeScreens]);
+
+  // Measure container width with ResizeObserver for fluid responsiveness
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 0) {
+          setContainerWidth(entry.contentRect.width);
+        }
+      }
+    });
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const itemWidth = containerWidth < 360 ? 220 : containerWidth < 440 ? 260 : 295;
+  const gap = containerWidth < 400 ? 14 : 18;
+  const step = itemWidth + gap;
+
+  // Center alignment: align active slide in the middle with equal side peeks
+  const centerOffset = containerWidth > 0 ? (containerWidth - itemWidth) / 2 : 40;
+
+  // Translation calculation considering LTR vs RTL
+  const translationValue = isRtl
+    ? currentIndex * step - centerOffset
+    : centerOffset - currentIndex * step;
+
+  const handleNext = useCallback(() => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  }, []);
+
+  // Silently reset index when looping far ahead or behind
+  const handleTransitionEnd = () => {
+    if (currentIndex >= baseCount * 4) {
+      setIsTransitioning(false);
+      const normalizedIndex = currentIndex - baseCount * 2;
+      setCurrentIndex(normalizedIndex);
+      if (trackRef.current) {
+        void trackRef.current.offsetHeight;
+      }
+    } else if (currentIndex < baseCount * 2) {
+      setIsTransitioning(false);
+      const normalizedIndex = currentIndex + baseCount * 2;
+      setCurrentIndex(normalizedIndex);
+      if (trackRef.current) {
+        void trackRef.current.offsetHeight;
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(true);
+      }, 40);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
+
+  // Continuous auto-scrolling (pauses on hover)
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3600);
+
+    return () => clearInterval(interval);
+  }, [isHovered, handleNext]);
+
+  const activeDotIndex = ((currentIndex % baseCount) + baseCount) % baseCount;
+
+  // Touch swipe support for mobile
+  const touchStartXRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsHovered(true);
+    touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setIsHovered(false);
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - touchStartXRef.current;
+    const deltaY = touchEndY - touchStartYRef.current;
+
+    // Trigger swipe if horizontal displacement exceeds threshold and dominates vertical scrolling
+    if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (isRtl) {
+        if (deltaX > 35) {
+          handleNext();
+        } else if (deltaX < -35) {
+          handlePrev();
+        }
+      } else {
+        if (deltaX < -35) {
+          handleNext();
+        } else if (deltaX > 35) {
+          handlePrev();
+        }
+      }
+    }
+
+    touchStartXRef.current = null;
+    touchStartYRef.current = null;
+  };
+
+  return (
+    <motion.div
+      ref={containerRef}
+      className={`relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] h-[480px] sm:h-[530px] overflow-hidden flex flex-col justify-between select-none group/carousel touch-pan-y cursor-grab active:cursor-grabbing ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      dir={isRtl ? "rtl" : "ltr"}
+      id="create-ad-carousel-container"
+      initial={{ opacity: 0, x: isRtl ? -60 : 60, scale: 0.95 }}
+      whileInView={{ opacity: 1, x: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ type: "spring", stiffness: 45, damping: 14, delay: 0.1 }}
+    >
+      {/* Subtle Gradient Fades on Left & Right Edges for smooth edge blending */}
+      <div className="absolute top-0 bottom-0 left-0 w-6 sm:w-10 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 bottom-0 right-0 w-6 sm:w-10 bg-gradient-to-l from-transparent via-white/20 to-transparent pointer-events-none z-20" />
+
+      {/* Navigation Arrows for Desktop */}
+      <button
+        onClick={isRtl ? handleNext : handlePrev}
+        className="absolute left-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+        aria-label={isRtl ? "الشاشة التالية" : "Previous screen"}
+      >
+        <ChevronLeft className="w-4.5 h-4.5" />
+      </button>
+
+      <button
+        onClick={isRtl ? handlePrev : handleNext}
+        className="absolute right-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+        aria-label={isRtl ? "الشاشة السابقة" : "Next screen"}
+      >
+        <ChevronRight className="w-4.5 h-4.5" />
+      </button>
+
+      {/* Infinite Animated Carousel Track */}
+      <div className="relative w-full h-[440px] sm:h-[485px] flex items-center overflow-hidden pointer-events-none select-none">
+        <div
+          ref={trackRef}
+          onTransitionEnd={handleTransitionEnd}
+          style={{
+            transform: `translateX(${translationValue}px)`,
+            transition: isTransitioning
+              ? "transform 650ms cubic-bezier(0.25, 1, 0.5, 1)"
+              : "none",
+            gap: `${gap}px`,
+          }}
+          className="flex items-center shrink-0 will-change-transform pointer-events-none select-none"
+        >
+          {extendedScreens.map((img, idx) => {
+            const isCentered = idx === currentIndex;
+            return (
+              <div
+                key={`${img.id}-${idx}`}
+                style={{ width: `${itemWidth}px` }}
+                className={`shrink-0 flex items-center justify-center transition-all duration-500 select-none pointer-events-none ${
+                  isCentered
+                    ? "opacity-100 scale-100 filter drop-shadow-[0_12px_32px_rgba(15,88,213,0.18)] z-10"
+                    : "opacity-50 scale-[0.92] filter blur-[0.2px]"
+                }`}
+              >
+                <img
+                  src={getLocalizedImage(img.src, currentLang)}
+                  alt={isRtl ? img.titleAr : img.title}
+                  className="w-full h-auto max-h-[430px] sm:max-h-[480px] object-contain select-none pointer-events-none"
+                  referrerPolicy="no-referrer"
+                  draggable={false}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex items-center justify-center gap-1.5 pt-1 pb-1 z-20">
+        {activeScreens.map((_, dotIdx) => (
+          <button
+            key={`dot-${dotIdx}`}
+            onClick={() => {
+              setIsTransitioning(true);
+              const diff = dotIdx - activeDotIndex;
+              setCurrentIndex((prev) => prev + diff);
+            }}
+            aria-label={`Go to slide ${dotIdx + 1}`}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
+              dotIdx === activeDotIndex
+                ? "w-6 h-2 bg-[#0F58D5]"
+                : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+            }`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};

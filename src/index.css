@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-primary: #0F58D5;
+    --brand-secondary: #17B3CD;
+    --brand-dark: #101828;
+    --brand-muted: #475467;
+    --brand-light: #F5F8FF;
+  }
+
+  html[lang="en"] {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html[lang="ar"] {
+    font-family: "Noto Sans Arabic", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F8FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* App glow effect */
+.phone-glow {
+  box-shadow: 0 25px 60px -15px rgba(15, 88, 213, 0.25), 0 0 40px 0 rgba(23, 179, 205, 0.15);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #0F58D5 0%, #17B3CD 100%);
+}
+
+.brand-gradient-subtle {
+  background: linear-gradient(135deg, rgba(15, 88, 213, 0.08) 0%, rgba(23, 179, 205, 0.08) 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #0F58D5 0%, #17B3CD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Marketing & Fintech Geometric Dot Pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(15, 88, 213, 0.075) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.bg-dot-pattern-light {
+  background-image: radial-gradient(rgba(15, 88, 213, 0.045) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-pattern-white {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Ambient Device Spotlight & Radial Glows */
+.ambient-device-halo {
+  background: radial-gradient(circle at center, rgba(23, 179, 205, 0.22) 0%, rgba(15, 88, 213, 0.14) 40%, transparent 72%);
+}
+
+.ambient-device-halo-sm {
+  background: radial-gradient(circle at center, rgba(23, 179, 205, 0.18) 0%, rgba(15, 88, 213, 0.10) 45%, transparent 70%);
+}

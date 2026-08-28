@@ -1,0 +1,405 @@
+/**
+ * Loryfy Main Footer Component
+ * Strict compliance: Official logo, info@loryfy.com, official disclaimer, no fake addresses.
+ */
+
+import React from "react";
+import { Language, PageRoute } from "../types";
+import { translations } from "../data/translations";
+import { loryfyConfig } from "../config/loryfyConfig";
+import { trackEvent } from "../utils/analytics";
+import { storiesData, storySlugs } from "../data/storiesData";
+import { Mail } from "lucide-react";
+import { FadeInUp, StaggerContainer, StaggerItem } from "./ScrollAnimations";
+import {
+  TikTokIcon,
+  FacebookIcon,
+  InstagramIcon,
+  YouTubeIcon,
+  WhatsAppIcon,
+  LinkedInIcon,
+} from "./OfficialStoreIcons";
+
+interface FooterProps {
+  currentLang: Language;
+  onNavigate: (page: PageRoute, slug?: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
+  const t = translations[currentLang];
+
+  const handleLinkClick = (page: PageRoute, label: string, slug?: string) => {
+    trackEvent("navigate_page", { target_page: page, link_label: label });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    onNavigate(page, slug);
+  };
+
+  const handleSocialClick = (network: string, url: string) => {
+    trackEvent("social_click", { network, url });
+  };
+
+  return (
+    <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8 pb-8 border-b border-slate-800" staggerDelay={0.06}>
+          {/* Col 1: Brand, Direct WhatsApp & Official Channels (2 cols on large screens) */}
+          <StaggerItem className="lg:col-span-2 space-y-4">
+            <button
+              onClick={() => handleLinkClick("home", "Footer Logo")}
+              className="inline-block text-start cursor-pointer focus:outline-hidden"
+              aria-label="Loryfy"
+            >
+              <img
+                src={loryfyConfig.assets.logoUrl}
+                alt="Loryfy"
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
+            </button>
+
+            <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
+              {t.footer.description}
+            </p>
+
+            {/* Official Contact Email & WhatsApp */}
+            <div className="pt-2 space-y-2">
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                {t.footer.contactTitle}
+              </div>
+              
+              <div className="flex flex-col gap-2">
+                {/* Official WhatsApp Chat Link */}
+                <a
+                  id="footer-whatsapp-btn"
+                  href={loryfyConfig.whatsapp.chatUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleSocialClick("whatsapp", loryfyConfig.whatsapp.chatUrl)}
+                  className="inline-flex items-center gap-2.5 text-sm text-[#25D366] hover:text-white transition-colors group"
+                >
+                  <div className="w-6 h-6 rounded-md bg-[#25D366]/20 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                    <WhatsAppIcon className="w-4 h-4" />
+                  </div>
+                  <span className="font-semibold">{loryfyConfig.whatsapp.phoneNumber}</span>
+                  <span className="text-xs text-slate-400 font-normal">
+                    ({currentLang === "en" ? "WhatsApp Chat" : "واتساب"})
+                  </span>
+                </a>
+
+                {/* Email Link */}
+                <a
+                  id="footer-email-btn"
+                  href={`mailto:${loryfyConfig.email}`}
+                  className="inline-flex items-center gap-2.5 text-sm text-[#17B3CD] hover:text-white transition-colors group"
+                  onClick={() => trackEvent("contact_click", { method: "footer_email" })}
+                >
+                  <div className="w-6 h-6 rounded-md bg-[#17B3CD]/20 text-[#17B3CD] flex items-center justify-center group-hover:bg-[#17B3CD] group-hover:text-white transition-colors">
+                    <Mail className="w-3.5 h-3.5" />
+                  </div>
+                  <span>{loryfyConfig.email}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Official Social Media Channels */}
+            <div className="pt-3">
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2.5">
+                {currentLang === "en" ? "Follow Loryfy" : "تابعنا على"}
+              </div>
+              <div className="flex items-center gap-2.5">
+                {/* TikTok */}
+                {loryfyConfig.socialLinks.tiktok && (
+                  <a
+                    id="social-link-tiktok"
+                    href={loryfyConfig.socialLinks.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleSocialClick("tiktok", loryfyConfig.socialLinks.tiktok)}
+                    aria-label="TikTok"
+                    className="w-9 h-9 rounded-xl bg-slate-800/90 text-slate-300 hover:text-white hover:bg-black border border-slate-700/80 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
+                  >
+                    <TikTokIcon className="w-4 h-4" />
+                  </a>
+                )}
+
+                {/* Facebook */}
+                {loryfyConfig.socialLinks.facebook && (
+                  <a
+                    id="social-link-facebook"
+                    href={loryfyConfig.socialLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleSocialClick("facebook", loryfyConfig.socialLinks.facebook)}
+                    aria-label="Facebook"
+                    className="w-9 h-9 rounded-xl bg-slate-800/90 text-slate-300 hover:text-white hover:bg-[#1877F2] border border-slate-700/80 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
+                  >
+                    <FacebookIcon className="w-4 h-4" />
+                  </a>
+                )}
+
+                {/* Instagram */}
+                {loryfyConfig.socialLinks.instagram && (
+                  <a
+                    id="social-link-instagram"
+                    href={loryfyConfig.socialLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleSocialClick("instagram", loryfyConfig.socialLinks.instagram)}
+                    aria-label="Instagram"
+                    className="w-9 h-9 rounded-xl bg-slate-800/90 text-slate-300 hover:text-white hover:bg-[#E4405F] border border-slate-700/80 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
+                  >
+                    <InstagramIcon className="w-4 h-4" />
+                  </a>
+                )}
+
+                {/* YouTube */}
+                {loryfyConfig.socialLinks.youtube && (
+                  <a
+                    id="social-link-youtube"
+                    href={loryfyConfig.socialLinks.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleSocialClick("youtube", loryfyConfig.socialLinks.youtube)}
+                    aria-label="YouTube"
+                    className="w-9 h-9 rounded-xl bg-slate-800/90 text-slate-300 hover:text-white hover:bg-[#FF0000] border border-slate-700/80 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
+                  >
+                    <YouTubeIcon className="w-4 h-4" />
+                  </a>
+                )}
+
+                {/* LinkedIn */}
+                <a
+                  id="social-link-linkedin"
+                  href={loryfyConfig.socialLinks.linkedin || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (!loryfyConfig.socialLinks.linkedin) {
+                      e.preventDefault();
+                    }
+                    handleSocialClick("linkedin", loryfyConfig.socialLinks.linkedin);
+                  }}
+                  aria-label="LinkedIn"
+                  className="w-9 h-9 rounded-xl bg-slate-800/90 text-slate-300 hover:text-white hover:bg-[#0A66C2] border border-slate-700/80 flex items-center justify-center transition-all shadow-2xs hover:scale-105"
+                >
+                  <LinkedInIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Col 2: Navigation Links */}
+          <StaggerItem className="space-y-3">
+            <div className="text-sm font-bold text-white uppercase tracking-wider">
+              {t.footer.linksTitle}
+            </div>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <button
+                  onClick={() => handleLinkClick("home", "Footer Home")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.home}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("how-it-works", "Footer How It Works")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.howItWorks}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("about", "Footer About")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.about}
+                </button>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/stories`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("stories", "Footer Stories");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {currentLang === "en" ? "Stories" : "القصص"}
+                </a>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("faq", "Footer FAQ")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.faq}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("contact", "Footer Contact")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.contact}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("download", "Footer Download")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.nav.downloadApp}
+                </button>
+              </li>
+            </ul>
+          </StaggerItem>
+
+          {/* Col 3: Opportunities */}
+          <StaggerItem className="space-y-3">
+            <div className="text-sm font-bold text-white uppercase tracking-wider">
+              {t.footer.categoriesTitle}
+            </div>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <a
+                  href={`/${currentLang}/find-business-partner-uae`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("find-business-partner-uae", "Footer Looking to Find Partners or Sell");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {t.nav.forOwners}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/find-partners-investors`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("find-partners-investors", "Footer Looking to Partner, Invest or Buy");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {t.nav.discover}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/running-businesses-uae`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("running-businesses-uae", "Footer Running Businesses");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {currentLang === "en" ? "Running Businesses" : "مشاريع قائمة"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/businesses-for-sale-uae`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("businesses-for-sale-uae", "Footer Businesses for Sale");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {currentLang === "en" ? "Businesses for Sale" : "مشاريع للبيع"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/startup-opportunities-uae`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("startup-opportunities-uae", "Footer Startup Ideas");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {currentLang === "en" ? "Startup Opportunities" : "أفكار مشاريع"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${currentLang}/trade-license-opportunities-uae`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick("trade-license-opportunities-uae", "Footer Trade Licenses");
+                  }}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
+                >
+                  {currentLang === "en" ? "Trade Licenses" : "رخص تجارية"}
+                </a>
+              </li>
+            </ul>
+          </StaggerItem>
+
+          {/* Col 4: Legal & Technical Architecture */}
+          <StaggerItem className="space-y-3">
+            <div className="text-sm font-bold text-white uppercase tracking-wider">
+              {t.footer.legalTitle}
+            </div>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <button
+                  onClick={() => handleLinkClick("terms", "Footer Terms")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.terms}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("privacy", "Footer Privacy")}
+                  className="hover:text-[#17B3CD] transition-colors cursor-pointer"
+                >
+                  {t.footer.privacy}
+                </button>
+              </li>
+              <li className="pt-2 border-t border-slate-800">
+                <button
+                  onClick={() => handleLinkClick("sitemap", "Footer Sitemap")}
+                  className="hover:text-[#17B3CD] text-xs text-slate-400 transition-colors cursor-pointer"
+                >
+                  {currentLang === "en" ? "HTML Sitemap & Index" : "خريطة الموقع والفهرس"}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("robots", "Footer Robots.txt")}
+                  className="hover:text-[#17B3CD] text-xs text-slate-400 transition-colors cursor-pointer"
+                >
+                  robots.txt
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick("llms", "Footer LLMs.txt")}
+                  className="hover:text-[#17B3CD] text-xs text-slate-400 transition-colors cursor-pointer"
+                >
+                  llms.txt (AI Crawlers)
+                </button>
+              </li>
+            </ul>
+          </StaggerItem>
+        </StaggerContainer>
+
+        {/* Bottom copyright & attribution */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+          <p>{t.footer.copyright}</p>
+          <div>
+            <button
+              onClick={() => handleLinkClick("download", "Footer Bottom Download")}
+              className="text-[#17B3CD] hover:underline"
+            >
+              {currentLang === "en" ? "Get the Loryfy App" : "احصل على تطبيق لوريفاي"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
