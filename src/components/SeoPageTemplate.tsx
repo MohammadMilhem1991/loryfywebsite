@@ -7,6 +7,7 @@ import React, { useMemo, useState, useRef, useEffect } from "react";
 import { Language, PageRoute, SeoPageData } from "../types";
 import { seoPagesData } from "../data/seoPagesData";
 import { storiesData, storySlugs } from "../data/storiesData";
+import { emiratePagesData } from "../data/emiratePagesData";
 import { trackEvent } from "../utils/analytics";
 import { translations } from "../data/translations";
 import { HowItWorksInteractive } from "./HowItWorksInteractive";
@@ -40,7 +41,9 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
   onNavigate,
 }) => {
   const pageData: SeoPageData | undefined =
-    seoPagesData[currentLang]?.[slug] || storiesData[currentLang]?.[slug];
+    seoPagesData[currentLang]?.[slug] ||
+    storiesData[currentLang]?.[slug] ||
+    emiratePagesData[currentLang]?.[slug];
   const isStory = storySlugs.includes(slug) || !!storiesData[currentLang]?.[slug];
   const t = translations[currentLang];
   const isRtl = currentLang === "ar";
@@ -131,7 +134,7 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
               onClick={() => onNavigate("stories", slug)}
               className="hover:text-[#0F58D5] hover:underline transition-colors cursor-pointer font-medium"
             >
-              {currentLang === "en" ? "Stories" : "نماذج"}
+              {currentLang === "en" ? "Examples" : "أمثلة"}
             </button>
           ) : (
             <button
@@ -234,14 +237,14 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-[#0F58D5]" />
                 <h3 className="text-lg sm:text-xl font-extrabold text-[#101828]">
-                  {currentLang === "en" ? "Relevant Real-World Business Stories" : "قصص وتجارب واقعية ذات صلة"}
+                  {currentLang === "en" ? "Relevant Real-World Business Examples" : "أمثلة وتجارب واقعية ذات صلة"}
                 </h3>
               </div>
               <button
                 onClick={() => onNavigate("stories")}
                 className="text-xs sm:text-sm font-bold text-[#0F58D5] hover:underline flex items-center gap-1 cursor-pointer"
               >
-                <span>{currentLang === "en" ? "View all stories" : "عرض كل القصص"}</span>
+                <span>{currentLang === "en" ? "View all examples" : "عرض كافة الأمثلة"}</span>
                 <ArrowIcon className="w-4 h-4 rtl:rotate-180" />
               </button>
             </div>
@@ -256,7 +259,7 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
                   <div className="space-y-2">
                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0F58D5]/10 text-[11px] font-bold text-[#0F58D5]">
                       <Sparkles className="w-3 h-3 text-[#17B3CD]" />
-                      <span>{currentLang === "en" ? "Story" : "قصة"}</span>
+                      <span>{currentLang === "en" ? "Example" : "مثال"}</span>
                     </span>
                     <h4 className="font-bold text-sm sm:text-base text-[#101828] group-hover:text-[#0F58D5] transition-colors leading-snug">
                       {story.title}
@@ -266,7 +269,7 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
                     </p>
                   </div>
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0F58D5]">
-                    <span>{currentLang === "en" ? "Read story" : "اقرأ القصة"}</span>
+                    <span>{currentLang === "en" ? "Read example" : "اعرف المزيد"}</span>
                     <ArrowIcon className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                   </div>
                 </div>

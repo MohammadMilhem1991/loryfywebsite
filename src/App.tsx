@@ -75,7 +75,16 @@ export default function App() {
   const handleLanguageChange = (newLang: Language) => {
     setCurrentLang(newLang);
     // Update browser history URL
-    const slugPart = currentPage === "home" ? "" : `/${currentPage}`;
+    const slugPart =
+      currentPage === "home"
+        ? ""
+        : currentPage === "opportunity-detail" && selectedOpportunitySlug
+        ? `/opportunity/${selectedOpportunitySlug}`
+        : currentPage === "story-detail" && selectedOpportunitySlug
+        ? `/stories/${selectedOpportunitySlug}`
+        : currentPage === "seo-page" && selectedOpportunitySlug
+        ? `/${selectedOpportunitySlug}`
+        : `/${currentPage}`;
     window.history.pushState({}, "", `/${newLang}${slugPart}`);
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
@@ -106,6 +115,8 @@ export default function App() {
         ? `/${currentLang}/opportunity/${slug}`
         : page === "story-detail" && slug
         ? `/${currentLang}/stories/${slug}`
+        : page === "seo-page" && slug
+        ? `/${currentLang}/${slug}`
         : `/${currentLang}/${page}`;
     window.history.pushState({}, "", pageUrl);
   };
@@ -171,7 +182,8 @@ export default function App() {
         )}
 
         {/* DEDICATED SEO PAGES & OWNER PAGES */}
-        {(currentPage === "find-business-partner-uae" ||
+        {(currentPage === "seo-page" ||
+          currentPage === "find-business-partner-uae" ||
           currentPage === "free-business-listing-uae" ||
           currentPage === "running-businesses-uae" ||
           currentPage === "businesses-for-sale-uae" ||
@@ -182,11 +194,14 @@ export default function App() {
           currentPage === "post-startup-idea" ||
           currentPage === "list-trade-license" ||
           currentPage === "find-partners-investors") && (
-          <PageTransition key={currentPage} pageKey={currentPage}>
+          <PageTransition
+            key={currentPage === "seo-page" && selectedOpportunitySlug ? `seo-${selectedOpportunitySlug}` : currentPage}
+            pageKey={currentPage === "seo-page" && selectedOpportunitySlug ? `seo-${selectedOpportunitySlug}` : currentPage}
+          >
             <SeoPageTemplate
-              key={`${currentPage}-${currentLang}`}
+              key={`${currentPage === "seo-page" && selectedOpportunitySlug ? selectedOpportunitySlug : currentPage}-${currentLang}`}
               currentLang={currentLang}
-              slug={currentPage}
+              slug={currentPage === "seo-page" && selectedOpportunitySlug ? selectedOpportunitySlug : currentPage}
               onNavigate={handleNavigate}
             />
           </PageTransition>

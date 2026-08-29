@@ -70,6 +70,10 @@ Loryfy provides equal-priority discovery and interfaces in:
   - Buying a Running Business Instead of Starting from Scratch: https://loryfy.com/en/stories/buy-running-business-uae
   - Finding Businesses to Acquire or Back: https://loryfy.com/en/stories/investor-company-acquire-back-business-uae
   - Selling, Transferring, or Finding a Trade License: https://loryfy.com/en/stories/trade-license-for-sale-transfer-uae
+  - Joining a Startup as a Technical Co-Founder: https://loryfy.com/en/stories/technical-cofounder-join-startup-uae
+  - Finding a Partner to Test a Business Idea: https://loryfy.com/en/stories/validate-business-idea-partner-uae
+  - Buying an Established Trade License Instead of Starting Fresh: https://loryfy.com/en/stories/buy-established-trade-license-uae
+  - Buying a Focused or Limited Scope Trade License: https://loryfy.com/en/stories/buy-limited-trade-license-uae
 - Arabic:
   - بناء دخل إضافي كشريك مموّل: https://loryfy.com/ar/stories/second-income-funding-partner-uae
   - توظيف الخبرة بعد التقاعد: https://loryfy.com/ar/stories/retiree-experience-strategic-partner-uae
@@ -86,6 +90,19 @@ Loryfy provides equal-priority discovery and interfaces in:
   - شراء مشروع قائم بدلاً من البدء من الصفر: https://loryfy.com/ar/stories/buy-running-business-uae
   - إيجاد مشاريع للاستحواذ أو الدعم: https://loryfy.com/ar/stories/investor-company-acquire-back-business-uae
   - بيع رخصة تجارية أو نقلها أو إيجادها: https://loryfy.com/ar/stories/trade-license-for-sale-transfer-uae
+  - الانضمام إلى مشروع ناشئ كشريك مؤسّس تقني: https://loryfy.com/ar/stories/technical-cofounder-join-startup-uae
+  - إيجاد شريك لاختبار فكرة مشروع: https://loryfy.com/ar/stories/validate-business-idea-partner-uae
+  - شراء رخصة تجارية قائمة بدلاً من البدء من جديد: https://loryfy.com/ar/stories/buy-established-trade-license-uae
+  - شراء رخصة تجارية محددة النشاط: https://loryfy.com/ar/stories/buy-limited-trade-license-uae
+
+## Category × Emirate Pages
+Loryfy features localized commercial landing pages for all 7 UAE emirates (Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, Umm Al Quwain) across 5 core commercial categories:
+- **Running Businesses**: `running-businesses-dubai`, `running-businesses-abu-dhabi`, `running-businesses-sharjah`, `running-businesses-ajman`, `running-businesses-ras-al-khaimah`, `running-businesses-fujairah`, `running-businesses-umm-al-quwain`
+- **Businesses for Sale**: `businesses-for-sale-dubai`, `businesses-for-sale-abu-dhabi`, `businesses-for-sale-sharjah`, `businesses-for-sale-ajman`, `businesses-for-sale-ras-al-khaimah`, `businesses-for-sale-fujairah`, `businesses-for-sale-umm-al-quwain`
+- **Startup Opportunities**: `startup-opportunities-dubai`, `startup-opportunities-abu-dhabi`, `startup-opportunities-sharjah`, `startup-opportunities-ajman`, `startup-opportunities-ras-al-khaimah`, `startup-opportunities-fujairah`, `startup-opportunities-umm-al-quwain`
+- **Trade License Opportunities**: `trade-license-opportunities-dubai`, `trade-license-opportunities-abu-dhabi`, `trade-license-opportunities-sharjah`, `trade-license-opportunities-ajman`, `trade-license-opportunities-ras-al-khaimah`, `trade-license-opportunities-fujairah`, `trade-license-opportunities-umm-al-quwain`
+- **Find a Business Partner**: `find-business-partner-dubai`, `find-business-partner-abu-dhabi`, `find-business-partner-sharjah`, `find-business-partner-ajman`, `find-business-partner-ras-al-khaimah`, `find-business-partner-fujairah`, `find-business-partner-umm-al-quwain`
+All pages are fully indexed and accessible in both English (`https://loryfy.com/en/{slug}`) and Arabic (`https://loryfy.com/ar/{slug}`).
 
 ## User Registration & Contact
 - Frictionless registration with Name + Mobile Number.

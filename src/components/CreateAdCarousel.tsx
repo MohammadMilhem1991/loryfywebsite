@@ -22,37 +22,37 @@ export const DEFAULT_CREATE_AD_SCREENS: CarouselScreenItem[] = [
     id: 1,
     title: "Create Listing - Find Partner",
     titleAr: "إنشاء إعلان - البحث عن شريك أو مستثمر",
-    src: "https://i.postimg.cc/X7gtJ4WV/Create-ad-Find-partner.png",
+    src: "/images/Create-ad-Find-partner.webp",
   },
   {
     id: 2,
     title: "Create Listing - Sell",
     titleAr: "إنشاء إعلان - بيع مشروع أو رخصة",
-    src: "https://i.postimg.cc/bNR4JpPy/Create-ad-sell.png",
+    src: "/images/Create-ad-sell.webp",
   },
   {
     id: 3,
     title: "App Screen 1",
     titleAr: "شاشة التطبيق 1",
-    src: "https://i.postimg.cc/Y9hbpBxZ/1.png",
+    src: "/images/1.webp",
   },
   {
     id: 4,
     title: "App Screen 2",
     titleAr: "شاشة التطبيق 2",
-    src: "https://i.postimg.cc/hjP12Wwr/2.png",
+    src: "/images/2.webp",
   },
   {
     id: 5,
     title: "App Screen 4",
     titleAr: "شاشة التطبيق 4",
-    src: "https://i.postimg.cc/sXD4Td8m/4.png",
+    src: "/images/5.webp",
   },
   {
     id: 6,
     title: "App Screen 5",
     titleAr: "شاشة التطبيق 5",
-    src: "https://i.postimg.cc/X7k5rDXk/5.png",
+    src: "/images/3.webp",
   },
 ];
 
@@ -61,37 +61,37 @@ export const FIND_BUSINESS_PARTNER_SCREENS: CarouselScreenItem[] = [
     id: 1,
     title: "Explore Opportunities",
     titleAr: "استكشف الفرص",
-    src: "https://i.postimg.cc/TYVspGrn/e1.png",
+    src: "/images/e1.webp",
   },
   {
     id: 2,
     title: "Partner Listings",
     titleAr: "إعلانات الشركاء",
-    src: "https://i.postimg.cc/jdH1LKzz/e2.png",
+    src: "/images/e2.webp",
   },
   {
     id: 3,
     title: "Listing Details",
     titleAr: "تفاصيل الإعلان",
-    src: "https://i.postimg.cc/kXQHB9xN/e3.png",
+    src: "/images/e3.webp",
   },
   {
     id: 4,
     title: "Filter & Search",
     titleAr: "تصفية وبحث",
-    src: "https://i.postimg.cc/Bbg1VR3N/e4.png",
+    src: "/images/e4.webp",
   },
   {
     id: 5,
     title: "Chat & Connect",
     titleAr: "المحادثة والتواصل",
-    src: "https://i.postimg.cc/zXCQV5nd/e5.png",
+    src: "/images/e5.webp",
   },
   {
     id: 6,
     title: "Business Network",
     titleAr: "شبكة الأعمال",
-    src: "https://i.postimg.cc/02Y4bxpV/e6.png",
+    src: "/images/e6.webp",
   },
 ];
 
@@ -169,10 +169,8 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
   // Center alignment: align active slide in the middle with equal side peeks
   const centerOffset = containerWidth > 0 ? (containerWidth - itemWidth) / 2 : 40;
 
-  // Translation calculation considering LTR vs RTL
-  const translationValue = isRtl
-    ? currentIndex * step - centerOffset
-    : centerOffset - currentIndex * step;
+  // Translation calculation: Always use LTR translation style to scroll visually from right to left
+  const translationValue = centerOffset - currentIndex * step;
 
   const handleNext = useCallback(() => {
     setIsTransitioning(true);
@@ -247,18 +245,10 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
 
     // Trigger swipe if horizontal displacement exceeds threshold and dominates vertical scrolling
     if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (isRtl) {
-        if (deltaX > 35) {
-          handleNext();
-        } else if (deltaX < -35) {
-          handlePrev();
-        }
-      } else {
-        if (deltaX < -35) {
-          handleNext();
-        } else if (deltaX > 35) {
-          handlePrev();
-        }
+      if (deltaX < -35) {
+        handleNext();
+      } else if (deltaX > 35) {
+        handlePrev();
       }
     }
 
@@ -274,7 +264,7 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      dir={isRtl ? "rtl" : "ltr"}
+      dir="ltr"
       id="create-ad-carousel-container"
       initial={{ opacity: 0, x: isRtl ? -60 : 60, scale: 0.95 }}
       whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -287,17 +277,17 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
 
       {/* Navigation Arrows for Desktop */}
       <button
-        onClick={isRtl ? handleNext : handlePrev}
+        onClick={handlePrev}
         className="absolute left-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
-        aria-label={isRtl ? "الشاشة التالية" : "Previous screen"}
+        aria-label={isRtl ? "الشاشة السابقة" : "Previous screen"}
       >
         <ChevronLeft className="w-4.5 h-4.5" />
       </button>
 
       <button
-        onClick={isRtl ? handlePrev : handleNext}
+        onClick={handleNext}
         className="absolute right-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
-        aria-label={isRtl ? "الشاشة السابقة" : "Next screen"}
+        aria-label={isRtl ? "الشاشة التالية" : "Next screen"}
       >
         <ChevronRight className="w-4.5 h-4.5" />
       </button>

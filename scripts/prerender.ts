@@ -35,6 +35,8 @@ function prerender() {
       targetDir = path.join(distDir, route.lang, "opportunity", route.slug);
     } else if (route.page === "story-detail" && route.slug) {
       targetDir = path.join(distDir, route.lang, "stories", route.slug);
+    } else if (route.page === "seo-page" && route.slug) {
+      targetDir = path.join(distDir, route.lang, route.slug);
     } else {
       targetDir = path.join(distDir, route.lang, route.page);
     }
@@ -54,6 +56,10 @@ function prerender() {
         fs.writeFileSync(path.join(fallbackDir, "index.html"), html, "utf-8");
       } else if (route.page === "story-detail" && route.slug) {
         fallbackDir = path.join(distDir, "stories", route.slug);
+        fs.mkdirSync(fallbackDir, { recursive: true });
+        fs.writeFileSync(path.join(fallbackDir, "index.html"), html, "utf-8");
+      } else if (route.page === "seo-page" && route.slug) {
+        fallbackDir = path.join(distDir, route.slug);
         fs.mkdirSync(fallbackDir, { recursive: true });
         fs.writeFileSync(path.join(fallbackDir, "index.html"), html, "utf-8");
       } else {

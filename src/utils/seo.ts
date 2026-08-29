@@ -9,6 +9,7 @@ import { translations } from "../data/translations";
 import { seoPagesData } from "../data/seoPagesData";
 import { sampleOpportunities } from "../data/sampleOpportunities";
 import { storiesData, storySlugs } from "../data/storiesData";
+import { emiratePagesData } from "../data/emiratePagesData";
 
 export function generateOrganizationSchema() {
   return {
@@ -166,6 +167,7 @@ export function getOpportunitySeoData(slug: string, lang: Language): PageSeoResu
   if (!opp) return null;
 
   const isEn = lang === "en";
+  const ogImageUrl = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
 
   let title = "";
   let metaDescription = "";
@@ -227,7 +229,7 @@ export function getOpportunitySeoData(slug: string, lang: Language): PageSeoResu
       title,
       description: metaDescription,
       url: canonicalUrl,
-      image: loryfyConfig.assets.ogImage,
+      image: ogImageUrl,
       type: "article",
     },
     isNoIndex: false,
@@ -246,6 +248,7 @@ export function getOpportunitySeoData(slug: string, lang: Language): PageSeoResu
 export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): PageSeoResult {
   const isEn = lang === "en";
   const t = translations[lang];
+  const ogImageUrl = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
 
   // 1. Handle 404 / Not Found
   if (page === "not-found") {
@@ -260,7 +263,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
         title: isEn ? "Page Not Found | Loryfy" : "الصفحة غير موجودة | لوريفاي",
         description: isEn ? "Page not found" : "الصفحة غير موجودة",
         url: `${loryfyConfig.siteUrl}/${lang}/not-found`,
-        image: loryfyConfig.assets.ogImage,
+        image: ogImageUrl,
         type: "website",
       },
       isNoIndex: true,
@@ -299,14 +302,14 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
           title: story.title,
           description: story.metaDescription,
           url: canonicalUrl,
-          image: loryfyConfig.assets.ogImage,
+          image: ogImageUrl,
           type: "article",
         },
         isNoIndex: false,
         faqs: faqs.length > 0 ? faqs : null,
         breadcrumbs: [
           { name: isEn ? "Home" : "الرئيسية", url: `${loryfyConfig.siteUrl}/${lang}/` },
-          { name: isEn ? "Stories" : "قصص", url: `${loryfyConfig.siteUrl}/${lang}/stories` },
+          { name: isEn ? "Examples" : "أمثلة", url: `${loryfyConfig.siteUrl}/${lang}/stories` },
           { name: story.h1, url: canonicalUrl },
         ],
       };
@@ -334,7 +337,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
         title,
         description: metaDescription,
         url: canonicalUrl,
-        image: loryfyConfig.assets.ogImage,
+        image: ogImageUrl,
         type: "website",
       },
       isNoIndex: false,
@@ -343,16 +346,56 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
     };
   }
 
+function getParentCategoryForEmirateSlug(slug: string, lang: Language): { name: string; url: string } {
+  const isEn = lang === "en";
+  if (slug.startsWith("businesses-for-sale") || slug.includes("business-for-sale") || slug.includes("businesses-for-sale")) {
+    const parentSlug = "businesses-for-sale-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Businesses for Sale" : "مشاريع للبيع");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  if (slug.startsWith("running-businesses") || slug.includes("running-business")) {
+    const parentSlug = "running-businesses-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Running Businesses" : "مشاريع قائمة");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  if (slug.startsWith("startup") || slug.includes("startup")) {
+    const parentSlug = "startup-opportunities-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Startup Opportunities" : "أفكار ومشاريع ناشئة");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  if (slug.startsWith("trade-license") || slug.includes("trade-license") || slug.includes("license")) {
+    const parentSlug = "trade-license-opportunities-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Trade Licenses" : "الرخص التجارية");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  if (slug.startsWith("find-business-partner") || slug.includes("business-partner")) {
+    const parentSlug = "find-business-partner-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Find Business Partner" : "إيجاد شريك تجاري");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  if (slug.startsWith("business-partnership") || slug.includes("partnership")) {
+    const parentSlug = "business-partnership-opportunities-uae";
+    const name = seoPagesData[lang]?.[parentSlug]?.h1 || (isEn ? "Partnership Opportunities" : "فرص الشراكة");
+    return { name, url: `${loryfyConfig.siteUrl}/${lang}/${parentSlug}` };
+  }
+  return {
+    name: isEn ? "Discover" : "استكشف الفرص",
+    url: `${loryfyConfig.siteUrl}/${lang}/discover`,
+  };
+}
+
   // 4. Handle Dedicated SEO Pages from seoPagesData
-  if (seoPagesData[lang]?.[page]) {
-    const pageData = seoPagesData[lang][page];
-    const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/${page}`;
-    const enUrl = `${loryfyConfig.siteUrl}/en/${page}`;
-    const arUrl = `${loryfyConfig.siteUrl}/ar/${page}`;
+  const activeSlug = slug || (page !== "seo-page" ? page : undefined);
+  if (activeSlug && (seoPagesData[lang]?.[activeSlug] || seoPagesData[lang]?.[page])) {
+    const targetSlug = seoPagesData[lang]?.[activeSlug] ? activeSlug : page;
+    const pageData = seoPagesData[lang][targetSlug];
+    const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/${targetSlug}`;
+    const enUrl = `${loryfyConfig.siteUrl}/en/${targetSlug}`;
+    const arUrl = `${loryfyConfig.siteUrl}/ar/${targetSlug}`;
 
     // Extract visible FAQs from the SEO page
     const pageFaqs: FaqItem[] = (pageData.faqItems || []).map((f, i) => ({
-      id: `${page}-faq-${i}`,
+      id: `${targetSlug}-faq-${i}`,
       question: f.question,
       answer: f.answer,
     }));
@@ -372,7 +415,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
         title: pageData.title,
         description: pageData.metaDescription,
         url: canonicalUrl,
-        image: loryfyConfig.assets.ogImage,
+        image: ogImageUrl,
         type: "website",
       },
       isNoIndex: false,
@@ -382,6 +425,46 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
         { name: pageData.h1, url: canonicalUrl },
       ],
       itemList: itemList.length > 0 ? itemList : null,
+    };
+  }
+
+  // 4.5 Handle Category × Emirate SEO Pages from emiratePagesData
+  if (activeSlug && (emiratePagesData[lang]?.[activeSlug] || (page !== "seo-page" && emiratePagesData[lang]?.[page]))) {
+    const targetSlug = emiratePagesData[lang]?.[activeSlug] ? activeSlug : page;
+    const pageData = emiratePagesData[lang][targetSlug];
+    const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/${targetSlug}`;
+    const enUrl = `${loryfyConfig.siteUrl}/en/${targetSlug}`;
+    const arUrl = `${loryfyConfig.siteUrl}/ar/${targetSlug}`;
+
+    // Extract visible FAQs from the emirate SEO page
+    const pageFaqs: FaqItem[] = (pageData.faqItems || []).map((f, i) => ({
+      id: `${targetSlug}-faq-${i}`,
+      question: f.question,
+      answer: f.answer,
+    }));
+
+    const parentCategory = getParentCategoryForEmirateSlug(targetSlug, lang);
+
+    return {
+      title: pageData.title,
+      metaDescription: pageData.metaDescription,
+      canonicalUrl,
+      hreflang: { en: enUrl, ar: arUrl, xDefault: enUrl },
+      og: {
+        title: pageData.title,
+        description: pageData.metaDescription,
+        url: canonicalUrl,
+        image: ogImageUrl,
+        type: "website",
+      },
+      isNoIndex: false,
+      faqs: pageFaqs.length > 0 ? pageFaqs : t.faqs,
+      breadcrumbs: [
+        { name: isEn ? "Home" : "الرئيسية", url: `${loryfyConfig.siteUrl}/${lang}/` },
+        parentCategory,
+        { name: pageData.h1, url: canonicalUrl },
+      ],
+      itemList: null,
     };
   }
 
@@ -484,7 +567,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
       title,
       description: metaDescription,
       url: canonicalUrl,
-      image: loryfyConfig.assets.ogImage,
+      image: ogImageUrl,
       type: "website",
     },
     isNoIndex: false,
@@ -492,7 +575,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
     breadcrumbs: [
       { name: isEn ? "Home" : "الرئيسية", url: `${loryfyConfig.siteUrl}/${lang}/` },
       {
-        name: page === "stories" ? (isEn ? "Stories" : "قصص") : title.split("|")[0].trim(),
+        name: page === "stories" ? (isEn ? "Examples" : "أمثلة") : title.split("|")[0].trim(),
         url: canonicalUrl,
       },
     ],

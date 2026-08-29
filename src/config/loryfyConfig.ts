@@ -10,21 +10,19 @@ export const loryfyConfig = {
   legalName: "Loryfy Portal",
   email: "info@loryfy.com",
 
-  // All image URLs are external and centralized here.
-  // To change the image host later, update ONLY these URLs.
+  // All image URLs are local and optimized, located in /public/images/
   assets: {
     // Official Loryfy Logo / Wordmark
-    logoUrl: "https://i.postimg.cc/0NPCyVSX/logo-small-size-for-website.webp",
+    logoUrl: "/images/logo-small-size-for-website.webp",
     // Official Loryfy Icon / Symbol (White Letter O)
-    iconUrl: "https://i.postimg.cc/pTJV0jKx/Logo-O-Letter-White-Color.png",
-    // Official App Screenshot in 4K
-    mobileAppScreen: "https://i.postimg.cc/9FnmNCwp/Mobile-home-screen-4K.png",
+    iconUrl: "/images/Logo-O-Letter-White-Color.webp",
+    // Official App Screenshot in WebP
+    mobileAppScreen: "/images/home-screen.webp",
     // Official Quick Signup Screen
-    signupScreen: "https://i.postimg.cc/ZRNSVkhP/Mobile-app-signup-(4k)-v2.png",
-    // Open Graph Social Share Image
-    // ogImage (old 4K PNG fallback): https://i.postimg.cc/9FnmNCwp/Mobile-home-screen-4K.png
-    // TODO: replace with an optimized 1200x630 (<200KB) version.
-    ogImage: "https://i.postimg.cc/9FnmNCwp/Mobile-home-screen-4K.png",
+    signupScreen: "/images/singup.webp",
+    // Open Graph Social Share Images (1200x630)
+    ogImage: "/images/home-screen.webp", // English OG (1200x630)
+    ogImageAr: "/images/home-screen-AR.webp", // Arabic OG (1200x630)
   },
 
   // App Store & Play Store Configuration (Official links to be provided upon app store release)

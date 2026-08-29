@@ -1849,8 +1849,8 @@ export const SitemapPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
       ],
     },
     {
-      categoryEn: "Real-World Business Stories",
-      categoryAr: "قصص وتجارب واقعية",
+      categoryEn: "Examples",
+      categoryAr: "أمثلة",
       pages: storySlugs.map((slug) => ({
         titleEn: storiesData.en[slug]?.h1 || slug,
         titleAr: storiesData.ar[slug]?.h1 || slug,
@@ -1940,8 +1940,11 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
     }
     if (
       slugOrCategory === "startup-founder-find-cofounder-funding-uae" ||
+      slugOrCategory === "technical-cofounder-join-startup-uae" ||
+      slugOrCategory === "validate-business-idea-partner-uae" ||
       slugOrCategory.includes("startup") ||
-      slugOrCategory.includes("cofounder")
+      slugOrCategory.includes("cofounder") ||
+      slugOrCategory.includes("validate")
     ) {
       return "startup";
     }
@@ -2031,12 +2034,12 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
   }, [storiesList]);
 
   const filterOptions = useMemo(() => [
-    { id: "all", labelEn: `All Stories (${categoryCounts.all || 15})`, labelAr: `جميع النماذج (${categoryCounts.all || 15})` },
+    { id: "all", labelEn: `Examples (${categoryCounts.all || 19})`, labelAr: `أمثلة (${categoryCounts.all || 19})` },
     { id: "partner", labelEn: `Partnership & Funding (${categoryCounts.partner || 6})`, labelAr: `الشراكة والتمويل (${categoryCounts.partner || 6})` },
-    { id: "startup", labelEn: `Startups & Co-founders (${categoryCounts.startup || 1})`, labelAr: `المشاريع الناشئة (${categoryCounts.startup || 1})` },
+    { id: "startup", labelEn: `Startups & Co-founders (${categoryCounts.startup || 3})`, labelAr: `المشاريع الناشئة (${categoryCounts.startup || 3})` },
     { id: "company", labelEn: `Corporate & Expansion (${categoryCounts.company || 4})`, labelAr: `الشركات والتوسع (${categoryCounts.company || 4})` },
     { id: "running", labelEn: `Buy / Sell Running Business (${categoryCounts.running || 3})`, labelAr: `بيع وشراء المشاريع (${categoryCounts.running || 3})` },
-    { id: "license", labelEn: `Trade Licenses (${categoryCounts.license || 1})`, labelAr: `الرخص التجارية (${categoryCounts.license || 1})` },
+    { id: "license", labelEn: `Trade Licenses (${categoryCounts.license || 3})`, labelAr: `الرخص التجارية (${categoryCounts.license || 3})` },
   ], [categoryCounts]);
 
   const filteredStories = useMemo(() => {
@@ -2064,7 +2067,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
           </button>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300 rtl:rotate-180" />
           <span className="font-semibold text-[#101828]">
-            {isEn ? "Stories" : "نماذج"}
+            {isEn ? "Examples" : "أمثلة"}
           </span>
         </nav>
 
@@ -2077,12 +2080,12 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
             <div className="relative z-10 space-y-4 max-w-4xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs font-bold text-[#0F58D5]">
                 <BookOpen className="w-3.5 h-3.5 text-[#17B3CD]" />
-                <span>{isEn ? "Real-World Business Stories" : "نماذج لفرص الأعمال"}</span>
+                <span>{isEn ? "Examples" : "أمثلة"}</span>
               </div>
               <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
                 {isEn
-                  ? "Real-World Business Stories & Case Studies in the UAE"
-                  : "نماذج لفرص الأعمال والشراكات في الإمارات"}
+                  ? "Real-World Business Examples in the UAE"
+                  : "أمثلة واقعية لفرص الأعمال والشراكات في الإمارات"}
               </h1>
               <p className="text-sm sm:text-base text-[#475467] leading-relaxed max-w-3xl">
                 {isEn
@@ -2100,7 +2103,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder={isEn ? "Search stories by keyword, role, industry, or goal..." : "ابحث في القصص بالكلمات المفتاحية، الدور، أو المجال..."}
+                    placeholder={isEn ? "Search examples by keyword, role, industry, or goal..." : "ابحث في الأمثلة بالكلمات المفتاحية، الدور، أو المجال..."}
                     className="w-full pl-10 pr-10 rtl:pl-10 rtl:pr-10 py-3 rounded-xl bg-white border border-slate-300 text-sm text-[#101828] placeholder-slate-400 focus:outline-none focus:border-[#0F58D5] focus:ring-2 focus:ring-[#0F58D5]/15 shadow-xs transition-all"
                   />
                   {searchQuery && (
@@ -2150,8 +2153,8 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
             <div className="flex items-center gap-2">
               <span className="font-bold text-[#101828]">
                 {isEn
-                  ? `Showing ${filteredStories.length} of ${storiesList.length} stories`
-                  : `عرض ${filteredStories.length} من أصل ${storiesList.length} نموذجاً`}
+                  ? `Showing ${filteredStories.length} of ${storiesList.length} examples`
+                  : `عرض ${filteredStories.length} من أصل ${storiesList.length} مثالاً`}
               </span>
               {selectedFilter !== "all" && (
                 <span className="px-2 py-0.5 rounded-md bg-[#0F58D5]/10 text-[#0F58D5] text-[11px] font-bold">
@@ -2180,12 +2183,12 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
               </div>
               <div className="space-y-1">
                 <p className="text-base font-bold text-[#101828]">
-                  {isEn ? "No matching stories found" : "لم يتم العثور على قصص مطابقة"}
+                  {isEn ? "No matching examples found" : "لم يتم العثور على أمثلة مطابقة"}
                 </p>
                 <p className="text-xs sm:text-sm text-[#475467] max-w-md mx-auto">
                   {isEn
-                    ? `No stories matched "${searchQuery}" in the selected filter.`
-                    : `لم تتطابق أي قصص مع "${searchQuery}" في الفلتر المحدد.`}
+                    ? `No examples matched "${searchQuery}" in the selected filter.`
+                    : `لم تتطابق أي أمثلة مع "${searchQuery}" في الفلتر المحدد.`}
                 </p>
               </div>
               <button
@@ -2195,7 +2198,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
                 }}
                 className="px-4 py-2 rounded-xl bg-[#0F58D5] text-white text-xs font-bold hover:bg-[#0c47ae] transition-colors cursor-pointer"
               >
-                {isEn ? "Show All Stories" : "عرض كافة القصص"}
+                {isEn ? "Show All Examples" : "عرض كافة الأمثلة"}
               </button>
             </div>
           ) : (
@@ -2237,11 +2240,8 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F58D5] group-hover:text-[#128ca2] transition-colors">
-                      <span>{isEn ? "Read full story" : "اعرف المزيد"}</span>
+                      <span>{isEn ? "Read example" : "اعرف المزيد"}</span>
                       <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
-                    </span>
-                    <span className="text-[11px] text-slate-400 font-mono">
-                      /stories/{story.slug.split("-")[0]}...
                     </span>
                   </div>
                 </div>

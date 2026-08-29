@@ -7,6 +7,7 @@ import path from "path";
 import { loryfyConfig } from "../src/config/loryfyConfig";
 import { sampleOpportunities } from "../src/data/sampleOpportunities";
 import { storySlugs } from "../src/data/storiesData";
+import { emiratePageSlugs } from "../src/data/emiratePagesData";
 import { VALID_PAGE_ROUTES } from "../src/utils/routes";
 
 function buildSitemapXml(): string {
@@ -137,6 +138,34 @@ function buildSitemapXml(): string {
     <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/stories/${slug}" />
     <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
+    <lastmod>${buildDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }
+
+  xml += `
+
+  <!-- ========================================== -->
+  <!-- 5. CATEGORY × EMIRATE SEO LANDING PAGES    -->
+  <!-- ========================================== -->`;
+
+  for (const slug of emiratePageSlugs) {
+    xml += `
+  <url>
+    <loc>${loryfyConfig.siteUrl}/en/${slug}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/${slug}" />
+    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/${slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/${slug}" />
+    <lastmod>${buildDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${loryfyConfig.siteUrl}/ar/${slug}</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/${slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/${slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/${slug}" />
     <lastmod>${buildDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -20,22 +20,22 @@ const CHAT_IMAGES = [
   {
     id: 1,
     title: "Company Partner",
-    src: "https://i.postimg.cc/Kzm0vQSp/Mobile-app-chat-company-partner-(4k)-v2.png",
+    src: "/images/chat-1.webp",
   },
   {
     id: 2,
     title: "Restaurant Partner",
-    src: "https://i.postimg.cc/T27DpQv7/Mobile-app-chat-resturent-partner-(4k).png",
+    src: "/images/chat-2.webp",
   },
   {
     id: 3,
     title: "Salon Partner v2",
-    src: "https://i.postimg.cc/gcSZn4bM/Mobile-app-chat-salon-partner-(4k)-v2.png",
+    src: "/images/chat-3.webp",
   },
   {
     id: 4,
     title: "Salon Partner Local Guys v2",
-    src: "https://i.postimg.cc/BQPB3RPb/Mobile-app-chat-salon-partner-(4k)-local-guys-v2.png",
+    src: "/images/chat-4.webp",
   },
 ];
 
@@ -84,12 +84,8 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
   // Center alignment: align active slide in the middle with equal side peeks
   const centerOffset = containerWidth > 0 ? (containerWidth - itemWidth) / 2 : 50;
   
-  // Mathematical translation for LTR vs RTL
-  // In LTR: Item 0 is on the left. Advancing forward moves track to the left (negative translateX).
-  // In RTL: Item 0 is on the right. Advancing forward moves track to the right (positive translateX).
-  const translationValue = isRtl
-    ? currentIndex * step - centerOffset
-    : centerOffset - currentIndex * step;
+  // Translation calculation: Always use LTR style to visually scroll from right to left
+  const translationValue = centerOffset - currentIndex * step;
 
   // Advance forward continuously (1 -> 2 -> 3 -> 4 -> 1 [as 5] -> 2 [as 6] ...)
   const handleNext = useCallback(() => {
@@ -170,18 +166,10 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
 
     // Trigger swipe if horizontal displacement exceeds threshold and dominates vertical scrolling
     if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
-      if (isRtl) {
-        if (deltaX > 35) {
-          handleNext();
-        } else if (deltaX < -35) {
-          handlePrev();
-        }
-      } else {
-        if (deltaX < -35) {
-          handleNext();
-        } else if (deltaX > 35) {
-          handlePrev();
-        }
+      if (deltaX < -35) {
+        handleNext();
+      } else if (deltaX > 35) {
+        handlePrev();
       }
     }
 
@@ -262,7 +250,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                 onMouseLeave={() => setIsHovered(false)}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
-                dir={isRtl ? "rtl" : "ltr"}
+                dir="ltr"
                 initial={{ opacity: 0, x: isRtl ? -60 : 60, scale: 0.95 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -273,20 +261,18 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                 <div className="absolute top-0 bottom-0 right-0 w-6 sm:w-10 bg-gradient-to-l from-transparent via-white/20 to-transparent pointer-events-none z-20" />
 
                 {/* Navigation Arrows for Desktop */}
-                {/* Left Side Button: In LTR = Prev (ChevronLeft), In RTL = Next (ChevronLeft / التالي) */}
                 <button
-                  onClick={isRtl ? handleNext : handlePrev}
+                  onClick={handlePrev}
                   className="absolute left-2.5 top-[45%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
-                  aria-label={isRtl ? "الصورة التالية" : "Previous image"}
+                  aria-label={isRtl ? "الصورة السابقة" : "Previous image"}
                 >
                   <ChevronLeft className="w-4.5 h-4.5" />
                 </button>
 
-                {/* Right Side Button: In LTR = Next (ChevronRight), In RTL = Prev (ChevronRight / السابق) */}
                 <button
-                  onClick={isRtl ? handlePrev : handleNext}
+                  onClick={handleNext}
                   className="absolute right-2.5 top-[45%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
-                  aria-label={isRtl ? "الصورة السابقة" : "Next image"}
+                  aria-label={isRtl ? "الصورة التالية" : "Next image"}
                 >
                   <ChevronRight className="w-4.5 h-4.5" />
                 </button>

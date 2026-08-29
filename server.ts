@@ -88,7 +88,7 @@ async function startServer() {
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background-color: #ffffff;">
           <!-- Header -->
           <div style="text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f1f5f9; padding-bottom: 20px;">
-            <img src="https://i.postimg.cc/6QthpMZj/logo-small-size-for-email.webp" alt="Loryfy" style="height: 38px; width: auto; max-width: 180px; display: block; margin: 0 auto;" />
+            <div style="font-size: 24px; font-weight: bold; color: #0F58D5; letter-spacing: -0.5px; font-family: sans-serif;">Loryfy</div>
           </div>
 
           <!-- Arabic Section -->
@@ -112,7 +112,7 @@ async function startServer() {
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background-color: #ffffff;">
           <!-- Header -->
           <div style="text-align: center; margin-bottom: 25px; border-bottom: 1px solid #f1f5f9; padding-bottom: 20px;">
-            <img src="https://i.postimg.cc/6QthpMZj/logo-small-size-for-email.webp" alt="Loryfy" style="height: 38px; width: auto; max-width: 180px; display: block; margin: 0 auto;" />
+            <div style="font-size: 24px; font-weight: bold; color: #0F58D5; letter-spacing: -0.5px; font-family: sans-serif;">Loryfy</div>
           </div>
 
           <!-- English Section -->

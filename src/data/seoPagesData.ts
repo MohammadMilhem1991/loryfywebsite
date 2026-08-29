@@ -52,6 +52,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           content:
             "Loryfy serves as a discovery and connection platform. We encourage all business owners and prospective partners to independently verify all documentation, financial statements, and operational metrics before making binding commitments or signing legal contracts.",
         },
+        {
+          heading: "Explore business partnerships by emirate",
+          content:
+            "Find strategic co-founders, operating managers, and equity investors in specific emirates:",
+          bulletPoints: [
+            "[Find a Business Partner in Dubai](/en/find-business-partner-dubai): Connect with active investors, directors, and commercial partners across Dubai.",
+            "[Find a Business Partner in Abu Dhabi](/en/find-business-partner-abu-dhabi): Explore institutional partners, corporate executives, and co-investors in the capital.",
+            "[Find a Business Partner in Sharjah](/en/find-business-partner-sharjah): Partner with trading experts, factory managers, and local business owners in Sharjah.",
+            "[Find a Business Partner in Ajman](/en/find-business-partner-ajman): Connect with pragmatic entrepreneurs, industrial managers, and commercial partners in Ajman.",
+            "[Find a Business Partner in Ras Al Khaimah](/en/find-business-partner-ras-al-khaimah): Form strategic tourism, manufacturing, and trade partnerships in RAK.",
+            "[Find a Business Partner in Fujairah](/en/find-business-partner-fujairah): Partner with maritime, logistics, and trading business owners on the East Coast.",
+            "[Find a Business Partner in Umm Al Quwain](/en/find-business-partner-umm-al-quwain): Collaborate with light industrial and local commercial business operators in UAQ.",
+          ],
+        },
       ],
       faqItems: [
         {
@@ -102,6 +116,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           heading: "What is the difference between partnering with a running business and acquiring it?",
           content:
             "Owners of running businesses on Loryfy typically list for one of two reasons: bringing in partners/investors to accelerate expansion, or listing the business for sale. Listings detail key parameters such as premises, visas, status, and partner requirements.",
+        },
+        {
+          heading: "Explore running businesses by emirate",
+          content:
+            "Browse active commercial and industrial operations by location:",
+          bulletPoints: [
+            "[Running Businesses in Dubai](/en/running-businesses-dubai): Turnkey retail, F&B, tech, and service businesses operating across Dubai.",
+            "[Running Businesses in Abu Dhabi](/en/running-businesses-abu-dhabi): Established commercial, contracting, and industrial enterprises in Abu Dhabi.",
+            "[Running Businesses in Sharjah](/en/running-businesses-sharjah): Cost-efficient workshops, trading firms, and manufacturing operations in Sharjah.",
+            "[Running Businesses in Ajman](/en/running-businesses-ajman): Established retail, automotive, service, and trading businesses in Ajman.",
+            "[Running Businesses in Ras Al Khaimah](/en/running-businesses-ras-al-khaimah): Operating hospitality, industrial, contracting, and trading ventures in RAK.",
+            "[Running Businesses in Fujairah](/en/running-businesses-fujairah): Active logistics, maritime supply, retail, and commercial operations in Fujairah.",
+            "[Running Businesses in Umm Al Quwain](/en/running-businesses-umm-al-quwain): Running fabrication workshops, local retail stores, and commercial entities in UAQ.",
+          ],
         },
       ],
       faqItems: [
@@ -155,6 +183,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           content:
             "Browse active listings in the app, filter by industry and price criteria, open listings of interest, and tap 'Chat' to connect directly with the seller.",
         },
+        {
+          heading: "Explore businesses for sale by emirate",
+          content:
+            "Find turnkey companies and commercial opportunities in key emirates:",
+          bulletPoints: [
+            "[Businesses for Sale in Dubai](/en/businesses-for-sale-dubai): Acquire established restaurants, shops, and service companies in Dubai.",
+            "[Businesses for Sale in Abu Dhabi](/en/businesses-for-sale-abu-dhabi): Buy commercial entities, industrial workshops, and clinics in Abu Dhabi.",
+            "[Businesses for Sale in Sharjah](/en/businesses-for-sale-sharjah): Purchase turnkey trading, retail, and manufacturing facilities in Sharjah.",
+            "[Businesses for Sale in Ajman](/en/businesses-for-sale-ajman): Buy turnkey shops, automotive workshops, and wholesale operations in Ajman.",
+            "[Businesses for Sale in Ras Al Khaimah](/en/businesses-for-sale-ras-al-khaimah): Acquire established trading companies, tourism assets, and service businesses in RAK.",
+            "[Businesses for Sale in Fujairah](/en/businesses-for-sale-fujairah): Purchase active maritime, logistics, retail, and commercial businesses in Fujairah.",
+            "[Businesses for Sale in Umm Al Quwain](/en/businesses-for-sale-umm-al-quwain): Take over running retail, trade, and workshop enterprises in UAQ.",
+          ],
+        },
       ],
       faqItems: [
         {
@@ -190,6 +232,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           heading: "How can investors and co-founders explore early-stage startup ideas?",
           content:
             "Browse early-stage startup ideas across tech, e-commerce, consumer goods, and specialized services in the UAE. Find passionate creators seeking your skill set or capital.",
+        },
+        {
+          heading: "Explore startup opportunities by emirate",
+          content:
+            "Discover innovation ecosystems and early-stage ventures across the UAE:",
+          bulletPoints: [
+            "[Startup Opportunities in Dubai](/en/startup-opportunities-dubai): Tech startups, fintech ventures, and digital platforms launching in Dubai.",
+            "[Startup Opportunities in Abu Dhabi](/en/startup-opportunities-abu-dhabi): Enterprise AI, industrial tech, and sustainable innovation in Abu Dhabi.",
+            "[Startup Opportunities in Sharjah](/en/startup-opportunities-sharjah): Creative media, edtech, and green technology ventures emerging in Sharjah.",
+            "[Startup Opportunities in Ajman](/en/startup-opportunities-ajman): Practical e-commerce, light manufacturing, and local service startups in Ajman.",
+            "[Startup Opportunities in Ras Al Khaimah](/en/startup-opportunities-ras-al-khaimah): Ecotourism, maritime technology, and supply chain ventures in RAK.",
+            "[Startup Opportunities in Fujairah](/en/startup-opportunities-fujairah): Port-related tech, bunkering software, and East Coast trade innovations in Fujairah.",
+            "[Startup Opportunities in Umm Al Quwain](/en/startup-opportunities-umm-al-quwain): Cost-effective digital ventures, green tech, and specialized trade concepts in UAQ.",
+          ],
         },
       ],
       faqItems: [
@@ -262,6 +318,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "Approved Business Activities: Commercial, industrial, professional, or other activities approved under the relevant license.",
             "Visa Allocations: Number of active or available visa allocations associated with the license, where applicable.",
             "Premises Requirements: Existing office, workspace, tenancy, or other premises-related arrangements, where applicable.",
+          ],
+        },
+        {
+          heading: "Explore trade license opportunities by emirate",
+          content:
+            "Browse trade licenses available for takeover and transfer across key emirates:",
+          bulletPoints: [
+            "[Trade License Opportunities in Dubai](/en/trade-license-opportunities-dubai): DED mainland and free zone trade licenses ready for transfer in Dubai.",
+            "[Trade License Opportunities in Abu Dhabi](/en/trade-license-opportunities-abu-dhabi): ADDED mainland and ADGM corporate entities for takeover in Abu Dhabi.",
+            "[Trade License Opportunities in Sharjah](/en/trade-license-opportunities-sharjah): SEDD mainland and SAIF/Shams/Hamriyah licenses for sale in Sharjah.",
+            "[Trade License Opportunities in Ajman](/en/trade-license-opportunities-ajman): Ajman DED mainland and AFZA free zone commercial trade licenses for sale.",
+            "[Trade License Opportunities in Ras Al Khaimah](/en/trade-license-opportunities-ras-al-khaimah): RAK DED mainland and RAKEZ free zone licenses ready for immediate transfer.",
+            "[Trade License Opportunities in Fujairah](/en/trade-license-opportunities-fujairah): Fujairah Municipality mainland and FFZ / Creative City licenses for transfer.",
+            "[Trade License Opportunities in Umm Al Quwain](/en/trade-license-opportunities-umm-al-quwain): UAQ DED mainland and UAQ FTZ trade licenses available for takeover.",
           ],
         },
       ],
@@ -588,6 +658,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           content:
             "يعمل لوريفاي كمنصة للاكتشاف والتواصل. ننصح جميع أصحاب المشاريع والشركاء المحتملين بإجراء التحقق المستقل من كافة المستندات والبيانات المالية قبل إبرام أي اتفاقات ملزمة.",
         },
+        {
+          heading: "استكشف فرص الشراكة حسب الإمارة",
+          content:
+            "ابحث عن شركاء استراتيجيين وممولين ومدراء تشغيل في مختلف إمارات الدولة:",
+          bulletPoints: [
+            "[إيجاد شريك تجاري في دبي](/ar/find-business-partner-dubai): تواصل مع مستثمرين وشركاء تشغيليين واستراتيجيين في دبي.",
+            "[إيجاد شريك تجاري في أبوظبي](/ar/find-business-partner-abu-dhabi): اكتشف شركاء لمشاريع كبرى وتوسعات مؤسسية في العاصمة.",
+            "[إيجاد شريك تجاري في الشارقة](/ar/find-business-partner-sharjah): ابنِ تحالفات صناعية وتجارية واعدة في الشارقة.",
+            "[إيجاد شريك تجاري في عجمان](/ar/find-business-partner-ajman): تواصل مع رواد أعمال ومدراء مشاريع تجارية وصناعية في عجمان.",
+            "[إيجاد شريك تجاري في رأس الخيمة](/ar/find-business-partner-ras-al-khaimah): اعقد شراكات استراتيجية في السياحة والصناعة والتجارة برأس الخيمة.",
+            "[إيجاد شريك تجاري في الفجيرة](/ar/find-business-partner-fujairah): شارك أصحاب الأعمال في قطاعات الملاحة واللوجستيات والتجارة بالفجيرة.",
+            "[إيجاد شريك تجاري في أم القيوين](/ar/find-business-partner-umm-al-quwain): تعاون مع مشغلي وملاك المشاريع التجارية والصناعية الخفيفة بأم القيوين.",
+          ],
+        },
       ],
       faqItems: [
         {
@@ -633,6 +717,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "مقر وتأشيرات قائمة: وجود التجهيزات والتراخيص ذات الصلة.",
           ],
         },
+        {
+          heading: "استكشف المشاريع القائمة حسب الإمارة",
+          content:
+            "تصفح الأنشطة التجارية والصناعية القائمة بحسب الإمارة:",
+          bulletPoints: [
+            "[مشاريع قائمة في دبي](/ar/running-businesses-dubai): مطاعم ومتاجر وشركات خدمية جاهزة للعمل في دبي.",
+            "[مشاريع قائمة في أبوظبي](/ar/running-businesses-abu-dhabi): منشآت تجارية وخدمية وصناعية قائمة في العاصمة.",
+            "[مشاريع قائمة في الشارقة](/ar/running-businesses-sharjah): ورش ومصانع وشركات تجارة جملة وتجزئة في الشارقة.",
+            "[مشاريع قائمة في عجمان](/ar/running-businesses-ajman): أنشطة تجارية وتجزئة وكراجات سيارات جاهزة في عجمان.",
+            "[مشاريع قائمة في رأس الخيمة](/ar/running-businesses-ras-al-khaimah): منشآت فندقية وسياحية وورش ومصانع قائمة برأس الخيمة.",
+            "[مشاريع قائمة في الفجيرة](/ar/running-businesses-fujairah): أعمال لوجستية وتوريدات ملاحية ومتاجر قائمة بالفجيرة.",
+            "[مشاريع قائمة في أم القيوين](/ar/running-businesses-umm-al-quwain): ورش تصنيع ومتاجر ومشاريع تجارية قائمة بأم القيوين.",
+          ],
+        },
       ],
       faqItems: [
         {
@@ -674,6 +772,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           content:
             "استكشف مشاريع في قطاعات الخدمات، التجزئة، التجارة، والتقنية. يوضح أصحاب الإعلانات السعر المطلوب وتفاصيل المقر والرخصة.",
         },
+        {
+          heading: "استكشف المشاريع للبيع حسب الإمارة",
+          content:
+            "تصفح أنشطة وشركات معروضة للبيع والتنازل في مختلف إمارات الدولة:",
+          bulletPoints: [
+            "[مشاريع للبيع في دبي](/ar/businesses-for-sale-dubai): تملك مطاعم ومحلات وشركات قائمة في دبي.",
+            "[مشاريع للبيع في أبوظبي](/ar/businesses-for-sale-abu-dhabi): شراء منشآت تجارية وورش وعيادات في أبوظبي.",
+            "[مشاريع للبيع في الشارقة](/ar/businesses-for-sale-sharjah): تملك أنشطة تجارية وصناعية ومتاجر جاهزة في الشارقة.",
+            "[مشاريع للبيع في عجمان](/ar/businesses-for-sale-ajman): شراء محلات تجارية وورش سيارات وتجارة جملة في عجمان.",
+            "[مشاريع للبيع في رأس الخيمة](/ar/businesses-for-sale-ras-al-khaimah): تملك شركات تجارية وأصول سياحية وخدمية برأس الخيمة.",
+            "[مشاريع للبيع في الفجيرة](/ar/businesses-for-sale-fujairah): شراء أعمال تجارية وملاحية ولوجستية جاهزة بالفجيرة.",
+            "[مشاريع للبيع في أم القيوين](/ar/businesses-for-sale-umm-al-quwain): الاستحواذ على متاجر وورش ومشاريع تجارية قائمة بأم القيوين.",
+          ],
+        },
       ],
       faqItems: [
         {
@@ -704,6 +816,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           heading: "كيف يمكن لأصحاب الأفكار الناشئة استقطاب الشركاء والمستثمرين؟",
           content:
             "هل لديك فكرة مشروع مدروسة وتبحث عن شريك مالي أو إداري أو تنفيذي؟ سواء كنت داخل الإمارات أو خارجها، يتيح لك لوريفاي عرض فكرتك الموجهة للسوق الإماراتي وتحديد نوع الشركاء والمستثمرين المطلوبين.",
+        },
+        {
+          heading: "استكشف أفكار ومشاريع ناشئة حسب الإمارة",
+          content:
+            "تصفح بيئات الابتكار والمشاريع الناشئة بحسب الإمارة:",
+          bulletPoints: [
+            "[أفكار ومشاريع ناشئة في دبي](/ar/startup-opportunities-dubai): شركات تقنية ومنصات رقمية ناشئة في دبي.",
+            "[أفكار ومشاريع ناشئة في أبوظبي](/ar/startup-opportunities-abu-dhabi): مشاريع الذكاء الاصطناعي وتقنيات الاستدامة في أبوظبي.",
+            "[أفكار ومشاريع ناشئة في الشارقة](/ar/startup-opportunities-sharjah): مبادرات إعلامية وإبداعية وتقنية تنطلق من الشارقة.",
+            "[أفكار ومشاريع ناشئة في عجمان](/ar/startup-opportunities-ajman): مشاريع تجارة إلكترونية وتصنيع خفيف وخدمات محلية بعجمان.",
+            "[أفكار ومشاريع ناشئة في رأس الخيمة](/ar/startup-opportunities-ras-al-khaimah): ابتكارات في السياحة البيئية والتقنيات البحرية وسلاسل الإمداد برأس الخيمة.",
+            "[أفكار ومشاريع ناشئة في الفجيرة](/ar/startup-opportunities-fujairah): منصات رقمية لخدمات الموانئ وتزويد السفن والتجارة بالفجيرة.",
+            "[أفكار ومشاريع ناشئة في أم القيوين](/ar/startup-opportunities-umm-al-quwain): أفكار رقمية وتجارة متخصصة منخفضة التكاليف بأم القيوين.",
+          ],
         },
       ],
       faqItems: [
@@ -771,6 +897,20 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "الأنشطة التجارية المعتمدة: الأنشطة التجارية أو الصناعية أو المهنية أو غيرها بحسب ما هو معتمد في الرخصة.",
             "التأشيرات: عدد التأشيرات الحالية أو المتاحة المرتبطة بالرخصة، إن وجدت.",
             "المكتب أو المقر: تفاصيل المكتب أو مساحة العمل أو عقد الإيجار أو أي ترتيبات مرتبطة بالمقر، إن وجدت.",
+          ],
+        },
+        {
+          heading: "استكشف فرص الرخص التجارية حسب الإمارة",
+          content:
+            "تصفح الرخص التجارية المعروضة للتنازل بحسب الإمارة ونطاق الاختصاص:",
+          bulletPoints: [
+            "[فرص الرخص التجارية في دبي](/ar/trade-license-opportunities-dubai): رخص اقتصادية دبي والمناطق الحرة للتنازل الفوري.",
+            "[فرص الرخص التجارية في أبوظبي](/ar/trade-license-opportunities-abu-dhabi): رخص اقتصادية أبوظبي ورخص سوق أبوظبي العالمي ADGM.",
+            "[فرص الرخص التجارية في الشارقة](/ar/trade-license-opportunities-sharjah): رخص اقتصادية الشارقة والمناطق الحرة (سيف زون، شمس، الحمرية).",
+            "[فرص الرخص التجارية في عجمان](/ar/trade-license-opportunities-ajman): رخص دائرة التنمية الاقتصادية بعجمان والمنطقة الحرة AFZA للتنازل.",
+            "[فرص الرخص التجارية في رأس الخيمة](/ar/trade-license-opportunities-ras-al-khaimah): رخص اقتصادية رأس الخيمة ومناطق راكز RAKEZ للبيع والتحويل.",
+            "[فرص الرخص التجارية في الفجيرة](/ar/trade-license-opportunities-fujairah): رخص بلدية الفجيرة ورخص المنطقة الحرة والإبداعية للتنازل.",
+            "[فرص الرخص التجارية في أم القيوين](/ar/trade-license-opportunities-umm-al-quwain): رخص اقتصادية أم القيوين والمنطقة الحرة UAQ FTZ للتنازل.",
           ],
         },
       ],

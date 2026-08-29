@@ -16,6 +16,10 @@ export const storySlugs: string[] = [
   "buy-running-business-uae",
   "investor-company-acquire-back-business-uae",
   "trade-license-for-sale-transfer-uae",
+  "technical-cofounder-join-startup-uae",
+  "validate-business-idea-partner-uae",
+  "buy-established-trade-license-uae",
+  "buy-limited-trade-license-uae",
 ];
 
 export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
@@ -830,6 +834,186 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
       ],
       ctaText: "Explore Trade License Opportunities on Loryfy",
     },
+
+    "technical-cofounder-join-startup-uae": {
+      slug: "technical-cofounder-join-startup-uae",
+      title: "How a Technical Expert Can Join a Startup as a Co-Founder in the UAE | Loryfy",
+      metaDescription: "A developer or technical expert who wants to build a startup, not just work for one? Here's how a technical person in the UAE can find a founder to co-found with through Loryfy.",
+      h1: "Joining a Startup as a Technical Co-Founder",
+      subtitle: "For the developer or technical expert who wants to build something of their own, not just be an employee.",
+      intro: "Think of a talented developer or technical specialist in the UAE. They can build almost anything, but they don't have a business idea of their own — or the commercial side isn't their strength. What they want is to join the right founder early and build a startup together as a technical co-founder, with a real stake in it, rather than being just another employee. The hard part is finding a trustworthy founder with a solid idea. That's where Loryfy comes in.",
+      sections: [
+        {
+          heading: "The problem: strong technical skill, no idea or business side to pair it with",
+          content: "Many skilled technical people would make excellent co-founders but never get the chance — they don't have an idea themselves, and the founders who need them are hard to find and even harder to vet through personal networks alone. Meanwhile, good ideas stall for want of someone who can actually build them.",
+        },
+        {
+          heading: "How Loryfy helps",
+          content: "On Loryfy, founders publish startup ideas and often specify that they are looking for a technical co-founder. Someone with the skills to build can browse these ideas, find one they believe in, and reach out directly to explore co-founding it.",
+          bulletPoints: [
+            "Browse startup ideas across the UAE whose founders are seeking a technical co-founder.",
+            "Offer your skills as your contribution toward a real stake, not just a wage.",
+            "Talk directly with founders in the app to test the idea and the fit.",
+            "Agree roles, equity, and expectations between you, and verify everything first.",
+          ],
+          highlightBox: "Loryfy is a place to discover ideas and connect with founders. It is not a broker or adviser and guarantees no outcome — the role and stake you agree are strictly between you and the founder.",
+        },
+        {
+          heading: "Have an idea of your own instead?",
+          content: "If you actually have your own concept and need someone to build it with or fund it, approaching it from the [founder's side](/en/stories/startup-founder-find-cofounder-funding-uae) may fit you better.",
+        },
+      ],
+      faqItems: [
+        {
+          question: "Can I join a startup as a technical co-founder in the UAE?",
+          answer: "Yes. On Loryfy, founders often look specifically for a technical co-founder to build their idea. You can find these opportunities, connect directly, and agree a co-founding arrangement between you.",
+        },
+        {
+          question: "How is being a co-founder different from being hired as a developer?",
+          answer: "A co-founder typically shares ownership and the risk and reward of building the startup, rather than receiving only a salary. The exact roles and equity are agreed directly with the founder.",
+        },
+        {
+          question: "How do I start on Loryfy as a technical person?",
+          answer: "Download the app, browse startup ideas whose founders want a technical co-founder, and start a direct conversation with the ones whose vision fits your skills and interests.",
+        },
+      ],
+      ctaText: "Find a Startup to Co-Found on Loryfy",
+    },
+
+    "validate-business-idea-partner-uae": {
+      slug: "validate-business-idea-partner-uae",
+      title: "How a First-Time Entrepreneur Can Find a Partner to Test a Business Idea in the UAE | Loryfy",
+      metaDescription: "Have a business idea but not ready to go it alone? Here's how a first-time entrepreneur in the UAE can find a partner to test and validate the idea through Loryfy.",
+      h1: "Finding a Partner to Test a Business Idea",
+      subtitle: "For the first-time entrepreneur who wants someone to build and validate the idea with.",
+      intro: "Picture someone in the UAE with a promising business idea but no experience starting a company. They believe in the concept, yet going alone into the unknown feels risky, and they know their idea would be stronger with a partner who complements their gaps and shares the early effort. What they need is a way to find that person and test the idea together before committing everything. Loryfy helps first-time entrepreneurs make that connection.",
+      sections: [
+        {
+          heading: "The problem: a promising idea, but not ready to go alone",
+          content: "First-time entrepreneurs often hesitate — not because the idea is weak, but because doing everything alone is daunting and risky. A complementary partner to pressure-test the idea, share the workload, and bring missing skills can be the difference between starting and staying stuck.",
+        },
+        {
+          heading: "How Loryfy helps",
+          content: "On Loryfy, someone can publish an early-stage idea and specify they're looking for a partner or co-founder to validate and build it with. Interested people browse and reach out directly, so the idea can be tested together before big commitments are made.",
+          bulletPoints: [
+            "Publish your early-stage idea and say what kind of partner you're looking for.",
+            "Connect with people across the UAE interested in building something new.",
+            "Discuss and pressure-test the idea directly in the app before committing.",
+            "Keep sensitive details private until there's trust, and verify any partner.",
+          ],
+          highlightBox: "Loryfy is a discovery and connection platform, not a broker, adviser, or incubator, and it guarantees no outcome. How you test, build, and structure anything stays entirely with you and your partner.",
+        },
+        {
+          heading: "Looking for a specific skill to build it?",
+          content: "If what you mainly need is someone technical to actually build the product, seeking a [technical co-founder](/en/stories/technical-cofounder-join-startup-uae) may be the more direct path.",
+        },
+      ],
+      faqItems: [
+        {
+          question: "Can I find a partner to validate my business idea in the UAE?",
+          answer: "Yes. On Loryfy you can publish an early-stage idea, specify that you're looking for a partner or co-founder to test and build it with, and connect directly with interested people.",
+        },
+        {
+          question: "I've never started a business — is Loryfy useful for me?",
+          answer: "Yes. Loryfy helps first-time entrepreneurs connect with potential partners who can complement their skills and share the early effort of testing and building an idea.",
+        },
+        {
+          question: "How do I protect my idea while looking for a partner?",
+          answer: "You choose how much to reveal in your listing and can keep sensitive details private until you've built trust through direct chat. Always verify any partner independently.",
+        },
+      ],
+      ctaText: "Share Your Idea and Find a Partner on Loryfy",
+    },
+
+    "buy-established-trade-license-uae": {
+      slug: "buy-established-trade-license-uae",
+      title: "Why Buying an Established Trade License Can Beat Starting Fresh in the UAE | Loryfy",
+      metaDescription: "Starting a business in the UAE? Here's why buying an established trade license with history can be better than a brand-new one, and how to find one through Loryfy.",
+      h1: "Buying an Established Trade License Instead of Starting Fresh",
+      subtitle: "For the entrepreneur who wants a license with history, not a day-one company.",
+      intro: "Consider someone about to start a business in the UAE. The default is to register a brand-new trade license — but a new company has no history at all. An established license that has been active for years can carry a stronger profile, and for some that head start is worth more than starting from zero. The challenge is finding a suitable existing license from an owner ready to pass it on. Loryfy connects the two sides.",
+      sections: [
+        {
+          heading: "The problem: a brand-new company starts with no track record",
+          content: "A freshly registered license means a company with no age and no history behind it. In situations where an established profile matters — building credibility, entering the market more easily, or qualifying to take part in certain tenders that often consider how long a company has been active — starting from zero can be a real disadvantage.",
+        },
+        {
+          heading: "How Loryfy helps",
+          content: "On Loryfy, owners of established trade licenses they no longer need can list them, and someone starting out can browse these opportunities and connect directly to discuss taking one over — gaining an existing profile rather than beginning at day one.",
+          bulletPoints: [
+            "Browse established trade licenses available across the UAE.",
+            "Look for a license whose activity and jurisdiction fit your plans.",
+            "Connect directly with the holder in the app to discuss the details.",
+            "Complete the transfer through the proper official and legal channels.",
+          ],
+          highlightBox: "Loryfy connects the two sides directly. It is not a broker, adviser, or government agent, and any license transfer must be completed through the proper official authorities. Always verify the license and do your own due diligence.",
+        },
+        {
+          heading: "Want the whole business, not just the license?",
+          content: "If you'd rather take over an operation that's already running — with customers and revenue — [buying a running business](/en/stories/buy-running-business-uae) may suit you better than a license alone.",
+        },
+      ],
+      faqItems: [
+        {
+          question: "Is it better to buy an established trade license or register a new one in the UAE?",
+          answer: "It depends on your goals. An established license can carry a stronger profile that helps with credibility and market entry, while a new one starts with no history. On Loryfy you can find established licenses and connect with their holders to weigh the option.",
+        },
+        {
+          question: "Why would an older trade license be more useful?",
+          answer: "A license that has been active for years reflects an established profile, which can help when building trust, entering the market, or taking part in certain tenders that consider how long a company has operated. Specifics should always be verified for your activity.",
+        },
+        {
+          question: "Does Loryfy handle the license transfer?",
+          answer: "No. Loryfy only connects the holder and the interested party. All transfers must be completed through the relevant official authorities and legal channels, with your own due diligence.",
+        },
+      ],
+      ctaText: "Explore Trade Licenses on Loryfy",
+    },
+
+    "buy-limited-trade-license-uae": {
+      slug: "buy-limited-trade-license-uae",
+      title: "Why Buying a Focused or Limited Trade License Makes Sense in the UAE | Loryfy",
+      metaDescription: "Need a trade license with specific business activities without unnecessary cost? Here's how buying a focused trade license in the UAE works and how to find one on Loryfy.",
+      h1: "Buying a Focused or Limited Scope Trade License",
+      subtitle: "For the entrepreneur who needs a specific business license without unnecessary overhead.",
+      intro: "Consider someone planning a focused venture in the UAE — a specialized consultancy, technical service, or targeted retail activity. They don't need a costly, expansive license with activities they will never use; a license tailored specifically to their domain is faster, lighter, and more cost-effective. Finding an existing license with the exact required activity allows an entrepreneur to step in without the delays of a new setup from scratch. Loryfy makes discovering and discussing these licenses simple and direct.",
+      sections: [
+        {
+          heading: "The problem: expansive licenses create unnecessary costs and complexity",
+          content: "Broad licenses often come with higher initial setup fees, larger office space requirements, and extra compliance overhead. When an entrepreneur knows their exact niche, taking over an existing trade license with defined, limited activities keeps overhead low while establishing an immediate presence.",
+        },
+        {
+          heading: "How Loryfy helps",
+          content: "On Loryfy, owners of trade licenses with specific commercial, professional, or industrial activity approvals can list them for transfer. Buyers can filter by activity, jurisdiction (mainland or free zone), and quota, and message the owner directly inside the app.",
+          bulletPoints: [
+            "Browse trade licenses with specific and focused activities across the UAE.",
+            "Filter by activity type, emirate, and mainland or free zone jurisdiction.",
+            "Chat directly with the license holder to review the activity list and details.",
+            "Complete the formal transfer through the official licensing authorities.",
+          ],
+          highlightBox: "Loryfy is a direct connection platform, not a broker or government entity. All license transfers must be processed through the relevant official authorities with proper due diligence.",
+        },
+        {
+          heading: "Need a license with an established track record instead?",
+          content: "If the company's operating age and historical standing matter more than a narrow activity scope, explore [buying an established trade license](/en/stories/buy-established-trade-license-uae).",
+        },
+      ],
+      faqItems: [
+        {
+          question: "What is a focused or limited trade license in the UAE?",
+          answer: "It is a trade license issued for specific, defined commercial or professional activities rather than broad general trading, keeping renewal costs and compliance requirements tailored to the exact business scope.",
+        },
+        {
+          question: "Can I transfer an existing focused trade license to my name?",
+          answer: "Yes. Ownership and management of trade licenses in the UAE can be transferred through the relevant economic department or free zone authority following official due diligence.",
+        },
+        {
+          question: "How do I find a trade license with specific activities on Loryfy?",
+          answer: "Download the app, navigate to trade license opportunities, filter by activity and emirate, and connect directly with holders to discuss transfer options.",
+        },
+      ],
+      ctaText: "Find Trade Licenses on Loryfy",
+    },
   },
 
   ar: {
@@ -1626,6 +1810,186 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
       ],
       ctaText: "اكتشف فرص الرخص التجارية على لوريفاي",
+    },
+
+    "technical-cofounder-join-startup-uae": {
+      slug: "technical-cofounder-join-startup-uae",
+      title: "كيف ينضمّ خبير تقني إلى مشروع ناشئ كشريك مؤسّس في الإمارات | لوريفاي",
+      metaDescription: "مطوّر أو خبير تقني يريد بناء مشروع ناشئ لا مجرد العمل لدى أحد؟ إليك كيف يجد التقني في الإمارات مؤسّساً يشاركه التأسيس عبر لوريفاي.",
+      h1: "الانضمام إلى مشروع ناشئ كشريك مؤسّس تقني",
+      subtitle: "للمطوّر أو الخبير التقني الذي يريد بناء مشروعه الخاص، لا أن يكون موظفاً فحسب.",
+      intro: "تخيّل مطوّراً موهوباً أو خبيراً تقنياً في الإمارات. يستطيع بناء أي شيء تقريباً، لكن ليست لديه فكرة مشروع خاصة به — أو أن الجانب التجاري ليس نقطة قوّته. ما يريده هو الانضمام إلى المؤسّس المناسب مبكراً وبناء مشروع ناشئ معاً كشريك مؤسّس تقني، مع حصة حقيقية فيه، بدلاً من أن يكون مجرد موظف آخر. والصعوبة في إيجاد مؤسّس موثوق لديه فكرة متينة. هنا يأتي دور لوريفاي.",
+      sections: [
+        {
+          heading: "المشكلة: مهارة تقنية قوية بلا فكرة أو جانب تجاري يكمّلها",
+          content: "كثير من أصحاب المهارات التقنية سيكونون شركاء مؤسّسين ممتازين لكنهم لا يحصلون على الفرصة — فليست لديهم فكرة، والمؤسّسون الذين يحتاجونهم يصعب إيجادهم بل والتحقّق منهم بالاعتماد على العلاقات وحدها. وفي المقابل تتعثّر أفكار جيدة لغياب من يبنيها فعلاً.",
+        },
+        {
+          heading: "كيف يساعد لوريفاي",
+          content: "على لوريفاي، ينشر المؤسّسون أفكار مشاريعهم الناشئة وكثيراً ما يحدّدون أنهم يبحثون عن شريك مؤسّس تقني. صاحب المهارة القادر على البناء يمكنه تصفّح هذه الأفكار، وإيجاد فكرة يؤمن بها، والتواصل مباشرة لاستكشاف تأسيسها معاً.",
+          bulletPoints: [
+            "تصفّح أفكار مشاريع ناشئة في مختلف أنحاء الإمارات يبحث أصحابها عن شريك مؤسّس تقني.",
+            "قدّم مهاراتك كمساهمتك مقابل حصة حقيقية، لا مجرد أجر.",
+            "تحدّث مباشرة مع المؤسّسين في التطبيق لاختبار الفكرة ومدى التوافق.",
+            "اتفقوا على الأدوار والحصص والتوقّعات بينكم، وتحقّقوا من كل شيء أولاً.",
+          ],
+          highlightBox: "لوريفاي مكان لاكتشاف الأفكار والتواصل مع المؤسّسين. وهو ليس وسيطاً ولا مستشاراً ولا يضمن أي نتيجة — فالدور والحصة اللذان تتفقان عليهما شأن بينك وبين المؤسّس وحده.",
+        },
+        {
+          heading: "لديك فكرتك الخاصة بدلاً من ذلك؟",
+          content: "إن كانت لديك فعلاً فكرتك الخاصة وتحتاج من يبنيها معك أو يموّلها، فقد يناسبك أكثر الدخول من [جهة المؤسّس](/ar/stories/startup-founder-find-cofounder-funding-uae).",
+        },
+      ],
+      faqItems: [
+        {
+          question: "هل يمكنني الانضمام إلى مشروع ناشئ كشريك مؤسّس تقني في الإمارات؟",
+          answer: "نعم. على لوريفاي، كثيراً ما يبحث المؤسّسون تحديداً عن شريك مؤسّس تقني لبناء فكرتهم. يمكنك إيجاد هذه الفرص والتواصل مباشرة والاتفاق على ترتيب تأسيس مشترك بينكم.",
+        },
+        {
+          question: "ما الفرق بين أن تكون شريكاً مؤسّساً وأن تُوظَّف كمطوّر؟",
+          answer: "الشريك المؤسّس عادةً يتقاسم الملكية ومخاطر بناء المشروع وعوائده، بدلاً من تلقّي راتب فقط. وتُحدّد الأدوار والحصص مباشرة مع المؤسّس.",
+        },
+        {
+          question: "كيف أبدأ على لوريفاي كشخص تقني؟",
+          answer: "حمّل التطبيق، وتصفّح أفكار المشاريع الناشئة التي يبحث أصحابها عن شريك مؤسّس تقني، وابدأ محادثة مباشرة مع من تتوافق رؤيتهم مع مهاراتك واهتماماتك.",
+        },
+      ],
+      ctaText: "ابحث عن مشروع ناشئ لتؤسّسه على لوريفاي",
+    },
+
+    "validate-business-idea-partner-uae": {
+      slug: "validate-business-idea-partner-uae",
+      title: "كيف يجد روّاد الأعمال المبتدئون شريكاً لاختبار فكرة مشروع في الإمارات | لوريفاي",
+      metaDescription: "لديك فكرة مشروع لكنك لست مستعداً للمضيّ وحدك؟ إليك كيف يجد رائد الأعمال المبتدئ في الإمارات شريكاً لاختبار الفكرة والتحقّق منها عبر لوريفاي.",
+      h1: "إيجاد شريك لاختبار فكرة مشروع",
+      subtitle: "لرائد الأعمال المبتدئ الذي يريد من يبني الفكرة ويتحقّق منها معه.",
+      intro: "تخيّل شخصاً في الإمارات لديه فكرة مشروع واعدة لكن بلا خبرة في تأسيس الشركات. يؤمن بالفكرة، لكن المضيّ وحده نحو المجهول يبدو محفوفاً بالمخاطر، وهو يدرك أن فكرته ستكون أقوى مع شريك يكمّل نقاط ضعفه ويتقاسم معه الجهد المبكر. ما يحتاجه وسيلة لإيجاد هذا الشخص واختبار الفكرة معاً قبل أن يلتزم بكل شيء. يساعد لوريفاي روّاد الأعمال المبتدئين على إقامة هذا التواصل.",
+      sections: [
+        {
+          heading: "المشكلة: فكرة واعدة لكن دون استعداد للمضيّ وحده",
+          content: "كثيراً ما يتردّد روّاد الأعمال المبتدئون — لا لأن الفكرة ضعيفة، بل لأن القيام بكل شيء وحدهم أمر شاقّ ومحفوف بالمخاطر. والشريك المكمّل الذي يختبر الفكرة ويتقاسم العبء ويجلب المهارات الناقصة قد يكون الفارق بين الانطلاق والبقاء عالقاً.",
+        },
+        {
+          heading: "كيف يساعد لوريفاي",
+          content: "على لوريفاي، يمكن لشخص أن يعرض فكرة في مرحلة مبكرة ويحدّد أنه يبحث عن شريك أو شريك مؤسّس للتحقّق منها وبنائها معه. ويتصفّح المهتمّون ويتواصلون مباشرة، فتُختبر الفكرة معاً قبل اتخاذ التزامات كبيرة.",
+          bulletPoints: [
+            "اعرض فكرتك في مرحلتها المبكرة وحدّد نوع الشريك الذي تبحث عنه.",
+            "تواصل مع أشخاص في مختلف أنحاء الإمارات مهتمّين ببناء شيء جديد.",
+            "ناقش الفكرة واختبرها مباشرة في التطبيق قبل الالتزام.",
+            "أبقِ التفاصيل الحسّاسة خاصة إلى أن تُبنى الثقة، وتحقّق من أي شريك.",
+          ],
+          highlightBox: "لوريفاي منصة لاكتشاف الفرص والتواصل، لا وسيط ولا مستشار ولا حاضنة أعمال، ولا يضمن أي نتيجة. فكيفية اختبارك وبنائك وهيكلتك لأي شيء تبقى بينك وبين شريكك وحدكما.",
+        },
+        {
+          heading: "تبحث عن مهارة محدّدة لبنائها؟" ,
+          content: "إن كان ما تحتاجه أساساً شخصاً تقنياً يبني المنتج فعلاً، فقد يكون البحث عن [شريك مؤسّس تقني](/ar/stories/technical-cofounder-join-startup-uae) الطريق الأكثر مباشرة.",
+        },
+      ],
+      faqItems: [
+        {
+          question: "هل يمكنني إيجاد شريك للتحقّق من فكرة مشروعي في الإمارات؟",
+          answer: "نعم. على لوريفاي يمكنك عرض فكرة في مرحلة مبكرة، وتحديد أنك تبحث عن شريك أو شريك مؤسّس لاختبارها وبنائها معك، والتواصل مباشرة مع المهتمّين.",
+        },
+        {
+          question: "لم أؤسّس مشروعاً من قبل — هل لوريفاي مفيد لي؟" ,
+          answer: "نعم. يساعد لوريفاي روّاد الأعمال المبتدئين على التواصل مع شركاء محتملين يكمّلون مهاراتهم ويتقاسمون معهم الجهد المبكر في اختبار الفكرة وبنائها.",
+        },
+        {
+          question: "كيف أحمي فكرتي أثناء بحثي عن شريك؟",
+          answer: "أنت تختار مقدار ما تكشفه في إعلانك، ويمكنك إبقاء التفاصيل الحسّاسة خاصة إلى أن تبني الثقة عبر المحادثة المباشرة. وتحقّق دائماً من أي شريك بنفسك.",
+        },
+      ],
+      ctaText: "اعرض فكرتك وابحث عن شريك على لوريفاي",
+    },
+
+    "buy-established-trade-license-uae": {
+      slug: "buy-established-trade-license-uae",
+      title: "لماذا قد يكون شراء رخصة تجارية قائمة أفضل من البدء من جديد في الإمارات | لوريفاي",
+      metaDescription: "تبدأ مشروعاً في الإمارات؟ إليك لماذا قد يكون شراء رخصة تجارية قائمة ذات سجلّ أفضل من رخصة جديدة، وكيف تجد واحدة عبر لوريفاي.",
+      h1: "شراء رخصة تجارية قائمة بدلاً من البدء من جديد",
+      subtitle: "لرائد الأعمال الذي يريد رخصة ذات سجلّ، لا شركة في يومها الأول.",
+      intro: "تخيّل شخصاً على وشك بدء مشروع في الإمارات. الخيار المعتاد هو تسجيل رخصة تجارية جديدة تماماً — لكن الشركة الجديدة بلا سجلّ على الإطلاق. أما الرخصة القائمة التي ظلّت فاعلة لسنوات فقد تحمل ملفاً أقوى، والبعض يرى أن هذه الانطلاقة المتقدّمة تساوي أكثر من البدء من الصفر. والتحدّي في إيجاد رخصة قائمة مناسبة من مالك مستعدّ لتمريرها. يربط لوريفاي الطرفين.",
+      sections: [
+        {
+          heading: "المشكلة: الشركة الجديدة تبدأ بلا سجلّ",
+          content: "الرخصة المسجّلة حديثاً تعني شركة بلا عمر ولا تاريخ خلفها. وفي الحالات التي يهمّ فيها الملف القائم — كبناء المصداقية، أو دخول السوق بسهولة أكبر، أو التأهّل للمشاركة في بعض المناقصات التي كثيراً ما تأخذ في الاعتبار مدّة نشاط الشركة — قد يكون البدء من الصفر عائقاً حقيقياً.",
+        },
+        {
+          heading: "كيف يساعد لوريفاي",
+          content: "على لوريفاي، يمكن لأصحاب الرخص التجارية القائمة التي لم يعودوا بحاجة إليها عرضها، ويمكن لمن يبدأ مشروعه تصفّح هذه الفرص والتواصل مباشرة لمناقشة تولّيها — فيحصل على ملف قائم بدلاً من البدء من اليوم الأول.",
+          bulletPoints: [
+            "تصفّح رخصاً تجارية قائمة متاحة في مختلف أنحاء الإمارات.",
+            "ابحث عن رخصة يتوافق نشاطها وجهة إصدارها مع خططك.",
+            "تواصل مباشرة مع المالك في التطبيق لمناقشة التفاصيل.",
+            "أكمل النقل عبر القنوات الرسمية والقانونية الصحيحة.",
+          ],
+          highlightBox: "يربط لوريفاي الطرفين مباشرة. وهو ليس وسيطاً ولا مستشاراً ولا وكيلاً حكومياً، ويجب إتمام أي نقل للرخصة عبر الجهات الرسمية المختصّة. تحقّق دائماً من الرخصة وأجرِ دراستك النافية للجهالة بنفسك.",
+        },
+        {
+          heading: "تريد النشاط بالكامل لا الرخصة وحدها؟",
+          content: "إن كنت تفضّل تولّي نشاط عامل بالفعل — بعملاء وإيرادات — فقد يناسبك [شراء مشروع قائم](/ar/stories/buy-running-business-uae) أكثر من مجرد رخصة.",
+        },
+      ],
+      faqItems: [
+        {
+          question: "هل الأفضل شراء رخصة تجارية قائمة أم تسجيل رخصة جديدة في الإمارات؟",
+          answer: "يعتمد ذلك على أهدافك. فالرخصة القائمة قد تحمل سجلاً أقوى يساعد في بناء المصداقية ودخول السوق، بينما تبدأ الجديدة بلا تاريخ. على لوريفاي يمكنك إيجاد رخص قائمة والتواصل مع أصحابها للموازنة بين الخيارين.",
+        },
+        {
+          question: "لماذا قد تكون الرخصة التجارية الأقدم أكثر فائدة؟",
+          answer: "الرخصة الفاعلة لسنوات تعكس سجلاً قائماً، وهو ما قد يفيد في بناء الثقة أو دخول السوق أو المشاركة في بعض المناقصات التي تنظر في عمر الشركة. ويجب دائماً التحقّق من التفاصيل لنشاطك المحدد.",
+        },
+        {
+          question: "هل يتولّى لوريفاي نقل الرخصة؟",
+          answer: "لا. لوريفاي يربط فقط بين صاحب الرخصة والمهتمّ بها. ويجب إتمام كل عمليات النقل عبر الجهات الرسمية والقنوات القانونية المختصّة، مع قيامك بدراستك النافية للجهالة.",
+        },
+      ],
+      ctaText: "استكشف الرخص التجارية على لوريفاي",
+    },
+
+    "buy-limited-trade-license-uae": {
+      slug: "buy-limited-trade-license-uae",
+      title: "لماذا يناسبك شراء رخصة تجارية محددة النشاط في الإمارات | لوريفاي",
+      metaDescription: "تحتاج إلى رخصة بأنشطة محددة دون تكاليف إضافية؟ إليك كيف يساعدك شراء رخصة تجارية محددة في الإمارات وكيف تجدها عبر لوريفاي.",
+      h1: "شراء رخصة تجارية محددة النشاط",
+      subtitle: "لرائد الأعمال الذي يحتاج إلى رخصة بنشاط مركّز دون تكاليف وتراخيص إضافية.",
+      intro: "تخيّل شخصاً يخطط لمشروع محدد في الإمارات — كتقديم خدمات استشارية متخصصة، أو خدمات تقنية، أو نشاط تجاري محدد. لا يحتاج إلى رخصة واسعة النطاق بأنشطة لن يستخدمها وبرسوم مرتفعة؛ فرخصة بنشاط محدد ومركّز تكون أسرع وأخف وأوفر تكلفة. وإيجاد رخصة قائمة بالنشاط المطلوب بالضبط يتيح لرائد الأعمال الانطلاق دون انتظار إجراءات التأسيس من الصفر. يتيح لوريفاي اكتشاف هذه الرخص والتواصل المباشر مع أصحابها.",
+      sections: [
+        {
+          heading: "المشكلة: الرخص الواسعة تفرض تكاليف وتعقيدات غير ضرورية",
+          content: "كثيراً ما تتطلب الرخص الشاملة رسوماً أعلى ومساحات مكتبية أكبر ومتطلبات امتثال إضافية. وعندما يعرف رائد الأعمال مجاله بدقة، فإن تولي رخصة قائمة بأنشطة محددة يقلل الأعباء المالية ويوفر حضوراً قانونياً مباشراً.",
+        },
+        {
+          heading: "كيف يساعد لوريفاي",
+          content: "على لوريفاي، يمكن لأصحاب الرخص التجارية أو المهنية ذات الأنشطة المحددة التي لم يعودوا بحاجة إليها عرضها للتنازل أو النقل. ويمكن للمشترين البحث حسب النشاط والجهة والتواصل مباشرة عبر التطبيق.",
+          bulletPoints: [
+            "تصفّح رخصاً تجارية بأنشطة محددة ومركّزة في مختلف أنحاء الإمارات.",
+            "ابحث بحسب نوع النشاط والإمارة، سواء في البر الرئيسي أو المناطق الحرة.",
+            "تحدّث مباشرة مع صاحب الرخصة للاطلاع على قائمة الأنشطة والتفاصيل.",
+            "أنجز إجراءات نقل الملكية الرسمية عبر الجهات المختصة.",
+          ],
+          highlightBox: "لوريفاي منصة للتواصل المباشر، لا وسيط ولا جهة حكومية. وكل عمليات نقل الرخص يجب أن تتم عبر الجهات الرسمية المعنية مع إجراء الدراسة النافية للجهالة.",
+        },
+        {
+          heading: "تحتاج إلى رخصة ذات سجل تشغيلي طويل؟",
+          content: "إن كان عمر الشركة وتاريخها المؤسسي أكثر أهمية لخطتك من مجرد تحديد النشاط، فقد يناسبك أكثر استكشاف [شراء رخصة تجارية قائمة](/ar/stories/buy-established-trade-license-uae).",
+        },
+      ],
+      faqItems: [
+        {
+          question: "ما المقصود بالرخصة التجارية محددة النشاط في الإمارات؟",
+          answer: "هي رخصة تجارية تصدر لأنشطة تجارية أو مهنية معينة بدقة بدلاً من التجارة العامة المفتوحة، مما يضمن توافق رسوم التجديد والالتزامات مع النطاق الفعلي للنشاط.",
+        },
+        {
+          question: "هل يمكن نقل ملكية رخصة تجارية محددة إلى اسمي؟",
+          answer: "نعم، يمكن نقل ملكية وإدارة الرخص التجارية في الإمارات عبر دائرة التنمية الاقتصادية أو سلطة المنطقة الحرة المعنية وفقاً للإجراءات الرسمية.",
+        },
+        {
+          question: "كيف أجد رخصة تجارية بأنشطة محددة على لوريفاي؟",
+          answer: "حمّل التطبيق، وانتقل إلى قسم الرخص التجارية، وابحث حسب النشاط والإمارة، وتواصل مباشرة مع أصحاب الرخص لمناقشة خيارات النقل.",
+        },
+      ],
+      ctaText: "استكشف الرخص المحددة على لوريفاي",
     },
   },
 };

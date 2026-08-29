@@ -6,6 +6,7 @@ export type Language = "en" | "ar";
 
 export type PageRoute =
   | "home"
+  | "seo-page"
   | "for-owners"
   | "discover"
   | "find-business-partner-uae"

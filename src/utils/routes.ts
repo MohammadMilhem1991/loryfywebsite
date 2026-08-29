@@ -5,6 +5,7 @@
 import { Language, PageRoute } from "../types";
 import { sampleOpportunities } from "../data/sampleOpportunities";
 import { storySlugs, storiesData } from "../data/storiesData";
+import { emiratePageSlugs, emiratePagesData } from "../data/emiratePagesData";
 
 export const VALID_PAGE_ROUTES: PageRoute[] = [
   "home",
@@ -126,6 +127,17 @@ export function resolveRoute(rawPath: string): ResolvedRoute {
     }
   }
 
+  // Check if it's a category × emirate SEO page
+  if (emiratePageSlugs.includes(segment) || !!emiratePagesData[lang]?.[segment]) {
+    return {
+      isValid: true,
+      lang,
+      page: "seo-page",
+      slug: segment,
+      statusCode: 200,
+    };
+  }
+
   // Check if segment is in valid page routes
   if (VALID_PAGE_ROUTES.includes(segment as PageRoute)) {
     return {
@@ -198,6 +210,16 @@ export function getAllPublicRoutes(): {
         page: "story-detail",
         slug,
         urlPath: `/${lang}/stories/${slug}`,
+      });
+    }
+
+    // 5. Category × Emirate SEO Landing Pages
+    for (const slug of emiratePageSlugs) {
+      routes.push({
+        lang,
+        page: "seo-page",
+        slug,
+        urlPath: `/${lang}/${slug}`,
       });
     }
   }

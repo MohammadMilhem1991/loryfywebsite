@@ -226,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                   }}
                   className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
                 >
-                  {currentLang === "en" ? "Stories" : "القصص"}
+                  {currentLang === "en" ? "Examples" : "أمثلة"}
                 </a>
               </li>
               <li>
