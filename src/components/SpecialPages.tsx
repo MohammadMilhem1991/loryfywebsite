@@ -512,8 +512,14 @@ export const ContactPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
                   </label>
                   <input
                     type="tel"
+                    inputMode="tel"
                     value={formData.mobile}
-                    onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                    onChange={(e) => {
+                      const val = e.target.value
+                        .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d).toString())
+                        .replace(/[^0-9+]/g, "");
+                      setFormData({ ...formData, mobile: val });
+                    }}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-[#0F58D5] focus:ring-2 focus:ring-[#0F58D5]/15 focus:outline-hidden font-medium transition-all"
                     placeholder={currentLang === "en" ? "+971 50 000 0000" : "+971 50 000 0000"}
                     dir="ltr"
