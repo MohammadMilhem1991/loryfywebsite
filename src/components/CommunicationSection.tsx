@@ -62,6 +62,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(INITIAL_INDEX);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const hasStartedRef = useRef<boolean>(false);
 
   // Measure container width with ResizeObserver for pinpoint responsiveness
   useEffect(() => {
@@ -130,7 +131,19 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
     }
   }, [isTransitioning]);
 
-  // Manual navigation only - auto-scrolling disabled for maximum performance and smooth user scrolling
+  // Smooth Auto-scrolling: Starts after precisely ~1.4s, and advances every 3.0s smoothly
+  useEffect(() => {
+    if (isHovered) return;
+
+    const delayMs = hasStartedRef.current ? 3000 : 1400;
+
+    const timer = setTimeout(() => {
+      hasStartedRef.current = true;
+      handleNext();
+    }, delayMs);
+
+    return () => clearTimeout(timer);
+  }, [isHovered, currentIndex, handleNext]);
 
   // Dot calculation normalized to 0..3
   const activeDotIndex = ((currentIndex % BASE_COUNT) + BASE_COUNT) % BASE_COUNT;
@@ -181,22 +194,24 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             {/* Text Column */}
-            <FadeInUp className="lg:col-span-6 space-y-4 text-start">
-              <h2
-                id="communication-heading"
-                className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight"
-              >
-                {t.communication.heading}
-              </h2>
+            <div className="lg:col-span-6 space-y-4 text-start">
+              <FadeInUp>
+                <h2
+                  id="communication-heading"
+                  className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight"
+                >
+                  {t.communication.heading}
+                </h2>
 
-              <p
-                id="communication-description"
-                className="text-sm sm:text-base text-[#475467] leading-relaxed max-w-xl"
-              >
-                {t.communication.description}
-              </p>
+                <p
+                  id="communication-description"
+                  className="text-sm sm:text-base text-[#475467] leading-relaxed max-w-xl mt-3"
+                >
+                  {t.communication.description}
+                </p>
+              </FadeInUp>
 
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2" staggerDelay={0.09}>
                 <StaggerItem className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs hover:border-[#0F58D5]/30 transition-all">
                   <div className="w-9 h-9 rounded-lg bg-[#0F58D5]/10 text-[#0F58D5] flex items-center justify-center shrink-0 mt-0.5">
                     <MessageSquare className="w-5 h-5" />
@@ -229,7 +244,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                   </div>
                 </StaggerItem>
               </StaggerContainer>
-            </FadeInUp>
+            </div>
 
             {/* Visual Chat Card Representation */}
             <div className="lg:col-span-6 flex flex-col items-center justify-center w-full">
@@ -264,7 +279,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                   <ChevronRight className="w-4.5 h-4.5" />
                 </button>
 
-                {/* Infinite Animated Carousel Track (Non-draggable, Click/Hold cannot move it) */}
+                {/* Infinite Carousel Track */}
                 <div className="relative w-full h-[505px] sm:h-[545px] flex items-center overflow-hidden pointer-events-none select-none">
                   <div
                     ref={trackRef}
@@ -272,7 +287,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                     style={{
                       transform: `translateX(${translationValue}px)`,
                       transition: isTransitioning
-                        ? "transform 650ms cubic-bezier(0.25, 1, 0.5, 1)"
+                        ? "transform 600ms cubic-bezier(0.25, 1, 0.5, 1)"
                         : "none",
                       gap: `${gap}px`,
                     }}
@@ -284,10 +299,10 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                         <div
                           key={`${img.id}-${idx}`}
                           style={{ width: `${itemWidth}px` }}
-                          className={`shrink-0 flex items-center justify-center transition-all duration-500 select-none pointer-events-none ${
+                          className={`shrink-0 flex items-center justify-center select-none pointer-events-none transition-opacity duration-300 ${
                             isCentered
                               ? "opacity-100 scale-100 filter drop-shadow-[0_12px_35px_rgba(23,179,205,0.22)] z-10"
-                              : "opacity-55 scale-[0.92] filter blur-[0.2px]"
+                              : "opacity-55 scale-[0.93]"
                           }`}
                         >
                           <img

@@ -52,9 +52,9 @@ export const ForOwnersSection: React.FC<ForOwnersSectionProps> = ({ currentLang,
         </FadeInUp>
 
         {/* 3 Interactive Cards for Owners' Objectives */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.2}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.09}>
           {/* Card 1: List a Running Business */}
-          <StaggerItem className="h-full" index={0}>
+          <StaggerItem className="h-full">
             <div className="bg-[#F5F8FF]/70 hover:bg-white border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 py-4 px-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
               <div>
                 <div className="flex items-center gap-3 mb-2.5">
@@ -82,7 +82,7 @@ export const ForOwnersSection: React.FC<ForOwnersSectionProps> = ({ currentLang,
           </StaggerItem>
 
           {/* Card 2: List your Startup Idea */}
-          <StaggerItem className="h-full" index={1}>
+          <StaggerItem className="h-full">
             <div className="bg-[#F5F8FF]/70 hover:bg-white border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 py-4 px-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
               <div>
                 <div className="flex items-center gap-3 mb-2.5">
@@ -110,7 +110,7 @@ export const ForOwnersSection: React.FC<ForOwnersSectionProps> = ({ currentLang,
           </StaggerItem>
 
           {/* Card 3: List a Trade License */}
-          <StaggerItem className="h-full" index={2}>
+          <StaggerItem className="h-full">
             <div className="bg-[#F5F8FF]/70 hover:bg-white border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 py-4 px-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group">
               <div>
                 <div className="flex items-center gap-3 mb-2.5">

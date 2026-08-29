@@ -29,7 +29,7 @@ export const VALID_PAGE_ROUTES: PageRoute[] = [
   "download",
   "terms",
   "privacy",
-  "stories",
+  "real-examples-of-using-loryfy",
   "sitemap",
 ];
 
@@ -105,9 +105,12 @@ export function resolveRoute(rawPath: string): ResolvedRoute {
     }
   }
 
-  // Check if it's a story detail route: stories/:slug
-  if (segment.startsWith("stories/")) {
-    const slug = segment.replace("stories/", "").trim();
+  // Check if it's a story detail route: real-examples-of-using-loryfy/:slug or legacy stories/:slug
+  if (segment.startsWith("real-examples-of-using-loryfy/") || segment.startsWith("stories/")) {
+    const slug = segment
+      .replace(/^real-examples-of-using-loryfy\//, "")
+      .replace(/^stories\//, "")
+      .trim();
     const exists = storySlugs.includes(slug) || !!storiesData[lang]?.[slug];
     if (exists) {
       return {
@@ -125,6 +128,16 @@ export function resolveRoute(rawPath: string): ResolvedRoute {
         statusCode: 404,
       };
     }
+  }
+
+  // Check if it's the legacy stories index route
+  if (segment === "stories") {
+    return {
+      isValid: true,
+      lang,
+      page: "real-examples-of-using-loryfy",
+      statusCode: 200,
+    };
   }
 
   // Check if it's a category × emirate SEO page
@@ -203,13 +216,13 @@ export function getAllPublicRoutes(): {
       });
     }
 
-    // 4. Stories & Scenarios Pages
+    // 4. Real Examples of Using Loryfy Pages
     for (const slug of storySlugs) {
       routes.push({
         lang,
         page: "story-detail",
         slug,
-        urlPath: `/${lang}/stories/${slug}`,
+        urlPath: `/${lang}/real-examples-of-using-loryfy/${slug}`,
       });
     }
 

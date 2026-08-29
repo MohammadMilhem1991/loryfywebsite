@@ -47,8 +47,9 @@ export function getUtmParameters(): Record<string, string> {
 
 // Track GA4 events
 export function trackEvent(eventName: AnalyticsEventName, params?: Record<string, unknown>) {
+  const gaId = loryfyConfig.analytics?.gaId || loryfyConfig.ga4Id;
   // If GA4 is not configured with a valid ID, do not dispatch to gtag
-  if (!loryfyConfig.ga4Id || loryfyConfig.ga4Id.trim() === "") {
+  if (!gaId || gaId.trim() === "") {
     if (process.env.NODE_ENV !== "production") {
       console.log(`[Loryfy Analytics Event (GA4 not configured)]: ${eventName}`, params);
     }

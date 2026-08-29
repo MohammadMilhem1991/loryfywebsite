@@ -122,15 +122,14 @@ export const WhyLoryfy: React.FC<WhyLoryfyProps> = ({ currentLang, onNavigate })
         </FadeInUp>
 
         {/* 4 Cards Grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4" staggerDelay={0.2}>
-          {pillars.map((item, idx) => {
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4" staggerDelay={0.09}>
+          {pillars.map((item) => {
             const Icon = item.icon;
             return (
               <StaggerItem
                 key={item.id}
                 id={`why-card-${item.id}`}
                 className="bg-white rounded-xl p-4 sm:p-5 border border-slate-200/80 hover:border-[#17B3CD]/40 hover:shadow-[0_8px_20px_rgba(23,179,205,0.06)] transition-all flex flex-col justify-between"
-                index={idx}
               >
                 <div>
                   <div className="flex items-center gap-2.5 mb-2.5">

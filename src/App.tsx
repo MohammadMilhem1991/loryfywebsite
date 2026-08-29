@@ -81,7 +81,9 @@ export default function App() {
         : currentPage === "opportunity-detail" && selectedOpportunitySlug
         ? `/opportunity/${selectedOpportunitySlug}`
         : currentPage === "story-detail" && selectedOpportunitySlug
-        ? `/stories/${selectedOpportunitySlug}`
+        ? `/real-examples-of-using-loryfy/${selectedOpportunitySlug}`
+        : (currentPage === "stories" || currentPage === "real-examples-of-using-loryfy")
+        ? `/real-examples-of-using-loryfy`
         : currentPage === "seo-page" && selectedOpportunitySlug
         ? `/${selectedOpportunitySlug}`
         : `/${currentPage}`;
@@ -114,7 +116,9 @@ export default function App() {
         : page === "opportunity-detail" && slug
         ? `/${currentLang}/opportunity/${slug}`
         : page === "story-detail" && slug
-        ? `/${currentLang}/stories/${slug}`
+        ? `/${currentLang}/real-examples-of-using-loryfy/${slug}`
+        : (page === "stories" || page === "real-examples-of-using-loryfy")
+        ? `/${currentLang}/real-examples-of-using-loryfy`
         : page === "seo-page" && slug
         ? `/${currentLang}/${slug}`
         : `/${currentLang}/${page}`;
@@ -269,9 +273,9 @@ export default function App() {
           </PageTransition>
         )}
 
-        {/* STORIES INDEX HUB */}
-        {currentPage === "stories" && (
-          <PageTransition key="stories" pageKey="stories">
+        {/* STORIES / REAL EXAMPLES INDEX HUB */}
+        {(currentPage === "stories" || currentPage === "real-examples-of-using-loryfy") && (
+          <PageTransition key="real-examples" pageKey="real-examples">
             <StoriesIndexPage
               currentLang={currentLang}
               onNavigate={handleNavigate}

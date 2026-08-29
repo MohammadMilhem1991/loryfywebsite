@@ -177,14 +177,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-running-businesses"
                 onClick={() => handleCategoryBadgeClick("running-businesses-uae")}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.4 }}
-                whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-                whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[8%] xl:top-[9%]' : 'top-[1.5%] xl:top-[2%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                transition={{ duration: 0.32, delay: 0.1, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`absolute ${isRtl ? 'top-[13%] xl:top-[14%]' : 'top-[6.5%] xl:top-[7%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                    <Building2 className="w-4 h-4" />
                 </div>
                 <div className="text-start">
@@ -201,15 +201,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-startup-ideas"
                 onClick={() => handleCategoryBadgeClick("startup-opportunities-uae")}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.6 }}
-                whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-                whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.14)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.22)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                transition={{ duration: 0.32, delay: 0.2, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                    <Lightbulb className="w-4 h-4" />
                 </div>
                 <div className="text-start">
@@ -226,14 +226,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-partnership-opportunities"
                 onClick={() => handleCategoryBadgeClick("business-partnership-opportunities-uae")}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.8 }}
-                whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-                whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                transition={{ duration: 0.32, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                   <Handshake className="w-4 h-4" />
                 </div>
                 <div className="text-start">
@@ -250,15 +250,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-trade-licenses"
                 onClick={() => handleCategoryBadgeClick("trade-license-opportunities-uae")}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 1.0 }}
-                whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-                whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                transition={{ duration: 0.32, delay: 0.4, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                   <FileText className="w-4 h-4" />
                 </div>
                 <div className="text-start">
@@ -273,27 +273,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
             </div>
 
             {/* Clean 2x2 Grid below the Phone on Mobile, Tablet & Mid-screens (< xl) */}
-            <div className="grid grid-cols-2 gap-2 xl:hidden mt-3 sm:mt-4 w-full max-w-md px-1">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 xl:hidden mt-3 sm:mt-4 w-full max-w-md px-1">
               {/* 1. Running Businesses */}
               <motion.button
                 id="hero-mobile-running-businesses"
                 onClick={() => handleCategoryBadgeClick("running-businesses-uae")}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.2 }}
-                className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/95 border border-[#0F58D5]/20 shadow-2xs text-start transition-all cursor-pointer"
+                transition={{ duration: 0.32, delay: 0.1, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs shrink-0">
-                   <Building2 className="w-3.5 h-3.5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
+                  <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-[#101828] truncate">
+                <div className="min-w-0 text-start">
+                  <span className="block text-xs font-bold text-[#101828] group-hover:text-[#17B3CD] transition-colors truncate">
                     {t.hero.floatingBadges.runningBusinesses}
-                  </div>
-                  <div className="text-[10px] text-[#475467] truncate">
+                  </span>
+                  <span className="block text-[10px] text-[#475467] font-medium truncate">
                     {currentLang === "en" ? "Explore & Invest" : "اكتشف واستثمر"}
-                  </div>
+                  </span>
                 </div>
               </motion.button>
 
@@ -301,22 +302,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-startup-ideas"
                 onClick={() => handleCategoryBadgeClick("startup-opportunities-uae")}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.4 }}
-                className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/95 border border-[#17B3CD]/30 shadow-2xs text-start transition-all cursor-pointer"
+                transition={{ duration: 0.32, delay: 0.2, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs shrink-0">
-                  <Lightbulb className="w-3.5 h-3.5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
+                  <Lightbulb className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-[#101828] truncate">
+                <div className="min-w-0 text-start">
+                  <span className="block text-xs font-bold text-[#101828] group-hover:text-[#17B3CD] transition-colors truncate">
                     {t.hero.floatingBadges.startupIdeas}
-                  </div>
-                  <div className="text-[10px] text-[#475467] truncate">
+                  </span>
+                  <span className="block text-[10px] text-[#475467] font-medium truncate">
                     {currentLang === "en" ? "New Ventures" : "مشاريع ناشئة"}
-                  </div>
+                  </span>
                 </div>
               </motion.button>
 
@@ -324,22 +326,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-partnership-opportunities"
                 onClick={() => handleCategoryBadgeClick("business-partnership-opportunities-uae")}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.6 }}
-                className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/95 border border-[#0F58D5]/20 shadow-2xs text-start transition-all cursor-pointer"
+                transition={{ duration: 0.32, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs shrink-0">
-                  <Handshake className="w-3.5 h-3.5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
+                  <Handshake className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-[#101828] truncate">
+                <div className="min-w-0 text-start">
+                  <span className="block text-xs font-bold text-[#101828] group-hover:text-[#17B3CD] transition-colors truncate">
                     {t.hero.floatingBadges.partnershipOpportunities}
-                  </div>
-                  <div className="text-[10px] text-[#475467] truncate">
-                    {currentLang === "en" ? "Founders" : "شركاء ومؤسسون"}
-                  </div>
+                  </span>
+                  <span className="block text-[10px] text-[#475467] font-medium truncate">
+                    {currentLang === "en" ? "Founders & Co-owners" : "شركاء ومؤسسون"}
+                  </span>
                 </div>
               </motion.button>
 
@@ -347,22 +350,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-trade-licenses"
                 onClick={() => handleCategoryBadgeClick("trade-license-opportunities-uae")}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.8 }}
-                className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-white/95 border border-[#17B3CD]/30 shadow-2xs text-start transition-all cursor-pointer"
+                transition={{ duration: 0.32, delay: 0.4, ease: "easeOut" }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs shrink-0">
-                  <FileText className="w-3.5 h-3.5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
+                  <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-[#101828] truncate">
+                <div className="min-w-0 text-start">
+                  <span className="block text-xs font-bold text-[#101828] group-hover:text-[#17B3CD] transition-colors truncate">
                     {t.hero.floatingBadges.tradeLicenses}
-                  </div>
-                  <div className="text-[10px] text-[#475467] truncate">
+                  </span>
+                  <span className="block text-[10px] text-[#475467] font-medium truncate">
                     {currentLang === "en" ? "Ready Transfer" : "جاهزة للتنازل"}
-                  </div>
+                  </span>
                 </div>
               </motion.button>
             </div>

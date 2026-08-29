@@ -35,13 +35,12 @@ export const UserJourneys: React.FC<UserJourneysProps> = ({ currentLang, onNavig
   return (
     <section id="user-journeys-section" className="py-6 sm:py-8 bg-gradient-to-b from-[#FFFFFF] via-[#F6FAFF] to-[#FFFFFF] relative overflow-hidden" dir={isRtl ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch" staggerDelay={0.2}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch" staggerDelay={0.09}>
           
           {/* User Journey A: I Have a Business or Idea */}
           <StaggerItem
             id="journey-card-a"
             className="bg-white rounded-2xl p-6 sm:p-7 border border-[#0F58D5]/15 shadow-xs hover:shadow-[0_12px_28px_rgba(15,88,213,0.12)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
-            index={0}
           >
             {/* Ambient accent top bar */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-[#0F58D5]" />
@@ -87,7 +86,6 @@ export const UserJourneys: React.FC<UserJourneysProps> = ({ currentLang, onNavig
           <StaggerItem
             id="journey-card-b"
             className="bg-white rounded-2xl p-6 sm:p-7 border border-[#17B3CD]/25 shadow-xs hover:shadow-[0_12px_28px_rgba(23,179,205,0.14)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
-            index={1}
           >
             {/* Ambient accent top bar */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-[#17B3CD]" />

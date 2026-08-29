@@ -30,6 +30,7 @@ export type PageRoute =
   | "opportunity-detail"
   | "story-detail"
   | "stories"
+  | "real-examples-of-using-loryfy"
   | "sitemap"
   | "robots"
   | "llms"

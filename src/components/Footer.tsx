@@ -83,7 +83,12 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                   <div className="w-6 h-6 rounded-md bg-[#25D366]/20 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                     <WhatsAppIcon className="w-4 h-4" />
                   </div>
-                  <span className="font-semibold">{loryfyConfig.whatsapp.phoneNumber}</span>
+                  <span
+                    dir="ltr"
+                    className="font-semibold [direction:ltr] [unicode-bidi:isolate] inline-block font-sans"
+                  >
+                    <bdi dir="ltr">{loryfyConfig.whatsapp.phoneNumber}</bdi>
+                  </span>
                   <span className="text-xs text-slate-400 font-normal">
                     ({currentLang === "en" ? "WhatsApp Chat" : "واتساب"})
                   </span>
@@ -99,7 +104,9 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                   <div className="w-6 h-6 rounded-md bg-[#17B3CD]/20 text-[#17B3CD] flex items-center justify-center group-hover:bg-[#17B3CD] group-hover:text-white transition-colors">
                     <Mail className="w-3.5 h-3.5" />
                   </div>
-                  <span>{loryfyConfig.email}</span>
+                  <span dir="ltr" className="[direction:ltr] [unicode-bidi:isolate] inline-block font-sans">
+                    <bdi dir="ltr">{loryfyConfig.email}</bdi>
+                  </span>
                 </a>
               </div>
             </div>
@@ -223,14 +230,14 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               </li>
               <li>
                 <a
-                  href={`/${currentLang}/stories`}
+                  href={`/${currentLang}/real-examples-of-using-loryfy`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleLinkClick("stories", "Footer Stories");
+                    handleLinkClick("real-examples-of-using-loryfy", "Footer Real Examples of Using Loryfy");
                   }}
                   className="hover:text-[#17B3CD] transition-colors cursor-pointer text-start block"
                 >
-                  {currentLang === "en" ? "Examples" : "أمثلة"}
+                  {currentLang === "en" ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي"}
                 </a>
               </li>
               <li>

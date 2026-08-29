@@ -51,8 +51,11 @@ export const loryfyConfig = {
     x: "",
   },
 
-  // Analytics & Tracking (Configurable GA4 ID, left blank until official production measurement ID is provided)
-  ga4Id: "",
+  // Analytics & Tracking (Configurable GA4 Property ID)
+  ga4Id: "G-XXXXXXXXXX",
+  analytics: {
+    gaId: "G-XXXXXXXXXX",
+  },
 };
 
 /**

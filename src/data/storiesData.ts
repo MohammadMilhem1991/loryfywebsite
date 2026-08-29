@@ -56,7 +56,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What other partnership options exist beyond funding?",
           content:
-            "Contributing capital is only one way to take part. Some people join a business for its experience or hands-on management instead of money, as a [strategic or operating partner](/en/stories/retiree-experience-strategic-partner-uae). If that sounds more like you — for example if you have industry experience and time rather than spare capital — the path is a little different.",
+            "Contributing capital is only one way to take part. Some people join a business for its experience or hands-on management instead of money, as a [strategic or operating partner](/en/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae). If that sounds more like you — for example if you have industry experience and time rather than spare capital — the path is a little different.",
         },
       ],
       faqItems: [
@@ -110,7 +110,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What other ways can an experienced professional take part in a business?",
           content:
-            "If you also have capital you'd like to put to work, some owners look for a [funding partner](/en/stories/second-income-funding-partner-uae) rather than hands-on help — a different kind of arrangement worth exploring too.",
+            "If you also have capital you'd like to put to work, some owners look for a [funding partner](/en/real-examples-of-using-loryfy/second-income-funding-partner-uae) rather than hands-on help — a different kind of arrangement worth exploring too.",
         },
       ],
       faqItems: [
@@ -164,7 +164,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you prefer to contribute expertise or operational roles rather than just capital?",
           content:
-            "Some people prefer to bring experience or a hands-on role rather than only capital, joining as a [strategic or operating partner](/en/stories/retiree-experience-strategic-partner-uae). If that fits you better, there's a path for that too.",
+            "Some people prefer to bring experience or a hands-on role rather than only capital, joining as a [strategic or operating partner](/en/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae). If that fits you better, there's a path for that too.",
         },
       ],
       faqItems: [
@@ -218,7 +218,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What opportunities exist if you also have capital to invest alongside your skills?",
           content:
-            "If you have some savings to contribute alongside your skill, you might also explore opportunities seeking a [funding partner](/en/stories/second-income-funding-partner-uae) — combining both can open more doors.",
+            "If you have some savings to contribute alongside your skill, you might also explore opportunities seeking a [funding partner](/en/real-examples-of-using-loryfy/second-income-funding-partner-uae) — combining both can open more doors.",
         },
       ],
       faqItems: [
@@ -272,7 +272,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you are thinking of selling your business instead of expanding?",
           content:
-            "Some owners decide the right next step is to [sell their business](/en/stories/sell-running-business-owner-exit-uae) rather than grow. If that's you, there's a straightforward way to list your business for sale too.",
+            "Some owners decide the right next step is to [sell their business](/en/real-examples-of-using-loryfy/sell-running-business-owner-exit-uae) rather than grow. If that's you, there's a straightforward way to list your business for sale too.",
         },
       ],
       faqItems: [
@@ -326,7 +326,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you need hands-on experience and guidance more than money?",
           content:
-            "Some founders need guidance and hands-on experience more than cash — an experienced [strategic or operating partner](/en/stories/retiree-experience-strategic-partner-uae) can be just as valuable as funding.",
+            "Some founders need guidance and hands-on experience more than cash — an experienced [strategic or operating partner](/en/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae) can be just as valuable as funding.",
         },
       ],
       faqItems: [
@@ -380,7 +380,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "Are you weighing whether to sell outright or bring in a partner to grow?",
           content:
-            "Some owners find that [bringing in a partner to grow the business](/en/stories/grow-small-business-find-partner-uae) is a better path than selling outright — worth weighing before you decide.",
+            "Some owners find that [bringing in a partner to grow the business](/en/real-examples-of-using-loryfy/grow-small-business-find-partner-uae) is a better path than selling outright — worth weighing before you decide.",
         },
       ],
       faqItems: [
@@ -434,7 +434,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if your business requires growth capital alongside operational support?",
           content:
-            "If growth also requires investment, some owners look for a [funding partner](/en/stories/second-income-funding-partner-uae) alongside or instead of an operating one.",
+            "If growth also requires investment, some owners look for a [funding partner](/en/real-examples-of-using-loryfy/second-income-funding-partner-uae) alongside or instead of an operating one.",
         },
       ],
       faqItems: [
@@ -488,7 +488,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if your company needs market expertise and access alongside capital?",
           content:
-            "Some companies want a partner who brings market access or industry expertise alongside money — a [strategic partner for entering new markets](/en/stories/company-strategic-partner-new-market-uae) rather than a purely financial one.",
+            "Some companies want a partner who brings market access or industry expertise alongside money — a [strategic partner for entering new markets](/en/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae) rather than a purely financial one.",
         },
       ],
       faqItems: [
@@ -542,7 +542,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if your primary requirement is capital rather than connections?",
           content:
-            "If the bigger gap is funding rather than market access, seeking a [funding or equity partner for expansion](/en/stories/company-expansion-capital-partner-uae) may be the better route.",
+            "If the bigger gap is funding rather than market access, seeking a [funding or equity partner for expansion](/en/real-examples-of-using-loryfy/company-expansion-capital-partner-uae) may be the better route.",
         },
       ],
       faqItems: [
@@ -596,7 +596,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you are open to an acquisition or full backing instead of co-investing?",
           content:
-            "If you're open to a partner acquiring or fully backing the venture rather than co-investing, [investors seeking to acquire or back a business](/en/stories/investor-company-acquire-back-business-uae) may be the better match.",
+            "If you're open to a partner acquiring or fully backing the venture rather than co-investing, [investors seeking to acquire or back a business](/en/real-examples-of-using-loryfy/investor-company-acquire-back-business-uae) may be the better match.",
         },
       ],
       faqItems: [
@@ -650,7 +650,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if bringing in a strategic partner is a better option than a full sale?",
           content:
-            "Sometimes bringing in a [strategic partner](/en/stories/company-strategic-partner-new-market-uae) is a better option than a full divestment — worth weighing before deciding.",
+            "Sometimes bringing in a [strategic partner](/en/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae) is a better option than a full divestment — worth weighing before deciding.",
         },
       ],
       faqItems: [
@@ -704,7 +704,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you prefer partnering as an investor rather than buying the whole business?",
           content:
-            "If taking full ownership feels like too much, you could instead join a business as an [investor or partner](/en/stories/professional-savings-invest-business-uae) rather than buying it outright.",
+            "If taking full ownership feels like too much, you could instead join a business as an [investor or partner](/en/real-examples-of-using-loryfy/professional-savings-invest-business-uae) rather than buying it outright.",
         },
       ],
       faqItems: [
@@ -758,7 +758,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you are seeking a co-investment in a specific corporate venture?",
           content:
-            "Some opportunities are companies seeking a [co-investor for a specific new venture](/en/stories/company-new-venture-co-investor-uae) rather than a full acquisition — another route worth exploring.",
+            "Some opportunities are companies seeking a [co-investor for a specific new venture](/en/real-examples-of-using-loryfy/company-new-venture-co-investor-uae) rather than a full acquisition — another route worth exploring.",
         },
       ],
       faqItems: [
@@ -812,7 +812,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "What if you are seeking a full running business rather than just a trade license?",
           content:
-            "If you actually want an operating business rather than only a license, exploring [running businesses for sale](/en/stories/buy-running-business-uae) may suit you better.",
+            "If you actually want an operating business rather than only a license, exploring [running businesses for sale](/en/real-examples-of-using-loryfy/buy-running-business-uae) may suit you better.",
         },
       ],
       faqItems: [
@@ -860,7 +860,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "Have an idea of your own instead?",
-          content: "If you actually have your own concept and need someone to build it with or fund it, approaching it from the [founder's side](/en/stories/startup-founder-find-cofounder-funding-uae) may fit you better.",
+          content: "If you actually have your own concept and need someone to build it with or fund it, approaching it from the [founder's side](/en/real-examples-of-using-loryfy/startup-founder-find-cofounder-funding-uae) may fit you better.",
         },
       ],
       faqItems: [
@@ -905,7 +905,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "Looking for a specific skill to build it?",
-          content: "If what you mainly need is someone technical to actually build the product, seeking a [technical co-founder](/en/stories/technical-cofounder-join-startup-uae) may be the more direct path.",
+          content: "If what you mainly need is someone technical to actually build the product, seeking a [technical co-founder](/en/real-examples-of-using-loryfy/technical-cofounder-join-startup-uae) may be the more direct path.",
         },
       ],
       faqItems: [
@@ -950,7 +950,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "Want the whole business, not just the license?",
-          content: "If you'd rather take over an operation that's already running — with customers and revenue — [buying a running business](/en/stories/buy-running-business-uae) may suit you better than a license alone.",
+          content: "If you'd rather take over an operation that's already running — with customers and revenue — [buying a running business](/en/real-examples-of-using-loryfy/buy-running-business-uae) may suit you better than a license alone.",
         },
       ],
       faqItems: [
@@ -995,7 +995,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "Need a license with an established track record instead?",
-          content: "If the company's operating age and historical standing matter more than a narrow activity scope, explore [buying an established trade license](/en/stories/buy-established-trade-license-uae).",
+          content: "If the company's operating age and historical standing matter more than a narrow activity scope, explore [buying an established trade license](/en/real-examples-of-using-loryfy/buy-established-trade-license-uae).",
         },
       ],
       faqItems: [
@@ -1047,7 +1047,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ما هي خيارات الشراكة الأخرى المتاحة أبعد من التمويل؟",
           content:
-            "المساهمة برأس المال ليست إلا وسيلة واحدة للمشاركة. بعض الأشخاص ينضمّون إلى مشروع بخبرتهم أو بإدارتهم الفعلية بدلاً من المال، كـ[شريك استراتيجي أو تشغيلي](/ar/stories/retiree-experience-strategic-partner-uae). إن كان هذا أقرب إليك — كأن تملك خبرة في مجال ما ووقتاً بدلاً من رأس مال فائض — فالمسار يختلف قليلاً.",
+            "المساهمة برأس المال ليست إلا وسيلة واحدة للمشاركة. بعض الأشخاص ينضمّون إلى مشروع بخبرتهم أو بإدارتهم الفعلية بدلاً من المال، كـ[شريك استراتيجي أو تشغيلي](/ar/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae). إن كان هذا أقرب إليك — كأن تملك خبرة في مجال ما ووقتاً بدلاً من رأس مال فائض — فالمسار يختلف قليلاً.",
         },
       ],
       faqItems: [
@@ -1100,7 +1100,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ما هي الخيارات والمسارات الأخرى للمشاركة في المشاريع؟",
           content:
-            "إن كان لديك أيضاً رأس مال ترغب في تشغيله، فبعض أصحاب المشاريع يبحثون عن [شريك مموّل](/ar/stories/second-income-funding-partner-uae) بدلاً من المساعدة الفعلية — وهو ترتيب مختلف يستحقّ الاستكشاف كذلك.",
+            "إن كان لديك أيضاً رأس مال ترغب في تشغيله، فبعض أصحاب المشاريع يبحثون عن [شريك مموّل](/ar/real-examples-of-using-loryfy/second-income-funding-partner-uae) بدلاً من المساعدة الفعلية — وهو ترتيب مختلف يستحقّ الاستكشاف كذلك.",
         },
       ],
       faqItems: [
@@ -1153,7 +1153,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت تفضّل المساهمة بالخبرة والإدارة الفعلية بدلاً من رأس المال فقط؟",
           content:
-            "بعض الأشخاص يفضّلون تقديم خبرتهم أو دور فعلي بدلاً من رأس المال وحده، فينضمّون كـ[شريك استراتيجي أو تشغيلي](/ar/stories/retiree-experience-strategic-partner-uae). إن كان هذا أقرب إليك، فهناك مسار لذلك أيضاً.",
+            "بعض الأشخاص يفضّلون تقديم خبرتهم أو دور فعلي بدلاً من رأس المال وحده، فينضمّون كـ[شريك استراتيجي أو تشغيلي](/ar/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae). إن كان هذا أقرب إليك، فهناك مسار لذلك أيضاً.",
         },
       ],
       faqItems: [
@@ -1206,7 +1206,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان لديك رأس مال ترغب في المساهمة به إلى جانب مهاراتك؟",
           content:
-            "إن كان لديك بعض المدّخرات لتساهم بها إلى جانب مهارتك، فقد تستكشف أيضاً فرصاً تبحث عن [شريك مموّل](/ar/stories/second-income-funding-partner-uae) — والجمع بينهما قد يفتح أبواباً أكثر.",
+            "إن كان لديك بعض المدّخرات لتساهم بها إلى جانب مهارتك، فقد تستكشف أيضاً فرصاً تبحث عن [شريك مموّل](/ar/real-examples-of-using-loryfy/second-income-funding-partner-uae) — والجمع بينهما قد يفتح أبواباً أكثر.",
         },
       ],
       faqItems: [
@@ -1259,7 +1259,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت تفكّر في بيع مشروعك بدلاً من التوسّع؟",
           content:
-            "بعض أصحاب المشاريع يرون أن الخطوة الأنسب هي [بيع مشروعهم القائم](/ar/stories/sell-running-business-owner-exit-uae) لا النمو. إن كان هذا حالك، فهناك طريقة بسيطة لعرض مشروعك للبيع أيضاً.",
+            "بعض أصحاب المشاريع يرون أن الخطوة الأنسب هي [بيع مشروعهم القائم](/ar/real-examples-of-using-loryfy/sell-running-business-owner-exit-uae) لا النمو. إن كان هذا حالك، فهناك طريقة بسيطة لعرض مشروعك للبيع أيضاً.",
         },
       ],
       faqItems: [
@@ -1312,7 +1312,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان مشروعك الناشئ يحتاج إلى توجيه وخبرة فعلية أكثر من المال؟",
           content:
-            "بعض أصحاب الأفكار يحتاجون إلى التوجيه والخبرة الفعلية أكثر من المال — وقد يكون [الشريك الاستراتيجي أو التشغيلي](/ar/stories/retiree-experience-strategic-partner-uae) صاحب الخبرة لا يقلّ قيمة عن التمويل.",
+            "بعض أصحاب الأفكار يحتاجون إلى التوجيه والخبرة الفعلية أكثر من المال — وقد يكون [الشريك الاستراتيجي أو التشغيلي](/ar/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae) صاحب الخبرة لا يقلّ قيمة عن التمويل.",
         },
       ],
       faqItems: [
@@ -1365,7 +1365,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت غير متأكّد بين البيع أو إدخال شريك للنمو؟",
           content:
-            "بعض أصحاب المشاريع يجدون أن [إدخال شريك لتنمية المشروع](/ar/stories/grow-small-business-find-partner-uae) خيار أفضل من البيع الكامل — وهو أمر يستحقّ الموازنة قبل أن تقرّر.",
+            "بعض أصحاب المشاريع يجدون أن [إدخال شريك لتنمية المشروع](/ar/real-examples-of-using-loryfy/grow-small-business-find-partner-uae) خيار أفضل من البيع الكامل — وهو أمر يستحقّ الموازنة قبل أن تقرّر.",
         },
       ],
       faqItems: [
@@ -1418,7 +1418,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان مشروعك يحتاج إلى رأس مال للنمو أيضاً؟",
           content:
-            "إن كان النمو يتطلّب أيضاً استثماراً، فبعض أصحاب المشاريع يبحثون عن [شريك مموّل](/ar/stories/second-income-funding-partner-uae) إلى جانب الشريك التشغيلي أو بدلاً منه.",
+            "إن كان النمو يتطلّب أيضاً استثماراً، فبعض أصحاب المشاريع يبحثون عن [شريك مموّل](/ar/real-examples-of-using-loryfy/second-income-funding-partner-uae) إلى جانب الشريك التشغيلي أو بدلاً منه.",
         },
       ],
       faqItems: [
@@ -1471,7 +1471,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كانت شركتك تبحث عن خبرة ومنافذ سوقية إلى جانب رأس المال؟",
           content:
-            "بعض الشركات تريد شريكاً يجلب منافذ سوق أو خبرة في المجال إلى جانب المال — [شريكاً استراتيجياً لدخول أسواق جديدة](/ar/stories/company-strategic-partner-new-market-uae) لا مالياً بحتاً.",
+            "بعض الشركات تريد شريكاً يجلب منافذ سوق أو خبرة في المجال إلى جانب المال — [شريكاً استراتيجياً لدخول أسواق جديدة](/ar/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae) لا مالياً بحتاً.",
         },
       ],
       faqItems: [
@@ -1524,7 +1524,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان احتياج شركتك الأساسي هو رأس المال لا العلاقات؟",
           content:
-            "إن كانت الفجوة الأكبر في التمويل لا في منافذ السوق، فقد يكون البحث عن [شريك مموّل أو شريك حصص للتوسّع](/ar/stories/company-expansion-capital-partner-uae) الطريق الأنسب.",
+            "إن كانت الفجوة الأكبر في التمويل لا في منافذ السوق، فقد يكون البحث عن [شريك مموّل أو شريك حصص للتوسّع](/ar/real-examples-of-using-loryfy/company-expansion-capital-partner-uae) الطريق الأنسب.",
         },
       ],
       faqItems: [
@@ -1577,7 +1577,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان مشروعك مهيأً للاستحواذ أو الدعم الكامل بدلاً من الاستثمار المشترك؟",
           content:
-            "إن كنت منفتحاً على شريك يستحوذ على المشروع أو يدعمه بالكامل بدلاً من الاستثمار المشترك، فقد يكون [المستثمرون الباحثون عن الاستحواذ أو دعم مشروع](/ar/stories/investor-company-acquire-back-business-uae) الخيار الأنسب.",
+            "إن كنت منفتحاً على شريك يستحوذ على المشروع أو يدعمه بالكامل بدلاً من الاستثمار المشترك، فقد يكون [المستثمرون الباحثون عن الاستحواذ أو دعم مشروع](/ar/real-examples-of-using-loryfy/investor-company-acquire-back-business-uae) الخيار الأنسب.",
         },
       ],
       faqItems: [
@@ -1630,7 +1630,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كان إدخال شريك استراتيجي خياراً أفضل من التخارج الكامل؟",
           content:
-            "أحياناً يكون إدخال [شريك استراتيجي](/ar/stories/company-strategic-partner-new-market-uae) خياراً أفضل من التخارج الكامل — وهو أمر يستحقّ الموازنة قبل القرار.",
+            "أحياناً يكون إدخال [شريك استراتيجي](/ar/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae) خياراً أفضل من التخارج الكامل — وهو أمر يستحقّ الموازنة قبل القرار.",
         },
       ],
       faqItems: [
@@ -1683,7 +1683,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت تفضّل الشراكة والاستثمار بدلاً من الشراء الكامل للمشروع؟",
           content:
-            "إن بدا امتلاك المشروع بالكامل أكثر من اللازم، فيمكنك بدلاً من ذلك الانضمام إلى مشروع كـ[مستثمر أو شريك](/ar/stories/professional-savings-invest-business-uae) بدلاً من شرائه بالكامل.",
+            "إن بدا امتلاك المشروع بالكامل أكثر من اللازم، فيمكنك بدلاً من ذلك الانضمام إلى مشروع كـ[مستثمر أو شريك](/ar/real-examples-of-using-loryfy/professional-savings-invest-business-uae) بدلاً من شرائه بالكامل.",
         },
       ],
       faqItems: [
@@ -1736,7 +1736,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت تستكشف الاستثمار المشترك في مشروع جديد محدّد؟",
           content:
-            "بعض الفرص شركات تبحث عن [مستثمر مشارك لمشروع جديد محدّد](/ar/stories/company-new-venture-co-investor-uae) بدلاً من الاستحواذ الكامل — وهو مسار آخر يستحقّ الاستكشاف.",
+            "بعض الفرص شركات تبحث عن [مستثمر مشارك لمشروع جديد محدّد](/ar/real-examples-of-using-loryfy/company-new-venture-co-investor-uae) بدلاً من الاستحواذ الكامل — وهو مسار آخر يستحقّ الاستكشاف.",
         },
       ],
       faqItems: [
@@ -1789,7 +1789,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         {
           heading: "ماذا لو كنت تبحث عن نشاط قائم بالكامل لا مجرد رخصة تجارية؟",
           content:
-            "إن كنت تريد فعلاً مشروعاً عاملاً لا رخصة فحسب، فقد يناسبك أكثر استكشاف [المشاريع القائمة للبيع](/ar/stories/buy-running-business-uae).",
+            "إن كنت تريد فعلاً مشروعاً عاملاً لا رخصة فحسب، فقد يناسبك أكثر استكشاف [المشاريع القائمة للبيع](/ar/real-examples-of-using-loryfy/buy-running-business-uae).",
         },
       ],
       faqItems: [
@@ -1837,7 +1837,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "لديك فكرتك الخاصة بدلاً من ذلك؟",
-          content: "إن كانت لديك فعلاً فكرتك الخاصة وتحتاج من يبنيها معك أو يموّلها، فقد يناسبك أكثر الدخول من [جهة المؤسّس](/ar/stories/startup-founder-find-cofounder-funding-uae).",
+          content: "إن كانت لديك فعلاً فكرتك الخاصة وتحتاج من يبنيها معك أو يموّلها، فقد يناسبك أكثر الدخول من [جهة المؤسّس](/ar/real-examples-of-using-loryfy/startup-founder-find-cofounder-funding-uae).",
         },
       ],
       faqItems: [
@@ -1882,7 +1882,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "تبحث عن مهارة محدّدة لبنائها؟" ,
-          content: "إن كان ما تحتاجه أساساً شخصاً تقنياً يبني المنتج فعلاً، فقد يكون البحث عن [شريك مؤسّس تقني](/ar/stories/technical-cofounder-join-startup-uae) الطريق الأكثر مباشرة.",
+          content: "إن كان ما تحتاجه أساساً شخصاً تقنياً يبني المنتج فعلاً، فقد يكون البحث عن [شريك مؤسّس تقني](/ar/real-examples-of-using-loryfy/technical-cofounder-join-startup-uae) الطريق الأكثر مباشرة.",
         },
       ],
       faqItems: [
@@ -1927,7 +1927,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "تريد النشاط بالكامل لا الرخصة وحدها؟",
-          content: "إن كنت تفضّل تولّي نشاط عامل بالفعل — بعملاء وإيرادات — فقد يناسبك [شراء مشروع قائم](/ar/stories/buy-running-business-uae) أكثر من مجرد رخصة.",
+          content: "إن كنت تفضّل تولّي نشاط عامل بالفعل — بعملاء وإيرادات — فقد يناسبك [شراء مشروع قائم](/ar/real-examples-of-using-loryfy/buy-running-business-uae) أكثر من مجرد رخصة.",
         },
       ],
       faqItems: [
@@ -1972,7 +1972,7 @@ export const storiesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
         },
         {
           heading: "تحتاج إلى رخصة ذات سجل تشغيلي طويل؟",
-          content: "إن كان عمر الشركة وتاريخها المؤسسي أكثر أهمية لخطتك من مجرد تحديد النشاط، فقد يناسبك أكثر استكشاف [شراء رخصة تجارية قائمة](/ar/stories/buy-established-trade-license-uae).",
+          content: "إن كان عمر الشركة وتاريخها المؤسسي أكثر أهمية لخطتك من مجرد تحديد النشاط، فقد يناسبك أكثر استكشاف [شراء رخصة تجارية قائمة](/ar/real-examples-of-using-loryfy/buy-established-trade-license-uae).",
         },
       ],
       faqItems: [

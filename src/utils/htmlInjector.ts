@@ -48,10 +48,16 @@ export function injectSeoIntoHtml(
     .replace(/<meta\s+property=["']og:[^"']*["'][^>]*>/gi, "")
     .replace(/<link\s+rel=["']canonical["'][^>]*>/gi, "")
     .replace(/<link\s+rel=["']alternate["'][^>]*>/gi, "")
+    .replace(/<link\s+rel=["']preload["'][^>]*as=["']image["'][^>]*>/gi, "")
     .replace(/<script\s+type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "");
 
   // 3. Build replacement SEO tags for <head>
   const headTags: string[] = [];
+
+  // Hero image preload hint (language-aware, high priority)
+  const heroImageSrc = lang === "ar" ? "/images/home-screen-AR.webp" : "/images/home-screen.webp";
+  const heroImageUrl = toAbsoluteUrl(heroImageSrc);
+  headTags.push(`<link rel="preload" as="image" href="${escapeHtml(heroImageUrl)}" fetchpriority="high" />`);
 
   headTags.push(`<title>${escapeHtml(seoData.title)}</title>`);
   headTags.push(`<meta name="description" content="${escapeHtml(seoData.metaDescription)}" />`);

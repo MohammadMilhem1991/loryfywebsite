@@ -119,25 +119,25 @@ function buildSitemapXml(): string {
   xml += `
 
   <!-- ========================================== -->
-  <!-- 4. STORIES & REAL-WORLD SCENARIOS          -->
+  <!-- 4. REAL EXAMPLES OF USING LORYFY           -->
   <!-- ========================================== -->`;
 
   for (const slug of storySlugs) {
     xml += `
   <url>
-    <loc>${loryfyConfig.siteUrl}/en/stories/${slug}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
-    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/stories/${slug}" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
+    <loc>${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}" />
+    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/real-examples-of-using-loryfy/${slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}" />
     <lastmod>${buildDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${loryfyConfig.siteUrl}/ar/stories/${slug}</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/stories/${slug}" />
-    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/stories/${slug}" />
+    <loc>${loryfyConfig.siteUrl}/ar/real-examples-of-using-loryfy/${slug}</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="${loryfyConfig.siteUrl}/ar/real-examples-of-using-loryfy/${slug}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}" />
     <lastmod>${buildDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

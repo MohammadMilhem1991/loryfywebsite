@@ -13,7 +13,7 @@ import { Language, PageRoute } from "../types";
 import { translations } from "../data/translations";
 import { trackEvent } from "../utils/analytics";
 import { WalletCards, Award, UserCheck, Building2, ArrowRight, ArrowLeft } from "lucide-react";
-import { FadeInUp, StaggerContainer, StaggerItem, AnimatedCardBox } from "./ScrollAnimations";
+import { FadeInUp, StaggerContainer, StaggerItem } from "./ScrollAnimations";
 
 interface PartnerTypesProps {
   currentLang: Language;
@@ -82,15 +82,14 @@ export const PartnerTypes: React.FC<PartnerTypesProps> = ({ currentLang, onNavig
         </FadeInUp>
 
         {/* 4 Balanced Cards Grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-6 sm:mb-8 items-stretch" staggerDelay={0.2}>
-          {partnerCards.map((item, idx) => {
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-6 sm:mb-8 items-stretch" staggerDelay={0.09}>
+          {partnerCards.map((item) => {
             const Icon = item.icon;
             return (
               <StaggerItem
                 key={item.id}
                 id={`partner-card-${item.id}`}
                 className="bg-[#F5F8FF]/70 hover:bg-white rounded-2xl p-5 sm:p-6 border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 shadow-xs hover:shadow-[0_10px_25px_rgba(23,179,205,0.12)] transition-all duration-300 flex flex-col justify-start group"
-                index={idx}
               >
                 <div className="flex items-start gap-3 mb-3.5">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${item.iconBg} shadow-2xs group-hover:scale-105 transition-transform mt-0.5`}>

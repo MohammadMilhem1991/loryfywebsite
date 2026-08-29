@@ -33,22 +33,24 @@ export const RegistrationBanner: React.FC<RegistrationBannerProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Text & Bullets */}
-            <FadeInUp className="lg:col-span-6 space-y-4 text-start">
-              <h2
-                id="registration-heading"
-                className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight"
-              >
-                {t.registration.heading}
-              </h2>
+            <div className="lg:col-span-6 space-y-4 text-start">
+              <FadeInUp>
+                <h2
+                  id="registration-heading"
+                  className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight"
+                >
+                  {t.registration.heading}
+                </h2>
 
-              <p
-                id="registration-description"
-                className="text-sm sm:text-base text-[#475467] leading-relaxed max-w-xl"
-              >
-                {t.registration.description}
-              </p>
+                <p
+                  id="registration-description"
+                  className="text-sm sm:text-base text-[#475467] leading-relaxed max-w-xl mt-3"
+                >
+                  {t.registration.description}
+                </p>
+              </FadeInUp>
 
-              <StaggerContainer className="pt-2 space-y-2.5 text-sm sm:text-base text-[#101828] font-medium">
+              <StaggerContainer className="pt-2 space-y-2.5 text-sm sm:text-base text-[#101828] font-medium" staggerDelay={0.08}>
                 <StaggerItem className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#0F58D5] text-white flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
@@ -82,7 +84,7 @@ export const RegistrationBanner: React.FC<RegistrationBannerProps> = ({
                   <ArrowIcon className="w-4.5 h-4.5" />
                 </motion.button>
               </div>
-            </FadeInUp>
+            </div>
 
             {/* Actual Mobile App Signup Frame Image */}
             <div className="lg:col-span-6 flex items-center justify-center w-full">

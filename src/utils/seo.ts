@@ -294,9 +294,9 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
   if (page === "story-detail" && slug) {
     const story = storiesData[lang]?.[slug];
     if (story) {
-      const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/stories/${slug}`;
-      const enUrl = `${loryfyConfig.siteUrl}/en/stories/${slug}`;
-      const arUrl = `${loryfyConfig.siteUrl}/ar/stories/${slug}`;
+      const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/real-examples-of-using-loryfy/${slug}`;
+      const enUrl = `${loryfyConfig.siteUrl}/en/real-examples-of-using-loryfy/${slug}`;
+      const arUrl = `${loryfyConfig.siteUrl}/ar/real-examples-of-using-loryfy/${slug}`;
 
       const faqs: FaqItem[] = story.faqItems.map((faq, idx) => ({
         id: `story-faq-${idx}`,
@@ -321,7 +321,7 @@ export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): 
         faqs: faqs.length > 0 ? faqs : null,
         breadcrumbs: [
           { name: isEn ? "Home" : "الرئيسية", url: `${loryfyConfig.siteUrl}/${lang}/` },
-          { name: isEn ? "Examples" : "أمثلة", url: `${loryfyConfig.siteUrl}/${lang}/stories` },
+          { name: isEn ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي", url: `${loryfyConfig.siteUrl}/${lang}/real-examples-of-using-loryfy` },
           { name: story.h1, url: canonicalUrl },
         ],
       };
@@ -527,13 +527,13 @@ function getParentCategoryForEmirateSlug(slug: string, lang: Language): { name: 
       ? "Official privacy policy and personal data protection practices for Loryfy users in the UAE."
       : "سياسة الخصوصية الرسمية ومعايير حماية البيانات الشخصية لمستخدمي تطبيق ومنصة لوريفاي.";
     faqs = null;
-  } else if (page === "stories") {
+  } else if (page === "stories" || page === "real-examples-of-using-loryfy") {
     title = isEn
-      ? "Real-World Business Stories & Case Studies | Loryfy"
-      : "قصص وتجارب الأعمال الواقعية | لوريفاي";
+      ? "Real Examples of Using Loryfy | Case Studies & Opportunities"
+      : "أمثلة واقعية لاستخدام لوريفاي | قصص وتجارب حقيقية";
     metaDescription = isEn
-      ? "Explore real-world stories on partnering, investing, buying, and selling businesses or trade licenses in the UAE on Loryfy."
-      : "استكشف قصصاً وتجارب واقعية للشراكة والاستثمار والبيع والشراء في المشاريع القائمة والرخص التجارية في الإمارات عبر لوريفاي.";
+      ? "Explore real-world examples and stories on partnering, investing, buying, and selling businesses or trade licenses in the UAE on Loryfy."
+      : "استكشف أمثلة وتجارب واقعية للشراكة والاستثمار والبيع والشراء في المشاريع القائمة والرخص التجارية في الإمارات عبر لوريفاي.";
     faqs = null;
   } else if (page === "sitemap") {
     title = isEn ? "HTML Sitemap | Loryfy" : "خريطة الموقع | لوريفاي";
@@ -558,15 +558,19 @@ function getParentCategoryForEmirateSlug(slug: string, lang: Language): { name: 
     faqs = null;
   }
 
-  const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/${page}`;
-  const enUrl = `${loryfyConfig.siteUrl}/en/${page}`;
-  const arUrl = `${loryfyConfig.siteUrl}/ar/${page}`;
+  const canonicalPagePath = (page === "stories" || page === "real-examples-of-using-loryfy")
+    ? "real-examples-of-using-loryfy"
+    : page;
+
+  const canonicalUrl = `${loryfyConfig.siteUrl}/${lang}/${canonicalPagePath}`;
+  const enUrl = `${loryfyConfig.siteUrl}/en/${canonicalPagePath}`;
+  const arUrl = `${loryfyConfig.siteUrl}/ar/${canonicalPagePath}`;
 
   let itemList: { name: string; url: string }[] | null = null;
-  if (page === "stories") {
+  if (page === "stories" || page === "real-examples-of-using-loryfy") {
     itemList = storySlugs.map((slug) => ({
       name: storiesData[lang]?.[slug]?.h1 || slug,
-      url: `${loryfyConfig.siteUrl}/${lang}/stories/${slug}`,
+      url: `${loryfyConfig.siteUrl}/${lang}/real-examples-of-using-loryfy/${slug}`,
     }));
   }
 
@@ -587,7 +591,9 @@ function getParentCategoryForEmirateSlug(slug: string, lang: Language): { name: 
     breadcrumbs: [
       { name: isEn ? "Home" : "الرئيسية", url: `${loryfyConfig.siteUrl}/${lang}/` },
       {
-        name: page === "stories" ? (isEn ? "Examples" : "أمثلة") : title.split("|")[0].trim(),
+        name: (page === "stories" || page === "real-examples-of-using-loryfy")
+          ? (isEn ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي")
+          : title.split("|")[0].trim(),
         url: canonicalUrl,
       },
     ],

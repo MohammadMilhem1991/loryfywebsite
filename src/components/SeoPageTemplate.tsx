@@ -131,10 +131,10 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
           <ChevronBreadcrumb className="w-3.5 h-3.5 text-slate-300 shrink-0 rtl:rotate-180" />
           {isStory ? (
             <button
-              onClick={() => onNavigate("stories", slug)}
+              onClick={() => onNavigate("real-examples-of-using-loryfy", slug)}
               className="hover:text-[#0F58D5] hover:underline transition-colors cursor-pointer font-medium"
             >
-              {currentLang === "en" ? "Examples" : "أمثلة"}
+              {currentLang === "en" ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي"}
             </button>
           ) : (
             <button
@@ -241,7 +241,7 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
                 </h3>
               </div>
               <button
-                onClick={() => onNavigate("stories")}
+                onClick={() => onNavigate("real-examples-of-using-loryfy")}
                 className="text-xs sm:text-sm font-bold text-[#0F58D5] hover:underline flex items-center gap-1 cursor-pointer"
               >
                 <span>{currentLang === "en" ? "View all examples" : "عرض كافة الأمثلة"}</span>

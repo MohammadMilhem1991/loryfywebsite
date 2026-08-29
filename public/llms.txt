@@ -32,51 +32,51 @@ Loryfy provides equal-priority discovery and bilingual interfaces in both Englis
 - [Frequently Asked Questions (Arabic)](https://loryfy.com/ar/faq): الأسئلة الشائعة حول استخدام منصة لوريفاي.
 - [About Loryfy (English)](https://loryfy.com/en/about): Background, mission, and company overview of Loryfy.
 - [About Loryfy (Arabic)](https://loryfy.com/ar/about): نبذة عن منصة ورؤية لوريفاي.
-- [Stories & Examples Hub (English)](https://loryfy.com/en/stories): Index of real-world business partnership and investment scenarios.
-- [Stories & Examples Hub (Arabic)](https://loryfy.com/ar/stories): دليل القصص والتجارب الواقعية في الشراكة والاستثمار.
+- [Real Examples of Using Loryfy (English)](https://loryfy.com/en/real-examples-of-using-loryfy): Index of real-world business partnership and investment scenarios.
+- [Real Examples of Using Loryfy (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy): دليل القصص والتجارب الواقعية في الشراكة والاستثمار.
 - [Download Loryfy App (English)](https://loryfy.com/en/download): Get the Loryfy mobile application for iOS and Android.
 - [Download Loryfy App (Arabic)](https://loryfy.com/ar/download): تحميل تطبيق لوريفاي للهواتف الذكية.
 
-## Stories
+## Real Examples of Using Loryfy
 
-- [Building a Second Income as a Funding Partner (English)](https://loryfy.com/en/stories/second-income-funding-partner-uae): Real-world scenario on generating passive or active secondary income as an investor.
-- [Putting Experience to Work After Retirement (English)](https://loryfy.com/en/stories/retiree-experience-strategic-partner-uae): Case study on joining a business as an experienced strategic advisor or partner.
-- [Putting Your Savings to Work in a Real Business (English)](https://loryfy.com/en/stories/professional-savings-invest-business-uae): Guide for working professionals deploying savings into established businesses.
-- [Trading Skill for a Stake as a Working Partner (English)](https://loryfy.com/en/stories/skill-for-equity-working-partner-uae): Scenario on offering specialized management skills in exchange for equity.
-- [Finding a Partner to Grow Your Small Business (English)](https://loryfy.com/en/stories/grow-small-business-find-partner-uae): Case study on expanding an existing SME with a strategic co-owner.
-- [Finding a Co-Founder or Funding for Your Startup (English)](https://loryfy.com/en/stories/startup-founder-find-cofounder-funding-uae): Guide for entrepreneurs securing co-founders or angel investment.
-- [Selling Your Running Business the Right Way (English)](https://loryfy.com/en/stories/sell-running-business-owner-exit-uae): Scenario on exiting an operating business smoothly through direct buyer matching.
-- [Finding an Operating Partner to Share the Load (English)](https://loryfy.com/en/stories/business-owner-operating-partner-uae): How busy business owners recruit reliable operating partners.
-- [Raising Expansion Capital Through the Right Partner (English)](https://loryfy.com/en/stories/company-expansion-capital-partner-uae): Case study on securing capital for company branch expansion.
-- [Finding a Strategic Partner for a New Market (English)](https://loryfy.com/en/stories/company-strategic-partner-new-market-uae): Entering new regional markets through strategic local partnerships.
-- [Finding a Co-Investor for a New Venture (English)](https://loryfy.com/en/stories/company-new-venture-co-investor-uae): Case study on syndicating investment for new UAE commercial ventures.
-- [Selling or Divesting a Business Unit (English)](https://loryfy.com/en/stories/company-sell-divest-subsidiary-uae): Guide for corporate entities divesting non-core subsidiaries.
-- [Buying a Running Business Instead of Starting from Scratch (English)](https://loryfy.com/en/stories/buy-running-business-uae): Advantages of acquiring an active business with immediate cash flow.
-- [Finding Businesses to Acquire or Back (English)](https://loryfy.com/en/stories/investor-company-acquire-back-business-uae): Portfolio expansion strategy for corporate and angel investors.
-- [Selling, Transferring, or Finding a Trade License (English)](https://loryfy.com/en/stories/trade-license-for-sale-transfer-uae): Scenario on trading or acquiring active UAE commercial licenses.
-- [Joining a Startup as a Technical Co-Founder (English)](https://loryfy.com/en/stories/technical-cofounder-join-startup-uae): Connecting technical leaders with promising startup concepts.
-- [Finding a Partner to Test a Business Idea (English)](https://loryfy.com/en/stories/validate-business-idea-partner-uae): Testing market demand for new business ideas with early partners.
-- [Buying an Established Trade License Instead of Starting Fresh (English)](https://loryfy.com/en/stories/buy-established-trade-license-uae): Bypassing setup delay by acquiring active trade licenses.
-- [Buying a Focused or Limited Scope Trade License (English)](https://loryfy.com/en/stories/buy-limited-trade-license-uae): Case study on acquiring specialized commercial activity licenses.
-- [بناء دخل إضافي كشريك مموّل (Arabic)](https://loryfy.com/ar/stories/second-income-funding-partner-uae): قصة واقعية عن تحقيق دخل إضافي عبر الاستثمار كشريك مموّل.
-- [توظيف الخبرة بعد التقاعد (Arabic)](https://loryfy.com/ar/stories/retiree-experience-strategic-partner-uae): تجربة الانضمام لمشروع قائم كشريك استراتيجي بعد التقاعد.
-- [تشغيل مدّخراتك في مشروع حقيقي (Arabic)](https://loryfy.com/ar/stories/professional-savings-invest-business-uae): دليل استثمار المدخرات في مشاريع تجارية قائمة.
-- [مقايضة المهارة بحصة كشريك عامل (Arabic)](https://loryfy.com/ar/stories/skill-for-equity-working-partner-uae): الحصول على حصة في مشروع مقابل الخبرة والعمل الإداري.
-- [إيجاد شريك لتنمية مشروعك الصغير (Arabic)](https://loryfy.com/ar/stories/grow-small-business-find-partner-uae): كيفية إيجاد شريك لتوسيع نطاق الأعمال والمشاريع الصغيرة.
-- [إيجاد شريك مؤسّس أو تمويل لمشروعك الناشئ (Arabic)](https://loryfy.com/ar/stories/startup-founder-find-cofounder-funding-uae): العثور على شركاء مؤسسين وتمويل للأفكار الناشئة.
-- [بيع مشروعك القائم بالطريقة الصحيحة (Arabic)](https://loryfy.com/ar/stories/sell-running-business-owner-exit-uae): خطوات التخارج الناجح وبيع المشاريع القائمة.
-- [إيجاد شريك تشغيلي لتقاسم العبء (Arabic)](https://loryfy.com/ar/stories/business-owner-operating-partner-uae): استقطاب شريك تشغيلي لإدارة العمليات اليومية.
-- [جمع رأس مال التوسّع عبر الشريك المناسب (Arabic)](https://loryfy.com/ar/stories/company-expansion-capital-partner-uae): تمويل التوسع وفتح فروع جديدة عبر شريك مالك.
-- [إيجاد شريك استراتيجي لسوق جديدة (Arabic)](https://loryfy.com/ar/stories/company-strategic-partner-new-market-uae): التوسع في أسواق جديدة في الإمارات عبر الشراكات الاستراتيجية.
-- [إيجاد مستثمر مشارك لمشروع جديد (Arabic)](https://loryfy.com/ar/stories/company-new-venture-co-investor-uae): جذب مستثمرين مشاركين لإطلاق مشاريع جديدة.
-- [بيع وحدة أعمال أو التخارج منها (Arabic)](https://loryfy.com/ar/stories/company-sell-divest-subsidiary-uae): بيع الفروع أو الأنشطة الفرعية للشركات.
-- [شراء مشروع قائم بدلاً من البدء من الصفر (Arabic)](https://loryfy.com/ar/stories/buy-running-business-uae): مزايا الاستحواذ على مشروع يعمل ويدخل تدفقات نقدية.
-- [إيجاد مشاريع للاستحواذ أو الدعم (Arabic)](https://loryfy.com/ar/stories/investor-company-acquire-back-business-uae): دليل المستثمرين للاستحواذ على مشاريع ذات فرص نمو.
-- [بيع رخصة تجارية أو نقلها أو إيجادها (Arabic)](https://loryfy.com/ar/stories/trade-license-for-sale-transfer-uae): نقل ملكية الرخص التجارية في المناطق الحرة والمنطقة الرئيسية.
-- [الانضمام إلى مشروع ناشئ كشريك مؤسّس تقني (Arabic)](https://loryfy.com/ar/stories/technical-cofounder-join-startup-uae): انضمام الخبراء التقنيين كشركاء مؤسسين في الشركات الناشئة.
-- [إيجاد شريك لاختبار فكرة مشروع (Arabic)](https://loryfy.com/ar/stories/validate-business-idea-partner-uae): اختبار وتقييم أفكار المشاريع مع شركاء أولين.
-- [شراء رخصة تجارية قائمة بدلاً من البدء من جديد (Arabic)](https://loryfy.com/ar/stories/buy-established-trade-license-uae): توفير الوقت والتكاليف من خلال شراء رخصة قائمة.
-- [شراء رخصة تجارية محددة النشاط (Arabic)](https://loryfy.com/ar/stories/buy-limited-trade-license-uae): الحصول على رخص تجارية بأنشطة متخصصة.
+- [Building a Second Income as a Funding Partner (English)](https://loryfy.com/en/real-examples-of-using-loryfy/second-income-funding-partner-uae): Real-world scenario on generating passive or active secondary income as an investor.
+- [Putting Experience to Work After Retirement (English)](https://loryfy.com/en/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae): Case study on joining a business as an experienced strategic advisor or partner.
+- [Putting Your Savings to Work in a Real Business (English)](https://loryfy.com/en/real-examples-of-using-loryfy/professional-savings-invest-business-uae): Guide for working professionals deploying savings into established businesses.
+- [Trading Skill for a Stake as a Working Partner (English)](https://loryfy.com/en/real-examples-of-using-loryfy/skill-for-equity-working-partner-uae): Scenario on offering specialized management skills in exchange for equity.
+- [Finding a Partner to Grow Your Small Business (English)](https://loryfy.com/en/real-examples-of-using-loryfy/grow-small-business-find-partner-uae): Case study on expanding an existing SME with a strategic co-owner.
+- [Finding a Co-Founder or Funding for Your Startup (English)](https://loryfy.com/en/real-examples-of-using-loryfy/startup-founder-find-cofounder-funding-uae): Guide for entrepreneurs securing co-founders or angel investment.
+- [Selling Your Running Business the Right Way (English)](https://loryfy.com/en/real-examples-of-using-loryfy/sell-running-business-owner-exit-uae): Scenario on exiting an operating business smoothly through direct buyer matching.
+- [Finding an Operating Partner to Share the Load (English)](https://loryfy.com/en/real-examples-of-using-loryfy/business-owner-operating-partner-uae): How busy business owners recruit reliable operating partners.
+- [Raising Expansion Capital Through the Right Partner (English)](https://loryfy.com/en/real-examples-of-using-loryfy/company-expansion-capital-partner-uae): Case study on securing capital for company branch expansion.
+- [Finding a Strategic Partner for a New Market (English)](https://loryfy.com/en/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae): Entering new regional markets through strategic local partnerships.
+- [Finding a Co-Investor for a New Venture (English)](https://loryfy.com/en/real-examples-of-using-loryfy/company-new-venture-co-investor-uae): Case study on syndicating investment for new UAE commercial ventures.
+- [Selling or Divesting a Business Unit (English)](https://loryfy.com/en/real-examples-of-using-loryfy/company-sell-divest-subsidiary-uae): Guide for corporate entities divesting non-core subsidiaries.
+- [Buying a Running Business Instead of Starting from Scratch (English)](https://loryfy.com/en/real-examples-of-using-loryfy/buy-running-business-uae): Advantages of acquiring an active business with immediate cash flow.
+- [Finding Businesses to Acquire or Back (English)](https://loryfy.com/en/real-examples-of-using-loryfy/investor-company-acquire-back-business-uae): Portfolio expansion strategy for corporate and angel investors.
+- [Selling, Transferring, or Finding a Trade License (English)](https://loryfy.com/en/real-examples-of-using-loryfy/trade-license-for-sale-transfer-uae): Scenario on trading or acquiring active UAE commercial licenses.
+- [Joining a Startup as a Technical Co-Founder (English)](https://loryfy.com/en/real-examples-of-using-loryfy/technical-cofounder-join-startup-uae): Connecting technical leaders with promising startup concepts.
+- [Finding a Partner to Test a Business Idea (English)](https://loryfy.com/en/real-examples-of-using-loryfy/validate-business-idea-partner-uae): Testing market demand for new business ideas with early partners.
+- [Buying an Established Trade License Instead of Starting Fresh (English)](https://loryfy.com/en/real-examples-of-using-loryfy/buy-established-trade-license-uae): Bypassing setup delay by acquiring active trade licenses.
+- [Buying a Focused or Limited Scope Trade License (English)](https://loryfy.com/en/real-examples-of-using-loryfy/buy-limited-trade-license-uae): Case study on acquiring specialized commercial activity licenses.
+- [بناء دخل إضافي كشريك مموّل (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/second-income-funding-partner-uae): قصة واقعية عن تحقيق دخل إضافي عبر الاستثمار كشريك مموّل.
+- [توظيف الخبرة بعد التقاعد (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/retiree-experience-strategic-partner-uae): تجربة الانضمام لمشروع قائم كشريك استراتيجي بعد التقاعد.
+- [تشغيل مدّخراتك في مشروع حقيقي (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/professional-savings-invest-business-uae): دليل استثمار المدخرات في مشاريع تجارية قائمة.
+- [مقايضة المهارة بحصة كشريك عامل (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/skill-for-equity-working-partner-uae): الحصول على حصة في مشروع مقابل الخبرة والعمل الإداري.
+- [إيجاد شريك لتنمية مشروعك الصغير (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/grow-small-business-find-partner-uae): كيفية إيجاد شريك لتوسيع نطاق الأعمال والمشاريع الصغيرة.
+- [إيجاد شريك مؤسّس أو تمويل لمشروعك الناشئ (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/startup-founder-find-cofounder-funding-uae): العثور على شركاء مؤسسين وتمويل للأفكار الناشئة.
+- [بيع مشروعك القائم بالطريقة الصحيحة (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/sell-running-business-owner-exit-uae): خطوات التخارج الناجح وبيع المشاريع القائمة.
+- [إيجاد شريك تشغيلي لتقاسم العبء (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/business-owner-operating-partner-uae): استقطاب شريك تشغيلي لإدارة العمليات اليومية.
+- [جمع رأس مال التوسّع عبر الشريك المناسب (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/company-expansion-capital-partner-uae): تمويل التوسع وفتح فروع جديدة عبر شريك مالك.
+- [إيجاد شريك استراتيجي لسوق جديدة (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/company-strategic-partner-new-market-uae): التوسع في أسواق جديدة في الإمارات عبر الشراكات الاستراتيجية.
+- [إيجاد مستثمر مشارك لمشروع جديد (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/company-new-venture-co-investor-uae): جذب مستثمرين مشاركين لإطلاق مشاريع جديدة.
+- [بيع وحدة أعمال أو التخارج منها (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/company-sell-divest-subsidiary-uae): بيع الفروع أو الأنشطة الفرعية للشركات.
+- [شراء مشروع قائم بدلاً من البدء من الصفر (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/buy-running-business-uae): مزايا الاستحواذ على مشروع يعمل ويدخل تدفقات نقدية.
+- [إيجاد مشاريع للاستحواذ أو الدعم (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/investor-company-acquire-back-business-uae): دليل المستثمرين للاستحواذ على مشاريع ذات فرص نمو.
+- [بيع رخصة تجارية أو نقلها أو إيجادها (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/trade-license-for-sale-transfer-uae): نقل ملكية الرخص التجارية في المناطق الحرة والمنطقة الرئيسية.
+- [الانضمام إلى مشروع ناشئ كشريك مؤسّس تقني (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/technical-cofounder-join-startup-uae): انضمام الخبراء التقنيين كشركاء مؤسسين في الشركات الناشئة.
+- [إيجاد شريك لاختبار فكرة مشروع (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/validate-business-idea-partner-uae): اختبار وتقييم أفكار المشاريع مع شركاء أولين.
+- [شراء رخصة تجارية قائمة بدلاً من البدء من جديد (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/buy-established-trade-license-uae): توفير الوقت والتكاليف من خلال شراء رخصة قائمة.
+- [شراء رخصة تجارية محددة النشاط (Arabic)](https://loryfy.com/ar/real-examples-of-using-loryfy/buy-limited-trade-license-uae): الحصول على رخص تجارية بأنشطة متخصصة.
 
 ## Optional
 

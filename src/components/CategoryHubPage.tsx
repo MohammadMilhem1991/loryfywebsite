@@ -199,11 +199,11 @@ export const CategoryHubPage: React.FC<CategoryHubPageProps> = ({
         </FadeInUp>
 
         {/* 4 Cards Grid - Matches ForOwnersSection design */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6" staggerDelay={0.15}>
-          {cards.map((card, idx) => {
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6" staggerDelay={0.09}>
+          {cards.map((card) => {
             const Icon = card.icon;
             return (
-              <StaggerItem key={card.id} index={idx} className="h-full">
+              <StaggerItem key={card.id} className="h-full">
                 <div
                   id={card.id}
                   className="bg-[#F5F8FF]/70 hover:bg-white border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 py-4 px-6 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full group"

@@ -277,8 +277,11 @@ export const ContactPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
                       <div className="text-xs font-semibold text-[#475467]">
                         {currentLang === "en" ? "Official WhatsApp Support" : "دعم واتساب المباشر"}
                       </div>
-                      <div className="font-extrabold text-sm text-[#101828] dir-ltr text-start">
-                        {loryfyConfig.whatsapp.phoneNumber}
+                      <div
+                        dir="ltr"
+                        className="font-extrabold text-sm text-[#101828] [direction:ltr] [unicode-bidi:isolate] inline-block text-left"
+                      >
+                        <bdi dir="ltr">{loryfyConfig.whatsapp.phoneNumber}</bdi>
                       </div>
                     </div>
                   </div>
@@ -307,10 +310,11 @@ export const ContactPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
                     </div>
                     <a
                       href={`mailto:${loryfyConfig.email}`}
-                      className="font-bold text-sm text-[#0F58D5] hover:text-[#17B3CD] transition-colors"
+                      dir="ltr"
+                      className="font-bold text-sm text-[#0F58D5] hover:text-[#17B3CD] transition-colors [direction:ltr] [unicode-bidi:isolate] inline-block font-sans"
                       onClick={() => trackEvent("contact_click", { method: "contact_page_email" })}
                     >
-                      {loryfyConfig.email}
+                      <bdi dir="ltr">{loryfyConfig.email}</bdi>
                     </a>
                   </div>
                 </div>
@@ -1854,15 +1858,23 @@ export const SitemapPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
       ],
     },
     {
-      categoryEn: "Examples",
-      categoryAr: "أمثلة",
-      pages: storySlugs.map((slug) => ({
-        titleEn: storiesData.en[slug]?.h1 || slug,
-        titleAr: storiesData.ar[slug]?.h1 || slug,
-        route: "story-detail" as PageRoute,
-        slug,
-        path: `stories/${slug}`,
-      })),
+      categoryEn: "Real Examples of Using Loryfy",
+      categoryAr: "أمثلة واقعية لاستخدام لوريفاي",
+      pages: [
+        {
+          titleEn: "Real Examples Index",
+          titleAr: "فهرس الأمثلة الواقعية",
+          route: "real-examples-of-using-loryfy" as PageRoute,
+          path: "real-examples-of-using-loryfy",
+        },
+        ...storySlugs.map((slug) => ({
+          titleEn: storiesData.en[slug]?.h1 || slug,
+          titleAr: storiesData.ar[slug]?.h1 || slug,
+          route: "story-detail" as PageRoute,
+          slug,
+          path: `real-examples-of-using-loryfy/${slug}`,
+        })),
+      ],
     },
     {
       categoryEn: "Legal & Privacy",
@@ -2072,7 +2084,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
           </button>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300 rtl:rotate-180" />
           <span className="font-semibold text-[#101828]">
-            {isEn ? "Examples" : "أمثلة"}
+            {isEn ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي"}
           </span>
         </nav>
 
@@ -2085,7 +2097,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
             <div className="relative z-10 space-y-4 max-w-4xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs font-bold text-[#0F58D5]">
                 <BookOpen className="w-3.5 h-3.5 text-[#17B3CD]" />
-                <span>{isEn ? "Examples" : "أمثلة"}</span>
+                <span>{isEn ? "Real Examples of Using Loryfy" : "أمثلة واقعية لاستخدام لوريفاي"}</span>
               </div>
               <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
                 {isEn
@@ -2339,6 +2351,7 @@ Sitemap: https://loryfy.com/sitemap.xml`;
 - Find Partners & Investors: https://loryfy.com/en/find-partners-investors
 
 ## Information & Legal:
+- Real Examples of Using Loryfy: https://loryfy.com/en/real-examples-of-using-loryfy
 - About Loryfy: https://loryfy.com/en/about
 - How It Works: https://loryfy.com/en/how-it-works
 - FAQ: https://loryfy.com/en/faq

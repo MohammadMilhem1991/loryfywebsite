@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Language, PageRoute } from "../types";
 import { translations } from "../data/translations";
 import { trackEvent } from "../utils/analytics";
 import { Building2, Lightbulb, FileText, ArrowRight, ArrowLeft } from "lucide-react";
-import { FadeInUp } from "./ScrollAnimations";
-import { motion, useInView } from "motion/react";
+import { FadeInUp, StaggerContainer, StaggerItem } from "./ScrollAnimations";
 
 interface DiscoverOpportunitiesSectionProps {
   currentLang: Language;
@@ -18,10 +17,6 @@ export const DiscoverOpportunitiesSection: React.FC<DiscoverOpportunitiesSection
   const t = translations[currentLang];
   const isRtl = currentLang === "ar";
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
-
-  const firstBoxRef = useRef<HTMLDivElement>(null);
-  const isFirstVisible = useInView(firstBoxRef, { once: true, amount: 0.1 });
-  const isRestVisible = useInView(firstBoxRef, { once: true, amount: 0.4 });
 
   const categories = [
     {
@@ -99,30 +94,13 @@ export const DiscoverOpportunitiesSection: React.FC<DiscoverOpportunitiesSection
           </p>
         </FadeInUp>
 
-        {/* 3 Main Segment Cards Grid - Strict Order: Running Businesses, Startup Ideas, Trade Licenses */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 pt-2">
-          {categories.map((cat, idx) => {
+        {/* 3 Main Segment Cards Grid - Sequential Stagger */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 pt-2" staggerDelay={0.09}>
+          {categories.map((cat) => {
             const Icon = cat.icon;
-            const isFirst = idx === 0;
 
             return (
-              <motion.div
-                key={cat.id}
-                ref={isFirst ? firstBoxRef : undefined}
-                className="h-full"
-                initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                animate={
-                  isFirst
-                    ? (isFirstVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 })
-                    : (isRestVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.98 })
-                }
-                transition={{
-                  duration: 0.48,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: isFirst ? 0 : (idx - 1) * 0.1,
-                }}
-                whileTap={{ scale: 0.985 }}
-              >
+              <StaggerItem key={cat.id} className="h-full">
                 <div
                   id={`discover-category-card-${cat.id}`}
                   className="group relative bg-white hover:bg-[#F5F8FF]/20 rounded-2xl py-4 px-6 border border-slate-200/80 hover:border-[#17B3CD]/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
@@ -157,10 +135,10 @@ export const DiscoverOpportunitiesSection: React.FC<DiscoverOpportunitiesSection
                     <ArrowIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                   </button>
                 </div>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

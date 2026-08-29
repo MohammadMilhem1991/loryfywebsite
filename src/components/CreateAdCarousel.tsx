@@ -8,7 +8,6 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { Language } from "../types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getLocalizedImage } from "../utils/imageMap";
-import { motion } from "motion/react";
 
 export interface CarouselScreenItem {
   id: number;
@@ -142,10 +141,12 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const hasStartedRef = useRef<boolean>(false);
 
   // Reset current index when activeScreens change
   useEffect(() => {
     setCurrentIndex(activeScreens.length * 3);
+    hasStartedRef.current = false;
   }, [activeScreens]);
 
   // Measure container width with ResizeObserver for fluid responsiveness
@@ -210,7 +211,19 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
     }
   }, [isTransitioning]);
 
-  // Manual navigation only - auto-scrolling disabled for maximum performance and smooth user scrolling
+  // Smooth Auto-scrolling: Starts after precisely ~1.4s, and advances every 3.0s smoothly
+  useEffect(() => {
+    if (isHovered) return;
+
+    const delayMs = hasStartedRef.current ? 3000 : 1400;
+
+    const timer = setTimeout(() => {
+      hasStartedRef.current = true;
+      handleNext();
+    }, delayMs);
+
+    return () => clearTimeout(timer);
+  }, [isHovered, currentIndex, handleNext]);
 
   const activeDotIndex = ((currentIndex % baseCount) + baseCount) % baseCount;
 
@@ -264,22 +277,26 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
 
       {/* Navigation Arrows for Desktop */}
       <button
-        onClick={handlePrev}
-        className="absolute left-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+        onClick={() => {
+          handlePrev();
+        }}
+        className="absolute left-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
         aria-label={isRtl ? "الشاشة السابقة" : "Previous screen"}
       >
         <ChevronLeft className="w-4.5 h-4.5" />
       </button>
 
       <button
-        onClick={handleNext}
-        className="absolute right-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-sm z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+        onClick={() => {
+          handleNext();
+        }}
+        className="absolute right-2 top-[46%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/70 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
         aria-label={isRtl ? "الشاشة التالية" : "Next screen"}
       >
         <ChevronRight className="w-4.5 h-4.5" />
       </button>
 
-      {/* Infinite Animated Carousel Track */}
+      {/* Infinite Carousel Track */}
       <div className="relative w-full h-[440px] sm:h-[485px] flex items-center overflow-hidden pointer-events-none select-none">
         <div
           ref={trackRef}
@@ -287,7 +304,7 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
           style={{
             transform: `translateX(${translationValue}px)`,
             transition: isTransitioning
-              ? "transform 650ms cubic-bezier(0.25, 1, 0.5, 1)"
+              ? "transform 600ms cubic-bezier(0.25, 1, 0.5, 1)"
               : "none",
             gap: `${gap}px`,
           }}
@@ -299,10 +316,10 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
               <div
                 key={`${img.id}-${idx}`}
                 style={{ width: `${itemWidth}px` }}
-                className={`shrink-0 flex items-center justify-center transition-all duration-500 select-none pointer-events-none ${
+                className={`shrink-0 flex items-center justify-center select-none pointer-events-none transition-opacity duration-300 ${
                   isCentered
                     ? "opacity-100 scale-100 filter drop-shadow-[0_12px_32px_rgba(15,88,213,0.18)] z-10"
-                    : "opacity-50 scale-[0.92] filter blur-[0.2px]"
+                    : "opacity-55 scale-[0.93]"
                 }`}
               >
                 <img

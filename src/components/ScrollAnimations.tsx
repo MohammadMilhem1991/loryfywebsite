@@ -2,7 +2,6 @@ import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 // Global in-memory set tracking which pages and sub-pages have animated in the current browser session.
-// Automatically resets whenever the browser page/tab is refreshed or reloaded.
 const sessionVisitedPages = new Set<string>();
 
 export const hasPageAnimatedInSession = (pageKey: string): boolean => {
@@ -29,16 +28,16 @@ interface ScrollAnimationProps {
 }
 
 /**
- * FadeInUp: Scroll reveal with distinct fade + upward movement + subtle scale.
- * Optimized for mobile touchscreens with responsive viewport trigger margins.
+ * FadeInUp: Lightweight GPU-accelerated scroll reveal (fade + subtle upward movement).
+ * Runs once per element to minimize browser IntersectionObserver overhead.
  */
 export const FadeInUp: React.FC<ScrollAnimationProps> = ({
   children,
   className = "",
   delay = 0,
-  duration = 0.52,
+  duration = 0.36,
   id,
-  amount = 0.08,
+  amount = 0.1,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -50,10 +49,10 @@ export const FadeInUp: React.FC<ScrollAnimationProps> = ({
     <motion.div
       id={id}
       className={className}
-      initial={{ opacity: 0, y: 22, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount, margin: "0px 0px -20px 0px" }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount }}
+      transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -66,17 +65,15 @@ interface FadeInSlideProps extends ScrollAnimationProps {
 }
 
 /**
- * FadeInSlide: For app/phone visuals and feature images with soft fade + horizontal slide.
+ * FadeInSlide: Lightweight visual element reveal.
  */
 export const FadeInSlide: React.FC<FadeInSlideProps> = ({
   children,
   className = "",
   delay = 0,
-  duration = 0.52,
-  direction = "left",
-  isRtl = false,
+  duration = 0.36,
   id,
-  amount = 0.08,
+  amount = 0.1,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -88,10 +85,10 @@ export const FadeInSlide: React.FC<FadeInSlideProps> = ({
     <motion.div
       id={id}
       className={className}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount, margin: "0px 0px -20px 0px" }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount }}
+      transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -107,14 +104,15 @@ interface StaggerContainerProps {
 }
 
 /**
- * StaggerContainer: Wraps a group of cards to animate children with visible stagger.
+ * StaggerContainer: Uses a single container-level IntersectionObserver to sequence
+ * child items smoothly one after another without taxing the browser.
  */
 export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   children,
   className = "",
-  staggerDelay = 0.05,
+  staggerDelay = 0.09,
   id,
-  amount = 0.02,
+  amount = 0.08,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -128,7 +126,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
       opacity: 1,
       transition: {
         staggerChildren: staggerDelay,
-        delayChildren: 0.04,
+        delayChildren: 0.03,
       },
     },
   };
@@ -140,7 +138,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount, margin: "0px 0px -20px 0px" }}
+      viewport={{ once: true, amount }}
     >
       {children}
     </motion.div>
@@ -155,13 +153,13 @@ interface StaggerItemProps {
 }
 
 /**
- * StaggerItem: Individual card item inside StaggerContainer with visible upward motion and mobile tap feedback.
+ * StaggerItem: Individual card/step item inside StaggerContainer.
+ * Uses CSS transforms directly via variants for instant, silky 60fps presentation.
  */
 export const StaggerItem: React.FC<StaggerItemProps> = ({
   children,
   className = "",
   id,
-  index,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -169,18 +167,14 @@ export const StaggerItem: React.FC<StaggerItemProps> = ({
     return <div id={id} className={className}>{children}</div>;
   }
 
-  const isIndependent = typeof index === "number";
-  const amount = isIndependent ? 0.05 : undefined;
-
   const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.98 },
+    hidden: { opacity: 0, y: 14 },
     show: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.48,
-        ease: [0.16, 1, 0.3, 1],
+        duration: 0.35,
+        ease: "easeOut",
       },
     },
   };
@@ -190,10 +184,7 @@ export const StaggerItem: React.FC<StaggerItemProps> = ({
       id={id}
       className={className}
       variants={itemVariants}
-      whileTap={{ scale: 0.985 }}
-      initial={isIndependent ? "hidden" : undefined}
-      whileInView={isIndependent ? "show" : undefined}
-      viewport={isIndependent ? { once: true, amount, margin: "0px 0px -20px 0px" } : undefined}
+      whileTap={{ scale: 0.99 }}
     >
       {children}
     </motion.div>
@@ -201,15 +192,15 @@ export const StaggerItem: React.FC<StaggerItemProps> = ({
 };
 
 /**
- * AnimatedCardBox: Standalone card box with scroll reveal motion and tactile tap responsiveness.
+ * AnimatedCardBox: Standalone lightweight card box.
  */
 export const AnimatedCardBox: React.FC<ScrollAnimationProps> = ({
   children,
   className = "",
   delay = 0,
-  duration = 0.48,
+  duration = 0.35,
   id,
-  amount = 0.5,
+  amount = 0.1,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -221,11 +212,11 @@ export const AnimatedCardBox: React.FC<ScrollAnimationProps> = ({
     <motion.div
       id={id}
       className={className}
-      initial={{ opacity: 0, y: 20, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount, margin: "0px 0px -20px 0px" }}
-      whileTap={{ scale: 0.985 }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -239,10 +230,7 @@ interface PageTransitionProps {
 }
 
 /**
- * PageTransition: Animates each page or subpage entrance EXACTLY ONCE per session.
- * - If pageKey has NOT been animated yet in this session: plays the smooth entrance movement and marks pageKey as animated.
- * - If pageKey HAS already been animated in this session: renders immediately with no animation.
- * - When the page/app is refreshed/reloaded, the session restarts.
+ * PageTransition: Smooth, instant entrance per page.
  */
 export const PageTransition: React.FC<PageTransitionProps> = ({
   pageKey,
@@ -251,7 +239,6 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
 }) => {
   const shouldReduceMotion = useReducedMotion();
   
-  // Check if this specific pageKey has already animated in this browser session
   const alreadyAnimated = hasPageAnimatedInSession(pageKey);
 
   React.useEffect(() => {
@@ -267,9 +254,9 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
   return (
     <motion.div
       key={`page-entry-${pageKey}`}
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.42, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.32, ease: "easeOut" }}
       className={className}
     >
       {children}
