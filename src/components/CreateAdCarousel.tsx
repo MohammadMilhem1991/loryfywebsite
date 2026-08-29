@@ -46,13 +46,13 @@ export const DEFAULT_CREATE_AD_SCREENS: CarouselScreenItem[] = [
     id: 5,
     title: "App Screen 4",
     titleAr: "شاشة التطبيق 4",
-    src: "/images/5.webp",
+    src: "/images/3.webp",
   },
   {
     id: 6,
     title: "App Screen 5",
     titleAr: "شاشة التطبيق 5",
-    src: "/images/3.webp",
+    src: "/images/5.webp",
   },
 ];
 
