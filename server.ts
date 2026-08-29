@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 // Load environment variables
@@ -37,9 +36,9 @@ async function startServer() {
     const adminEmail = "info@loryfy.com";
 
     // Microsoft Graph variables from environment
-    const tenantId = process.env.MICROSOFT_TENANT_ID;
-    const clientId = process.env.MICROSOFT_CLIENT_ID;
-    const clientSecret = process.env.MICROSOFT_CLIENT_SECRET;
+    const tenantId = process.env.MICROSOFT_TENANT_ID?.trim();
+    const clientId = process.env.MICROSOFT_CLIENT_ID?.trim();
+    const clientSecret = process.env.MICROSOFT_CLIENT_SECRET?.trim();
 
     const hasMsGraphConfig = tenantId && clientId && clientSecret;
 
