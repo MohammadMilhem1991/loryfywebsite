@@ -52,9 +52,9 @@ export const loryfyConfig = {
   },
 
   // Analytics & Tracking (Configurable GA4 Property ID)
-  ga4Id: "G-XXXXXXXXXX",
+  ga4Id: "G-7QK74T4E3K",
   analytics: {
-    gaId: "G-XXXXXXXXXX",
+    gaId: "G-7QK74T4E3K",
   },
 };
 

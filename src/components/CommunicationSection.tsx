@@ -265,7 +265,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                 {/* Navigation Arrows for Desktop */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-2.5 top-[45%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+                  className="absolute left-2.5 top-[45%] -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F58D5]"
                   aria-label={isRtl ? "الصورة السابقة" : "Previous image"}
                 >
                   <ChevronLeft className="w-4.5 h-4.5" />
@@ -273,7 +273,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
 
                 <button
                   onClick={handleNext}
-                  className="absolute right-2.5 top-[45%] -translate-y-1/2 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex"
+                  className="absolute right-2.5 top-[45%] -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#0F58D5] flex items-center justify-center border border-slate-200/60 shadow-xs z-30 cursor-pointer hover:scale-105 active:scale-95 transition-all hidden sm:flex focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F58D5]"
                   aria-label={isRtl ? "الصورة التالية" : "Next image"}
                 >
                   <ChevronRight className="w-4.5 h-4.5" />
@@ -322,26 +322,35 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                   </div>
                 </div>
 
-
-
-                {/* Pagination Dots */}
-                <div className="flex items-center justify-center gap-1.5 pt-1 pb-1 z-20">
-                  {CHAT_IMAGES.map((_, dotIdx) => (
-                    <button
-                      key={`chat-dot-${dotIdx}`}
-                      onClick={() => {
-                        setIsTransitioning(true);
-                        const diff = dotIdx - activeDotIndex;
-                        setCurrentIndex((prev) => prev + diff);
-                      }}
-                      aria-label={`Go to slide ${dotIdx + 1}`}
-                      className={`transition-all duration-300 rounded-full cursor-pointer ${
-                        dotIdx === activeDotIndex
-                          ? "w-6 h-2 bg-[#0F58D5]"
-                          : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
-                      }`}
-                    />
-                  ))}
+                {/* Pagination Dots with Accessible 44px Touch Targets and GPU Transform Animations */}
+                <div className="flex items-center justify-center gap-0 pt-1 pb-1 z-20">
+                  {CHAT_IMAGES.map((_, dotIdx) => {
+                    const isActive = dotIdx === activeDotIndex;
+                    return (
+                      <button
+                        key={`chat-dot-${dotIdx}`}
+                        onClick={() => {
+                          setIsTransitioning(true);
+                          const diff = dotIdx - activeDotIndex;
+                          setCurrentIndex((prev) => prev + diff);
+                        }}
+                        aria-label={`Go to slide ${dotIdx + 1}`}
+                        aria-current={isActive ? "true" : undefined}
+                        className="w-10 h-11 sm:w-11 sm:h-11 flex items-center justify-center cursor-pointer p-0 bg-transparent border-0 group/dot focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F58D5]/60 rounded-full"
+                      >
+                        <span
+                          style={{
+                            transform: isActive ? "scaleX(3)" : "scaleX(1)",
+                            transformOrigin: "center center",
+                            willChange: "transform",
+                          }}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 transform-gpu ${
+                            isActive ? "bg-[#0F58D5]" : "bg-slate-300 group-hover/dot:bg-slate-400"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
                 </div>
 
               </div>
