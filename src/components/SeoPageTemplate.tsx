@@ -158,8 +158,8 @@ export const SeoPageTemplate: React.FC<SeoPageTemplateProps> = ({
           <header className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-8 lg:p-10 rounded-3xl border border-[#0F58D5]/15 shadow-sm relative overflow-hidden">
             {/* Subtle dot overlay */}
             <div className="absolute inset-0 bg-dot-pattern-light opacity-50 pointer-events-none" />
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
 
             <div className={`relative z-10 ${isStory ? "max-w-4xl" : "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center"}`}>
               {/* Text Column */}

@@ -47,7 +47,7 @@ export const MobileStickyCTA: React.FC<MobileStickyCTAProps> = ({
       id="mobile-sticky-cta-bar"
       className="sm:hidden fixed bottom-2 inset-x-3 z-40 animate-in slide-in-from-bottom duration-300"
     >
-      <div className="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-2xl border border-slate-200/80 flex items-center justify-between gap-3">
+      <div className="bg-white/98 p-2 rounded-2xl shadow-2xl border border-slate-200/80 flex items-center justify-between gap-3">
         <div className="text-start px-2">
           <div className="font-extrabold text-xs text-[#101828]">
             {t.brandName}

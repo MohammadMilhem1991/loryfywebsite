@@ -30,12 +30,12 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ currentLang, o
           <div className="absolute inset-0 bg-dot-pattern-white opacity-40 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)]" />
 
           {/* Glowing lighting spheres */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-white/15 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#17B3CD]/30 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-white/15 rounded-full blur-lg pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#17B3CD]/30 rounded-full blur-lg pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-xl pointer-events-none" />
 
           <FadeInUp className="relative z-10 max-w-4xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 text-sm font-bold text-white backdrop-blur-md border border-white/20 shadow-2xs">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/20 text-sm font-bold text-white border border-white/20 shadow-2xs">
               <Smartphone className="w-4 h-4 text-[#17B3CD]" />
               <span>{currentLang === "en" ? "Available on iOS & Android" : "متاح لنظامي iOS و Android"}</span>
             </div>

@@ -14,6 +14,7 @@ import {
   generateArticleSchema,
   generateFaqSchema,
   generateBreadcrumbSchema,
+  toAbsoluteUrl,
   PageSeoResult,
 } from "./seo";
 import { storiesData } from "../data/storiesData";
@@ -84,7 +85,7 @@ export function injectSeoIntoHtml(
     headTags.push(`<meta property="og:title" content="${escapeHtml(seoData.og.title)}" />`);
     headTags.push(`<meta property="og:description" content="${escapeHtml(seoData.og.description)}" />`);
     headTags.push(`<meta property="og:url" content="${escapeHtml(seoData.og.url)}" />`);
-    headTags.push(`<meta property="og:image" content="${escapeHtml(seoData.og.image)}" />`);
+    headTags.push(`<meta property="og:image" content="${escapeHtml(toAbsoluteUrl(seoData.og.image))}" />`);
     headTags.push(`<meta property="og:image:width" content="1200" />`);
     headTags.push(`<meta property="og:image:height" content="630" />`);
     headTags.push(`<meta property="og:image:alt" content="${escapeHtml(seoData.og.title)}" />`);
@@ -96,7 +97,7 @@ export function injectSeoIntoHtml(
     headTags.push(`<meta name="twitter:card" content="summary_large_image" />`);
     headTags.push(`<meta name="twitter:title" content="${escapeHtml(seoData.og.title)}" />`);
     headTags.push(`<meta name="twitter:description" content="${escapeHtml(seoData.og.description)}" />`);
-    headTags.push(`<meta name="twitter:image" content="${escapeHtml(seoData.og.image)}" />`);
+    headTags.push(`<meta name="twitter:image" content="${escapeHtml(toAbsoluteUrl(seoData.og.image))}" />`);
 
     // Structured JSON-LD Data
     const orgSchema = generateOrganizationSchema();

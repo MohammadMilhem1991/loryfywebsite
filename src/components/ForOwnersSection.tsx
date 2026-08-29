@@ -24,8 +24,8 @@ export const ForOwnersSection: React.FC<ForOwnersSectionProps> = ({ currentLang,
   return (
     <section id="for-owners-section" className="py-6 sm:py-8 bg-gradient-to-b from-[#FFFFFF] via-[#F8FAFF] to-[#FFFFFF] relative overflow-hidden" dir={isRtl ? "rtl" : "ltr"}>
       {/* Soft background aura */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-[#0F58D5]/4 blur-3xl pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-[#17B3CD]/4 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-[#0F58D5]/4 blur-xl pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 right-0 w-80 h-80 bg-[#17B3CD]/4 blur-xl pointer-events-none rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

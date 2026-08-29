@@ -75,8 +75,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
 
       {/* 2. Atmospheric Glow Orbs: Primary Blue Top-Left & Energizing Cyan Top-Right */}
-      <div className="absolute -top-16 left-0 sm:left-1/4 -translate-x-1/4 sm:-translate-x-1/2 w-[500px] sm:w-[600px] h-[400px] bg-gradient-to-br from-[#0F58D5]/14 via-[#0F58D5]/6 to-transparent blur-3xl pointer-events-none rounded-full" />
-      <div className="absolute top-0 right-0 sm:-right-10 w-[500px] sm:w-[600px] h-[450px] bg-gradient-to-bl from-[#17B3CD]/18 via-[#17B3CD]/8 to-transparent blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute -top-16 left-0 sm:left-1/4 -translate-x-1/4 sm:-translate-x-1/2 w-[500px] sm:w-[600px] h-[400px] bg-gradient-to-br from-[#0F58D5]/14 via-[#0F58D5]/6 to-transparent blur-xl pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 sm:-right-10 w-[500px] sm:w-[600px] h-[450px] bg-gradient-to-bl from-[#17B3CD]/18 via-[#17B3CD]/8 to-transparent blur-xl pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[120px] bg-gradient-to-t from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +89,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
             {...textAnimationProps}
           >
             {/* Subtle discovery pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm border border-[#0F58D5]/20 shadow-2xs text-sm font-bold text-[#0F58D5]">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-[#0F58D5]/20 shadow-2xs text-sm font-bold text-[#0F58D5]">
               <Sparkles className="w-4 h-4 text-[#17B3CD]" />
               <span>{t.hero.secondaryMessage}</span>
             </div>
@@ -157,19 +157,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
             {...phoneAnimationProps}
           >
             {/* Ambient Device Spotlight Halo */}
-            <div className="absolute inset-0 -m-10 ambient-device-halo blur-2xl rounded-full transform scale-110 pointer-events-none" />
-            <div className="absolute inset-0 max-w-[340px] mx-auto bg-gradient-to-tr from-[#0F58D5]/25 via-[#17B3CD]/25 to-transparent blur-3xl rounded-full transform scale-95 pointer-events-none" />
+            <div className="absolute inset-0 -m-10 ambient-device-halo blur-lg rounded-full transform scale-110 pointer-events-none" />
+            <div className="absolute inset-0 max-w-[340px] mx-auto bg-gradient-to-tr from-[#0F58D5]/25 via-[#17B3CD]/25 to-transparent blur-xl rounded-full transform scale-95 pointer-events-none" />
 
             {/* Main Phone visual container */}
             <div className={`relative z-10 w-full max-w-[210px] sm:max-w-[290px] lg:max-w-[310px] flex justify-center py-0 ${isRtl ? 'translate-y-2 sm:translate-y-1 lg:translate-y-0' : '-translate-y-1.5 sm:-translate-y-3 lg:-translate-y-5'}`}>
-              <motion.img
+              <img
                 src={getLocalizedImage(loryfyConfig.assets.mobileAppScreen, currentLang)}
                 alt="Loryfy Mobile App Screen"
-                className="w-full h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,88,213,0.26)]"
+                width={310}
+                height={620}
+                className="w-full h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,88,213,0.26)] aspect-[310/620]"
                 loading="eager"
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ type: "spring", stiffness: 45, damping: 14, delay: 0.15 }}
+                decoding="async"
+                fetchPriority="high"
               />
 
               {/* 1. Running Businesses: Upper-left of the phone */}
@@ -181,7 +182,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.4 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[8%] xl:top-[9%]' : 'top-[1.5%] xl:top-[2%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[8%] xl:top-[9%]' : 'top-[1.5%] xl:top-[2%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                    <Building2 className="w-4 h-4" />
@@ -205,7 +206,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.6 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.14)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.22)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.14)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.22)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
@@ -230,7 +231,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 0.8 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(15,88,213,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#0F58D5]/20 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
                   <Handshake className="w-4 h-4" />
@@ -254,7 +255,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
                 transition={{ type: "tween", ease: [0.16, 1, 0.3, 1], duration: 1.0, delay: 1.0 }}
                 whileHover={{ y: -5, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
                 whileTap={{ scale: 0.97 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-[0_8px_20px_rgba(23,179,205,0.12)] hover:shadow-[0_12px_28px_rgba(23,179,205,0.2)] border border-[#17B3CD]/30 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD] transition-all duration-200 cursor-pointer group whitespace-nowrap`}
                 dir="ltr"
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">

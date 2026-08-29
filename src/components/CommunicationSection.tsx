@@ -130,16 +130,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
     }
   }, [isTransitioning]);
 
-  // Continuous auto-scrolling (pauses on hover so user can inspect)
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3600);
-
-    return () => clearInterval(interval);
-  }, [isHovered, handleNext]);
+  // Manual navigation only - auto-scrolling disabled for maximum performance and smooth user scrolling
 
   // Dot calculation normalized to 0..3
   const activeDotIndex = ((currentIndex % BASE_COUNT) + BASE_COUNT) % BASE_COUNT;
@@ -185,8 +176,8 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
           <div className="absolute inset-0 bg-dot-pattern-light opacity-60 pointer-events-none" />
 
           {/* Subtle ambient brand glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#0F58D5]/10 blur-3xl pointer-events-none rounded-full" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#17B3CD]/10 blur-3xl pointer-events-none rounded-full" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#0F58D5]/10 blur-xl pointer-events-none rounded-full" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#17B3CD]/10 blur-xl pointer-events-none rounded-full" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             {/* Text Column */}
@@ -241,9 +232,9 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
             </FadeInUp>
 
             {/* Visual Chat Card Representation */}
-            <FadeInSlide direction="right" isRtl={isRtl} className="lg:col-span-6 flex flex-col items-center justify-center w-full">
+            <div className="lg:col-span-6 flex flex-col items-center justify-center w-full">
               {/* Carousel Outer Container - Seamlessly embedded into the main section without outer border or background */}
-              <motion.div 
+              <div 
                 ref={containerRef}
                 className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] h-[535px] sm:h-[575px] overflow-hidden flex flex-col justify-between select-none group/carousel touch-pan-y cursor-grab active:cursor-grabbing"
                 onMouseEnter={() => setIsHovered(true)}
@@ -251,10 +242,6 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
                 dir="ltr"
-                initial={{ opacity: 0, x: isRtl ? -60 : 60, scale: 0.95 }}
-                whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ type: "spring", stiffness: 45, damping: 14, delay: 0.1 }}
               >
                 {/* Subtle Gradient Fades on Left & Right Edges for smooth edge blending */}
                 <div className="absolute top-0 bottom-0 left-0 w-6 sm:w-10 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
@@ -306,7 +293,11 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                           <img
                             src={getLocalizedImage(img.src, currentLang)}
                             alt={img.title}
-                            className="w-full h-auto max-h-[500px] sm:max-h-[540px] object-contain select-none pointer-events-none"
+                            width={240}
+                            height={480}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-auto max-h-[500px] sm:max-h-[540px] object-contain select-none pointer-events-none aspect-[1/2]"
                             referrerPolicy="no-referrer"
                             draggable={false}
                           />
@@ -338,8 +329,8 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                   ))}
                 </div>
 
-              </motion.div>
-            </FadeInSlide>
+              </div>
+            </div>
 
           </div>
         </div>

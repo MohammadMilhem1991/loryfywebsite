@@ -52,6 +52,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
               <img
                 src={loryfyConfig.assets.logoUrl}
                 alt="Loryfy"
+                width={120}
+                height={40}
+                loading="lazy"
+                decoding="async"
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
             </button>

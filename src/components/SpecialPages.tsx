@@ -76,8 +76,8 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
         {/* Hero Header */}
         <FadeInUp>
           <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs text-center space-y-6 relative overflow-hidden">
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
 
             <div className="relative z-10 space-y-4 sm:space-y-6 max-w-4xl mx-auto">
               <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
@@ -694,24 +694,23 @@ export const DownloadPage: React.FC<SpecialPageProps> = ({ currentLang }) => {
           />
 
           {/* Right Column: Mobile App Showcase */}
-          <FadeInSlide
-            direction={isRtl ? "left" : "right"}
-            isRtl={isRtl}
-            className="lg:col-span-5 flex justify-center items-center relative mt-2 sm:mt-0 py-1 sm:py-0"
-          >
+          <div className="lg:col-span-5 flex justify-center items-center relative mt-2 sm:mt-0 py-1 sm:py-0">
             {/* Ambient Background Glow */}
-            <div className="absolute inset-0 max-w-[240px] mx-auto bg-gradient-to-tr from-[#0F58D5]/20 to-[#17B3CD]/25 rounded-full blur-3xl -z-10 pointer-events-none" />
+            <div className="absolute inset-0 max-w-[240px] mx-auto bg-gradient-to-tr from-[#0F58D5]/20 to-[#17B3CD]/25 rounded-full blur-xl -z-10 pointer-events-none" />
 
             {/* Scaled down container matching HeroSection design */}
             <div className="relative z-10 w-full max-w-[190px] sm:max-w-[240px] lg:max-w-[255px] flex justify-center">
               <img
                 src={getLocalizedImage(loryfyConfig.assets.mobileAppScreen, currentLang)}
                 alt="Loryfy Mobile App Interface"
-                className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(15,88,213,0.22)] transition-transform duration-300 hover:scale-[1.01]"
-                loading="eager"
+                width={255}
+                height={510}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(15,88,213,0.22)] transition-transform duration-300 hover:scale-[1.01] aspect-[1/2]"
               />
             </div>
-          </FadeInSlide>
+          </div>
 
         </div>
       </div>
@@ -788,7 +787,7 @@ export const OpportunityDetailPage: React.FC<SpecialPageProps> = ({
           {/* App Direct Action Banner */}
           <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0F58D5] via-[#0F58D5] to-[#17B3CD] text-white space-y-5 shadow-md">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-xs flex items-center justify-center shrink-0 border border-white/20">
+              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 border border-white/20">
                 <MessageSquare className="w-6 h-6 text-white" />
               </div>
               <div className="space-y-1">
@@ -2080,8 +2079,8 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
         {/* Hero Header */}
         <div>
           <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs space-y-6 relative overflow-hidden">
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
 
             <div className="relative z-10 space-y-4 max-w-4xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs font-bold text-[#0F58D5]">
@@ -2350,7 +2349,7 @@ Sitemap: https://loryfy.com/sitemap.xml`;
 - Official Email: info@loryfy.com`;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl text-start">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <h3 className="font-bold text-base text-[#101828]">

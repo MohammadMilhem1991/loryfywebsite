@@ -15,6 +15,7 @@ import {
   generateArticleSchema,
   generateFaqSchema,
   generateBreadcrumbSchema,
+  toAbsoluteUrl,
 } from "../utils/seo";
 import { storiesData } from "../data/storiesData";
 
@@ -111,7 +112,7 @@ export const SeoStructuredData: React.FC<SeoStructuredDataProps> = ({
       setMetaTag("property", "og:title", seoData.og.title);
       setMetaTag("property", "og:description", seoData.og.description);
       setMetaTag("property", "og:url", seoData.og.url);
-      setMetaTag("property", "og:image", seoData.og.image);
+      setMetaTag("property", "og:image", toAbsoluteUrl(seoData.og.image));
       setMetaTag("property", "og:image:width", "1200");
       setMetaTag("property", "og:image:height", "630");
       setMetaTag("property", "og:image:alt", seoData.og.title);
@@ -123,7 +124,7 @@ export const SeoStructuredData: React.FC<SeoStructuredDataProps> = ({
       setMetaTag("name", "twitter:card", "summary_large_image");
       setMetaTag("name", "twitter:title", seoData.og.title);
       setMetaTag("name", "twitter:description", seoData.og.description);
-      setMetaTag("name", "twitter:image", seoData.og.image);
+      setMetaTag("name", "twitter:image", toAbsoluteUrl(seoData.og.image));
     } else {
       const socialTags = document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]');
       socialTags.forEach((tag) => tag.remove());

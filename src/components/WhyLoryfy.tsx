@@ -53,7 +53,7 @@ export const WhyLoryfy: React.FC<WhyLoryfyProps> = ({ currentLang, onNavigate })
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Semantic Platform Overview Banner (What is Loryfy) */}
-        <FadeInUp className="text-center max-w-4xl mx-auto mb-8 bg-white/80 backdrop-blur-xs rounded-2xl p-5 sm:p-6 border border-[#0F58D5]/15 shadow-2xs">
+        <FadeInUp className="text-center max-w-4xl mx-auto mb-8 bg-white/95 rounded-2xl p-5 sm:p-6 border border-[#0F58D5]/15 shadow-2xs">
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-sm font-bold text-[#0F58D5] mb-2.5 shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#17B3CD]" />
             <span>{t.whatIsLoryfy.badge}</span>

@@ -11,6 +11,14 @@ import { sampleOpportunities } from "../data/sampleOpportunities";
 import { storiesData, storySlugs } from "../data/storiesData";
 import { emiratePagesData } from "../data/emiratePagesData";
 
+export function toAbsoluteUrl(url: string): string {
+  if (!url) return url;
+  if (url.startsWith("/")) {
+    return `${loryfyConfig.siteUrl}${url}`;
+  }
+  return url;
+}
+
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -19,8 +27,8 @@ export function generateOrganizationSchema() {
     legalName: loryfyConfig.legalName,
     url: loryfyConfig.siteUrl,
     email: loryfyConfig.email,
-    logo: loryfyConfig.assets.logoUrl,
-    image: loryfyConfig.assets.ogImage,
+    logo: toAbsoluteUrl(loryfyConfig.assets.logoUrl),
+    image: toAbsoluteUrl(loryfyConfig.assets.ogImage),
     description:
       "Loryfy is a mobile platform for discovering running businesses, startup ideas, and business partnership opportunities in the UAE.",
     sameAs: Object.values(loryfyConfig.socialLinks).filter(Boolean),
@@ -113,11 +121,13 @@ export function generateItemListSchema(items: { name: string; url: string }[]) {
 }
 
 export function generateArticleSchema(story: SeoPageData, lang: Language, url: string) {
+  const rawOgImage = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: story.h1,
     description: story.metaDescription,
+    image: [toAbsoluteUrl(rawOgImage)],
     inLanguage: lang,
     author: {
       "@type": "Organization",
@@ -130,7 +140,7 @@ export function generateArticleSchema(story: SeoPageData, lang: Language, url: s
       url: loryfyConfig.siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: loryfyConfig.assets.logoUrl,
+        url: toAbsoluteUrl(loryfyConfig.assets.logoUrl),
       },
     },
     mainEntityOfPage: url,
@@ -167,7 +177,8 @@ export function getOpportunitySeoData(slug: string, lang: Language): PageSeoResu
   if (!opp) return null;
 
   const isEn = lang === "en";
-  const ogImageUrl = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
+  const rawOgImage = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
+  const ogImageUrl = toAbsoluteUrl(rawOgImage);
 
   let title = "";
   let metaDescription = "";
@@ -248,7 +259,8 @@ export function getOpportunitySeoData(slug: string, lang: Language): PageSeoResu
 export function getPageSeoData(lang: Language, page: PageRoute, slug?: string): PageSeoResult {
   const isEn = lang === "en";
   const t = translations[lang];
-  const ogImageUrl = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
+  const rawOgImage = lang === "ar" ? loryfyConfig.assets.ogImageAr : loryfyConfig.assets.ogImage;
+  const ogImageUrl = toAbsoluteUrl(rawOgImage);
 
   // 1. Handle 404 / Not Found
   if (page === "not-found") {

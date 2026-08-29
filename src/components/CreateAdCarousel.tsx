@@ -210,16 +210,7 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
     }
   }, [isTransitioning]);
 
-  // Continuous auto-scrolling (pauses on hover)
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3600);
-
-    return () => clearInterval(interval);
-  }, [isHovered, handleNext]);
+  // Manual navigation only - auto-scrolling disabled for maximum performance and smooth user scrolling
 
   const activeDotIndex = ((currentIndex % baseCount) + baseCount) % baseCount;
 
@@ -257,7 +248,7 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
   };
 
   return (
-    <motion.div
+    <div
       ref={containerRef}
       className={`relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] h-[480px] sm:h-[530px] overflow-hidden flex flex-col justify-between select-none group/carousel touch-pan-y cursor-grab active:cursor-grabbing ${className}`}
       onMouseEnter={() => setIsHovered(true)}
@@ -266,10 +257,6 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
       onTouchEnd={handleTouchEnd}
       dir="ltr"
       id="create-ad-carousel-container"
-      initial={{ opacity: 0, x: isRtl ? -60 : 60, scale: 0.95 }}
-      whileInView={{ opacity: 1, x: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ type: "spring", stiffness: 45, damping: 14, delay: 0.1 }}
     >
       {/* Subtle Gradient Fades on Left & Right Edges for smooth edge blending */}
       <div className="absolute top-0 bottom-0 left-0 w-6 sm:w-10 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
@@ -321,7 +308,11 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
                 <img
                   src={getLocalizedImage(img.src, currentLang)}
                   alt={isRtl ? img.titleAr : img.title}
-                  className="w-full h-auto max-h-[430px] sm:max-h-[480px] object-contain select-none pointer-events-none"
+                  width={220}
+                  height={440}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto max-h-[430px] sm:max-h-[480px] object-contain select-none pointer-events-none aspect-[1/2]"
                   referrerPolicy="no-referrer"
                   draggable={false}
                 />
@@ -350,6 +341,6 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };

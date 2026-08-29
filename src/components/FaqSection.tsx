@@ -104,7 +104,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   return (
     <section id={sectionId} className={className}>
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#0F58D5]/3 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#0F58D5]/3 blur-xl pointer-events-none rounded-full" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         

@@ -60,7 +60,7 @@ export const QrDownloadModal: React.FC<QrDownloadModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 animate-in fade-in duration-200"
       dir={isRtl ? "rtl" : "ltr"}
       onClick={onClose}
       role="dialog"
@@ -71,8 +71,8 @@ export const QrDownloadModal: React.FC<QrDownloadModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Subtle Decorative Background Glow */}
-        <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#0F58D5]/10 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#17B3CD]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
 
         {/* Close Button */}
         <button
@@ -161,7 +161,7 @@ export const QrDownloadButton: React.FC<QrDownloadButtonProps> = ({
   if (variant === "dark") {
     variantStyles = "bg-black hover:bg-slate-900 text-white border border-slate-800 shadow-md hover:shadow-lg";
   } else if (variant === "glass") {
-    variantStyles = "bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-md shadow-md";
+    variantStyles = "bg-white/25 hover:bg-white/35 text-white border border-white/30 shadow-md";
   } else if (variant === "white") {
     variantStyles = "bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 shadow-md";
   } else {

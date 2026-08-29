@@ -31,7 +31,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ currentLang 
     >
       {/* Optional Hover / Focus Pill */}
       {isTooltipVisible && (
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-white text-xs font-semibold shadow-lg border border-slate-700 animate-in fade-in slide-in-from-bottom-2">
+        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/95 text-white text-xs font-semibold shadow-lg border border-slate-700 animate-in fade-in slide-in-from-bottom-2">
           <span>{currentLang === "en" ? "Chat with Loryfy" : "تواصل معنا عبر واتساب"}</span>
         </div>
       )}

@@ -41,8 +41,8 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
   return (
     <section id="how-it-works-section" className="py-6 sm:py-8 bg-gradient-to-b from-[#FFFFFF] via-[#F6FAFF] to-[#FFFFFF] relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#0F58D5]/5 blur-3xl pointer-events-none rounded-full" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-[#17B3CD]/5 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#0F58D5]/5 blur-xl pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 right-0 w-80 h-80 bg-[#17B3CD]/5 blur-xl pointer-events-none rounded-full" />
       <div className="absolute inset-0 bg-dot-pattern-light opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,16 +64,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
         {!hideSeekersTab && !hideOwnersTab && (
           <div className="flex justify-center mb-6">
             <div className="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-2xs flex items-center gap-2">
-              <motion.button
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.42,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0,
-                }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => {
                   setActiveTab("owners");
                   trackEvent("how_it_works_click", { role_tab: "owners" });
@@ -86,18 +77,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
               >
                 <PlusCircle className="w-4 h-4" />
                 <span>{t.howItWorks.ownersFlowTitle}</span>
-              </motion.button>
+              </button>
 
-              <motion.button
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.42,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0.12,
-                }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => {
                   setActiveTab("seekers");
                   trackEvent("how_it_works_click", { role_tab: "seekers" });
@@ -110,7 +92,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
               >
                 <Search className="w-4 h-4" />
                 <span>{t.userJourneys.journeyB.title}</span>
-              </motion.button>
+              </button>
             </div>
           </div>
         )}
@@ -120,16 +102,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
           <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-md">
             {/* Category selection pill tabs */}
             <div className="flex flex-wrap gap-3 mb-6 pb-5 border-b border-slate-100">
-              <motion.button
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.42,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0,
-                }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setOwnerSubCategory("running")}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm sm:text-base transition-all cursor-pointer shadow-3xs ${
                   ownerSubCategory === "running"
@@ -141,18 +114,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <span>
                   {currentLang === "en" ? "Running Business in the UAE" : "مشروع قائم في الإمارات"}
                 </span>
-              </motion.button>
+              </button>
 
-              <motion.button
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.42,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0.12,
-                }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setOwnerSubCategory("startup")}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm sm:text-base transition-all cursor-pointer shadow-3xs ${
                   ownerSubCategory === "startup"
@@ -164,18 +128,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <span>
                   {currentLang === "en" ? "Startup Idea for the UAE" : "فكرة مشروع للإمارات"}
                 </span>
-              </motion.button>
+              </button>
 
-              <motion.button
-                initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.42,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: 0.24,
-                }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setOwnerSubCategory("license")}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm sm:text-base transition-all cursor-pointer shadow-3xs ${
                   ownerSubCategory === "license"
@@ -187,7 +142,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <span>
                   {currentLang === "en" ? "UAE Trade License" : "رخصة تجارية إماراتية"}
                 </span>
-              </motion.button>
+              </button>
             </div>
 
             {/* SubCategory 1: Running Business (Partner vs Sell) */}
@@ -207,16 +162,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
 
                   {/* Objective toggle: Partner vs Sell */}
                   <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200 shrink-0">
-                    <motion.button
-                      initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{
-                        duration: 0.42,
-                        ease: [0.16, 1, 0.3, 1],
-                        delay: 0,
-                      }}
-                      whileTap={{ scale: 0.95 }}
+                    <button
                       onClick={() => setRunningObjective("partner")}
                       className={`px-4.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                         runningObjective === "partner"
@@ -225,17 +171,8 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                       }`}
                     >
                       {currentLang === "en" ? "Potential Partner or Investor" : "شريك أو مستثمر محتمل"}
-                    </motion.button>
-                    <motion.button
-                      initial={{ opacity: 0, y: 14, scale: 0.96 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{
-                        duration: 0.42,
-                        ease: [0.16, 1, 0.3, 1],
-                        delay: 0.12,
-                      }}
-                      whileTap={{ scale: 0.95 }}
+                    </button>
+                    <button
                       onClick={() => setRunningObjective("sell")}
                       className={`px-4.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                         runningObjective === "sell"
@@ -244,7 +181,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                       }`}
                     >
                       {currentLang === "en" ? "Sell Business" : "بيع المشروع"}
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
 

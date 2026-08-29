@@ -212,6 +212,10 @@ export const Header: React.FC<HeaderProps> = ({
             <img
               src={loryfyConfig.assets.logoUrl}
               alt="Loryfy"
+              width={120}
+              height={34}
+              loading="lazy"
+              decoding="async"
               className="h-7 md:h-8.5 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </button>

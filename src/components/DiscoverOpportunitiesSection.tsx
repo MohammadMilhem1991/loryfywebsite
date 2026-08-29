@@ -72,8 +72,8 @@ export const DiscoverOpportunitiesSection: React.FC<DiscoverOpportunitiesSection
       <div className="absolute inset-0 bg-dot-pattern-light opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)]" />
 
       {/* Atmospheric ambient lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#17B3CD]/5 blur-3xl pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#0F58D5]/4 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#17B3CD]/5 blur-xl pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#0F58D5]/4 blur-xl pointer-events-none rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

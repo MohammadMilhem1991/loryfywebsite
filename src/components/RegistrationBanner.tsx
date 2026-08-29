@@ -85,23 +85,27 @@ export const RegistrationBanner: React.FC<RegistrationBannerProps> = ({
             </FadeInUp>
 
             {/* Actual Mobile App Signup Frame Image */}
-            <FadeInSlide direction="right" isRtl={isRtl} className="lg:col-span-6 flex items-center justify-center w-full">
+            <div className="lg:col-span-6 flex items-center justify-center w-full">
               <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] flex items-center justify-center py-1">
                 {/* Atmospheric Ambient Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#0F58D5]/12 via-[#17B3CD]/12 to-transparent blur-2xl rounded-full pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0F58D5]/12 via-[#17B3CD]/12 to-transparent blur-lg rounded-full pointer-events-none" />
                 
                 {/* Framed Mobile App Signup Showcase */}
                 <div className="relative z-10 w-full flex items-center justify-center transition-all duration-300 filter drop-shadow-[0_12px_35px_rgba(23,179,205,0.22)]">
                   <img
                     src={getLocalizedImage(loryfyConfig.assets.signupScreen, currentLang)}
                     alt={currentLang === "en" ? "Loryfy Quick Signup Mobile App" : "شاشة تسجيل الحساب السريع في تطبيق لوريفاي"}
-                    className="w-full h-auto max-h-[500px] sm:max-h-[540px] object-contain select-none"
+                    width={320}
+                    height={640}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto max-h-[500px] sm:max-h-[540px] object-contain select-none aspect-[1/2]"
                     referrerPolicy="no-referrer"
                     draggable={false}
                   />
                 </div>
               </div>
-            </FadeInSlide>
+            </div>
 
           </div>
         </div>
