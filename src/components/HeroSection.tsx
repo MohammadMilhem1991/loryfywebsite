@@ -12,7 +12,7 @@ import { trackEvent } from "../utils/analytics";
 import { getLocalizedImage } from "../utils/imageMap";
 import { Download, ArrowRight, ArrowLeft, Building2, Lightbulb, Handshake, FileText, Sparkles, CheckCircle2 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import { hasPageAnimatedInSession, markPageAnimatedInSession } from "./ScrollAnimations";
+import { usePageAnimation, hasPageAnimatedInSession } from "./ScrollAnimations";
 
 interface HeroSectionProps {
   currentLang: Language;
@@ -24,14 +24,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
   const isRtl = currentLang === "ar";
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
   const shouldReduceMotion = useReducedMotion();
+  const { isAlreadyAnimated } = usePageAnimation();
 
-  const [alreadyAnimated] = React.useState<boolean>(() => {
-    return hasPageAnimatedInSession("hero-section-anim");
-  });
-
-  React.useEffect(() => {
-    markPageAnimatedInSession("hero-section-anim");
-  }, []);
+  const disableAnimations = shouldReduceMotion || isAlreadyAnimated || hasPageAnimatedInSession("home");
 
   const handleDownloadClick = () => {
     trackEvent("hero_download_click", { section: "hero_primary_cta" });
@@ -48,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
     onNavigate(categoryPage);
   };
 
-  const textAnimationProps = shouldReduceMotion || alreadyAnimated
+  const textAnimationProps = disableAnimations
     ? {}
     : {
         initial: { opacity: 0, y: 25 },
@@ -56,13 +51,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
         transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
       };
 
-  const phoneAnimationProps = shouldReduceMotion || alreadyAnimated
+  const phoneAnimationProps = disableAnimations
     ? {}
     : {
         initial: { opacity: 0 },
         animate: { opacity: 1 },
         transition: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
       };
+
+  const getBadgeAnimationProps = (delay: number) => {
+    if (disableAnimations) {
+      return {
+        initial: false as const,
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 },
+      };
+    }
+    return {
+      initial: { opacity: 0, y: 8 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.32, delay, ease: "easeOut" },
+    };
+  };
 
   return (
     <section
@@ -153,23 +163,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
 
           {/* Right / Phone Screenshot Column (~45% on desktop: 5 cols) */}
           <motion.div
-            className="lg:col-span-5 flex flex-col items-center justify-center relative mt-0 sm:mt-6 lg:mt-0"
+            className="lg:col-span-5 flex flex-col items-center justify-center relative mt-0 sm:mt-6 lg:mt-0 bg-transparent"
             {...phoneAnimationProps}
           >
-            {/* Ambient Device Spotlight Halo */}
-            <div className="absolute inset-0 -m-10 ambient-device-halo blur-lg rounded-full transform scale-110 pointer-events-none" />
-            <div className="absolute inset-0 max-w-[340px] mx-auto bg-gradient-to-tr from-[#0F58D5]/25 via-[#17B3CD]/25 to-transparent blur-xl rounded-full transform scale-95 pointer-events-none" />
+            {/* Ambient Device Spotlight Halo - Pure radial glow with no rectangular boundary */}
+            <div className="absolute inset-0 max-w-[320px] max-h-[500px] mx-auto my-auto ambient-device-halo blur-2xl rounded-full pointer-events-none bg-transparent" />
 
             {/* Main Phone visual container */}
-            <div className={`relative z-10 w-full max-w-[210px] sm:max-w-[290px] lg:max-w-[310px] flex justify-center py-0 ${isRtl ? 'translate-y-2 sm:translate-y-1 lg:translate-y-0' : '-translate-y-1.5 sm:-translate-y-3 lg:-translate-y-5'}`}>
+            <div className={`relative z-10 w-full max-w-[210px] sm:max-w-[290px] lg:max-w-[310px] flex justify-center py-0 bg-transparent ${isRtl ? 'translate-y-2 sm:translate-y-1 lg:translate-y-0' : '-translate-y-1.5 sm:-translate-y-3 lg:-translate-y-5'}`}>
               <img
                 src={getLocalizedImage(loryfyConfig.assets.mobileAppScreen, currentLang)}
                 alt="Loryfy Mobile App Screen"
                 width={310}
                 height={620}
-                className="w-full h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,88,213,0.26)] aspect-[310/620]"
+                className="w-full h-auto object-contain drop-shadow-[0_24px_48px_rgba(15,88,213,0.26)] aspect-[310/620] bg-transparent border-0 outline-none select-none"
                 loading="eager"
-                decoding="async"
+                decoding="sync"
                 fetchPriority="high"
               />
 
@@ -177,12 +186,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-running-businesses"
                 onClick={() => handleCategoryBadgeClick("running-businesses-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.1, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.1)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className={`absolute ${isRtl ? 'top-[13%] xl:top-[14%]' : 'top-[6.5%] xl:top-[7%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[13%] xl:top-[14%] left-[-9px]' : 'top-[6.5%] xl:top-[7%] left-[-5px]'} ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#0F58D5] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                    <Building2 className="w-4 h-4" />
@@ -201,9 +208,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-startup-ideas"
                 onClick={() => handleCategoryBadgeClick("startup-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.2, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.2)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className={`absolute ${isRtl ? 'top-[14%] xl:top-[15%]' : 'top-[18%] xl:top-[17%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
@@ -226,12 +231,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-partnership-opportunities"
                 onClick={() => handleCategoryBadgeClick("business-partnership-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.3, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.3)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-0 ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
+                className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[64%] xl:top-[66%]'} left-[-9px] ${isRtl ? '-translate-x-[48%] xl:-translate-x-[63%] 2xl:-translate-x-[78%]' : '-translate-x-[53%] xl:-translate-x-[73%] 2xl:-translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
               >
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#17B3CD] text-white flex items-center justify-center shadow-2xs group-hover:scale-102 transition-transform shrink-0">
                   <Handshake className="w-4 h-4" />
@@ -250,9 +253,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-floating-trade-licenses"
                 onClick={() => handleCategoryBadgeClick("trade-license-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.4, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.4)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className={`absolute ${isRtl ? 'top-[66%] xl:top-[68%]' : 'top-[69%] xl:top-[71%]'} right-0 ${isRtl ? 'translate-x-[47%] xl:translate-x-[62%] 2xl:translate-x-[77%]' : 'translate-x-[45%] xl:translate-x-[65%] 2xl:translate-x-[85%]'} z-20 hidden xl:flex items-center gap-2.5 px-3 py-2 sm:px-3.5 sm:py-2.5 bg-white/95 rounded-2xl shadow-xs hover:shadow-md border border-slate-200/90 text-xs font-bold text-[#101828] hover:bg-white hover:border-[#17B3CD]/40 transition-all duration-200 cursor-pointer group whitespace-nowrap`}
@@ -278,9 +279,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-running-businesses"
                 onClick={() => handleCategoryBadgeClick("running-businesses-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.1, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.1)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
@@ -302,9 +301,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-startup-ideas"
                 onClick={() => handleCategoryBadgeClick("startup-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.2, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.2)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
@@ -326,9 +323,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-partnership-opportunities"
                 onClick={() => handleCategoryBadgeClick("business-partnership-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.3, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.3)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"
@@ -350,9 +345,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
               <motion.button
                 id="hero-mobile-trade-licenses"
                 onClick={() => handleCategoryBadgeClick("trade-license-opportunities-uae")}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.32, delay: 0.4, ease: "easeOut" }}
+                {...getBadgeAnimationProps(0.4)}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-2xl bg-white/95 border border-slate-200/90 shadow-xs hover:shadow-md hover:bg-white hover:border-[#17B3CD]/40 text-start transition-all duration-200 cursor-pointer group"

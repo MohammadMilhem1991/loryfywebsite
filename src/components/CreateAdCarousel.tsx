@@ -339,35 +339,24 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
         </div>
       </div>
 
-      {/* Pagination Dots with Accessible 44px Touch Targets and GPU Transform Animations */}
-      <div className="flex items-center justify-center gap-0 pt-1 pb-1 z-20">
-        {activeScreens.map((_, dotIdx) => {
-          const isActive = dotIdx === activeDotIndex;
-          return (
-            <button
-              key={`dot-${dotIdx}`}
-              onClick={() => {
-                setIsTransitioning(true);
-                const diff = dotIdx - activeDotIndex;
-                setCurrentIndex((prev) => prev + diff);
-              }}
-              aria-label={`Go to slide ${dotIdx + 1}`}
-              aria-current={isActive ? "true" : undefined}
-              className="w-10 h-11 sm:w-11 sm:h-11 flex items-center justify-center cursor-pointer p-0 bg-transparent border-0 group/dot focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0F58D5]/60 rounded-full"
-            >
-              <span
-                style={{
-                  transform: isActive ? "scaleX(3)" : "scaleX(1)",
-                  transformOrigin: "center center",
-                  willChange: "transform",
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 transform-gpu ${
-                  isActive ? "bg-[#0F58D5]" : "bg-slate-300 group-hover/dot:bg-slate-400"
-                }`}
-              />
-            </button>
-          );
-        })}
+      {/* Pagination Dots */}
+      <div className="flex items-center justify-center gap-1.5 pt-1 pb-1 z-20">
+        {activeScreens.map((_, dotIdx) => (
+          <button
+            key={`dot-${dotIdx}`}
+            onClick={() => {
+              setIsTransitioning(true);
+              const diff = dotIdx - activeDotIndex;
+              setCurrentIndex((prev) => prev + diff);
+            }}
+            aria-label={`Go to slide ${dotIdx + 1}`}
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
+              dotIdx === activeDotIndex
+                ? "w-6 h-2 bg-[#0F58D5]"
+                : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );

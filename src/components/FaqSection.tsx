@@ -9,8 +9,8 @@ import { Language } from "../types";
 import { translations } from "../data/translations";
 import { trackEvent } from "../utils/analytics";
 import { ChevronDown, CheckCircle2 } from "lucide-react";
-import { FadeInUp } from "./ScrollAnimations";
-import { motion } from "motion/react";
+import { FadeInUp, usePageAnimation } from "./ScrollAnimations";
+import { motion, useReducedMotion } from "motion/react";
 
 export interface FaqItemData {
   id: string;
@@ -72,6 +72,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   const t = translations[currentLang];
   const [openIds, setOpenIds] = useState<string[]>([]);
   const [showAll, setShowAll] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const { isAlreadyAnimated } = usePageAnimation();
+  const disableAnimations = shouldReduceMotion || isAlreadyAnimated;
 
   useEffect(() => {
     setOpenIds([]);
@@ -127,10 +130,14 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
               <motion.div
                 key={faq.id}
                 id={`faq-item-${faq.id}`}
-                initial={idx < 3 ? { opacity: 0, y: 15, scale: 0.99 } : { opacity: 1, y: 0, scale: 1 }}
+                initial={
+                  disableAnimations || idx >= 3
+                    ? false
+                    : { opacity: 0, y: 15, scale: 0.99 }
+                }
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={
-                  idx < 3
+                  !disableAnimations && idx < 3
                     ? {
                         duration: 0.38,
                         ease: [0.16, 1, 0.3, 1],

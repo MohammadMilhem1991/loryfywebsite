@@ -10,7 +10,7 @@ import { loryfyConfig } from "../config/loryfyConfig";
 import { trackEvent } from "../utils/analytics";
 import { storiesData, storySlugs } from "../data/storiesData";
 import { Mail } from "lucide-react";
-import { FadeInUp, StaggerContainer, StaggerItem } from "./ScrollAnimations";
+import { FadeInUp, StaggerContainer, StaggerItem, PageAnimationProvider } from "./ScrollAnimations";
 import {
   TikTokIcon,
   FacebookIcon,
@@ -39,7 +39,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
   };
 
   return (
-    <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
+    <PageAnimationProvider pageKey="footer">
+      <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-8 border-b border-slate-800" staggerDelay={0.06}>
           {/* Col 1: Brand, Direct WhatsApp & Official Channels (2 cols on large screens) */}
@@ -364,5 +365,6 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
         </div>
       </div>
     </footer>
-  );
+  </PageAnimationProvider>
+);
 };
