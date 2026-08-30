@@ -1,62 +1,31 @@
 import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-// Storage key prefix used in sessionStorage
-const SESSION_STORAGE_PREFIX = "loryfy_anim_visited_";
-
-// In-memory set fallback and cache to avoid excessive DOM/sessionStorage queries
-const sessionVisitedPages = new Set<string>();
+// In-memory set tracking pages that have already animated during this SPA session.
+// Being in-memory (not in sessionStorage), refreshing or reloading the page resets this Set.
+const visitedPages = new Set<string>();
 
 /**
- * Checks if a specific page/route key has already played its entry/scroll animations in this browser session.
+ * Checks if a specific page/route key has already played its entry/scroll animations in this SPA session.
  */
 export const hasPageAnimatedInSession = (pageKey: string): boolean => {
-  if (typeof window === "undefined" || !pageKey) return false;
-  if (sessionVisitedPages.has(pageKey)) return true;
-  try {
-    const val = window.sessionStorage.getItem(`${SESSION_STORAGE_PREFIX}${pageKey}`);
-    if (val === "1" || val === "true") {
-      sessionVisitedPages.add(pageKey);
-      return true;
-    }
-  } catch {
-    // sessionStorage unavailable or access restricted
-  }
-  return false;
+  if (!pageKey) return false;
+  return visitedPages.has(pageKey);
 };
 
 /**
- * Marks a specific page/route key as having played its animations for the duration of the current browser session.
+ * Marks a specific page/route key as having played its animations for the duration of the current SPA session.
  */
 export const markPageAnimatedInSession = (pageKey: string): void => {
-  if (typeof window === "undefined" || !pageKey) return;
-  sessionVisitedPages.add(pageKey);
-  try {
-    window.sessionStorage.setItem(`${SESSION_STORAGE_PREFIX}${pageKey}`, "1");
-  } catch {
-    // sessionStorage unavailable
-  }
+  if (!pageKey) return;
+  visitedPages.add(pageKey);
 };
 
 /**
- * Clears all session animation history (resets for testing or new sessions).
+ * Clears all in-memory animation history (resets animations).
  */
 export const clearSessionAnimations = (): void => {
-  if (typeof window !== "undefined") {
-    try {
-      const keysToRemove: string[] = [];
-      for (let i = 0; i < window.sessionStorage.length; i++) {
-        const key = window.sessionStorage.key(i);
-        if (key && key.startsWith(SESSION_STORAGE_PREFIX)) {
-          keysToRemove.push(key);
-        }
-      }
-      keysToRemove.forEach((k) => window.sessionStorage.removeItem(k));
-    } catch {
-      // ignore
-    }
-  }
-  sessionVisitedPages.clear();
+  visitedPages.clear();
 };
 
 interface PageAnimationContextValue {
@@ -82,12 +51,18 @@ export const PageAnimationProvider: React.FC<PageAnimationProviderProps> = ({
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const [alreadyAnimated] = React.useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
     return hasPageAnimatedInSession(pageKey);
   });
 
   React.useEffect(() => {
-    markPageAnimatedInSession(pageKey);
-  }, [pageKey]);
+    if (typeof window === "undefined" || alreadyAnimated) return;
+    // Mark as animated only after the animation has had time to start/run
+    const timer = setTimeout(() => {
+      markPageAnimatedInSession(pageKey);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [pageKey, alreadyAnimated]);
 
   const disableAnimation = shouldReduceMotion || alreadyAnimated;
 
@@ -117,7 +92,7 @@ export const FadeInUp: React.FC<ScrollAnimationProps> = ({
   delay = 0,
   duration = 0.36,
   id,
-  amount = 0.1,
+  amount = 0.01,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -155,7 +130,7 @@ export const FadeInSlide: React.FC<FadeInSlideProps> = ({
   delay = 0,
   duration = 0.36,
   id,
-  amount = 0.1,
+  amount = 0.01,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -196,7 +171,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   className = "",
   staggerDelay = 0.09,
   id,
-  amount = 0.08,
+  amount = 0.01,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -211,7 +186,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
       opacity: 1,
       transition: {
         staggerChildren: staggerDelay,
-        delayChildren: 0.03,
+        delayChildren: 0.02,
       },
     },
   };
@@ -286,7 +261,7 @@ export const AnimatedCardBox: React.FC<ScrollAnimationProps> = ({
   delay = 0,
   duration = 0.35,
   id,
-  amount = 0.1,
+  amount = 0.01,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -318,7 +293,7 @@ interface PageTransitionProps {
 
 /**
  * PageTransition: Smooth, instant entrance per page.
- * Uses sessionStorage to ensure animations play only once per browser session.
+ * Uses in-memory Set to ensure animations play only once per SPA session, and reset on page refresh.
  */
 export const PageTransition: React.FC<PageTransitionProps> = ({
   pageKey,
@@ -328,12 +303,18 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
   const shouldReduceMotion = useReducedMotion();
   
   const [alreadyAnimated] = React.useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
     return hasPageAnimatedInSession(pageKey);
   });
 
   React.useEffect(() => {
-    markPageAnimatedInSession(pageKey);
-  }, [pageKey]);
+    if (typeof window === "undefined" || alreadyAnimated) return;
+    // Mark as animated after the page animation has started/completed
+    const timer = setTimeout(() => {
+      markPageAnimatedInSession(pageKey);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [pageKey, alreadyAnimated]);
 
   const disableAnimation = shouldReduceMotion || alreadyAnimated;
 
@@ -347,6 +328,9 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.32, ease: "easeOut" }}
+          onAnimationComplete={() => {
+            markPageAnimatedInSession(pageKey);
+          }}
           className={className}
         >
           {children}

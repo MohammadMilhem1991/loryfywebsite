@@ -3,46 +3,50 @@
  * Bilingual (EN / AR RTL), SEO Optimized, Conversion-First Mobile App Discovery.
  */
 
-import React, { useState, useEffect, Suspense, lazy } from "react";
-import { motion } from "motion/react";
+import React, { useState, useEffect } from "react";
 import { Language, PageRoute } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { HeroSection } from "./components/HeroSection";
+import { ForOwnersSection } from "./components/ForOwnersSection";
+import { DiscoverOpportunitiesSection } from "./components/DiscoverOpportunitiesSection";
+import { RegistrationBanner } from "./components/RegistrationBanner";
+import { HowItWorksInteractive } from "./components/HowItWorksInteractive";
+import { CommunicationSection } from "./components/CommunicationSection";
+import { FaqSection } from "./components/FaqSection";
+import { FinalCtaSection } from "./components/FinalCtaSection";
+import { MobileStickyCTA } from "./components/MobileStickyCTA";
+import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
+import { CategoryHubPage } from "./components/CategoryHubPage";
+import { SeoPageTemplate } from "./components/SeoPageTemplate";
+import {
+  AboutPage,
+  ContactPage,
+  DownloadPage,
+  OpportunityDetailPage,
+  TermsPage,
+  PrivacyPage,
+  NotFoundPage,
+  SitemapPage,
+  StoriesIndexPage,
+  TechnicalTextModal,
+} from "./components/SpecialPages";
 import { SeoStructuredData } from "./components/SeoStructuredData";
 import { PageTransition } from "./components/ScrollAnimations";
 import { resolveRoute } from "./utils/routes";
 import { scheduleIdleImagePreloads } from "./utils/idlePreloader";
 
-// Below-the-fold homepage components (code-split to reduce initial bundle size)
-const ForOwnersSection = lazy(() => import("./components/ForOwnersSection").then((m) => ({ default: m.ForOwnersSection })));
-const DiscoverOpportunitiesSection = lazy(() => import("./components/DiscoverOpportunitiesSection").then((m) => ({ default: m.DiscoverOpportunitiesSection })));
-const RegistrationBanner = lazy(() => import("./components/RegistrationBanner").then((m) => ({ default: m.RegistrationBanner })));
-const HowItWorksInteractive = lazy(() => import("./components/HowItWorksInteractive").then((m) => ({ default: m.HowItWorksInteractive })));
-const CommunicationSection = lazy(() => import("./components/CommunicationSection").then((m) => ({ default: m.CommunicationSection })));
-const FaqSection = lazy(() => import("./components/FaqSection").then((m) => ({ default: m.FaqSection })));
-const FinalCtaSection = lazy(() => import("./components/FinalCtaSection").then((m) => ({ default: m.FinalCtaSection })));
-const MobileStickyCTA = lazy(() => import("./components/MobileStickyCTA").then((m) => ({ default: m.MobileStickyCTA })));
-const FloatingWhatsApp = lazy(() => import("./components/FloatingWhatsApp").then((m) => ({ default: m.FloatingWhatsApp })));
-
-// Subpages and Hubs (code-split)
-const CategoryHubPage = lazy(() => import("./components/CategoryHubPage").then((m) => ({ default: m.CategoryHubPage })));
-const SeoPageTemplate = lazy(() => import("./components/SeoPageTemplate").then((m) => ({ default: m.SeoPageTemplate })));
-const AboutPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.AboutPage })));
-const ContactPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.ContactPage })));
-const DownloadPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.DownloadPage })));
-const OpportunityDetailPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.OpportunityDetailPage })));
-const TermsPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.TermsPage })));
-const PrivacyPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.PrivacyPage })));
-const NotFoundPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.NotFoundPage })));
-const SitemapPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.SitemapPage })));
-const StoriesIndexPage = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.StoriesIndexPage })));
-const TechnicalTextModal = lazy(() => import("./components/SpecialPages").then((m) => ({ default: m.TechnicalTextModal })));
-
 export default function App() {
-  const [currentLang, setCurrentLang] = useState<Language>("en");
-  const [currentPage, setCurrentPage] = useState<PageRoute>("home");
-  const [selectedOpportunitySlug, setSelectedOpportunitySlug] = useState<string | undefined>();
+  const [initialRoute] = useState(() => {
+    if (typeof window !== "undefined") {
+      return resolveRoute(window.location.pathname);
+    }
+    return { lang: "en" as Language, page: "home" as PageRoute, slug: undefined };
+  });
+
+  const [currentLang, setCurrentLang] = useState<Language>(initialRoute.lang);
+  const [currentPage, setCurrentPage] = useState<PageRoute>(initialRoute.page);
+  const [selectedOpportunitySlug, setSelectedOpportunitySlug] = useState<string | undefined>(initialRoute.slug);
   const [technicalModal, setTechnicalModal] = useState<"robots" | "llms" | null>(null);
 
   // Initialize language and path based on URL pathname
@@ -53,7 +57,6 @@ export default function App() {
       setSelectedOpportunitySlug(resolved.slug);
     }
     setCurrentPage(resolved.page);
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
     // Handle browser back/forward buttons
     const handlePopState = () => {
@@ -155,33 +158,32 @@ export default function App() {
       />
 
       {/* Main Page Routing & Body Content */}
-      <main id="main-content" className="flex-1">
-        <Suspense fallback={null}>
-          {/* HOMEPAGE */}
-          {currentPage === "home" && (
-            <PageTransition key="home" pageKey="home">
-              {/* 1. Hero Section (In initial bundle for instant LCP) */}
-              <HeroSection currentLang={currentLang} onNavigate={handleNavigate} />
+      <main id="main-content" className="flex-1 w-full min-h-[calc(100vh-80px)]">
+        {/* HOMEPAGE */}
+        {currentPage === "home" && (
+          <PageTransition key="home" pageKey="home">
+            {/* 1. Hero Section (In initial bundle for instant LCP) */}
+            <HeroSection currentLang={currentLang} onNavigate={handleNavigate} />
 
-              {/* 2. For Owners Section */}
-              <ForOwnersSection currentLang={currentLang} onNavigate={handleNavigate} />
+            {/* 2. For Owners Section */}
+            <ForOwnersSection currentLang={currentLang} onNavigate={handleNavigate} />
 
-              {/* 3. Discover Opportunities Section */}
-              <DiscoverOpportunitiesSection currentLang={currentLang} onNavigate={handleNavigate} />
+            {/* 3. Discover Opportunities Section */}
+            <DiscoverOpportunitiesSection currentLang={currentLang} onNavigate={handleNavigate} />
 
-              {/* 4. How Loryfy Works Section */}
-              <HowItWorksInteractive currentLang={currentLang} onNavigate={handleNavigate} />
+            {/* 4. How Loryfy Works Section */}
+            <HowItWorksInteractive currentLang={currentLang} onNavigate={handleNavigate} />
 
-              {/* 5. In-App Direct Chat */}
-              <CommunicationSection currentLang={currentLang} onNavigate={handleNavigate} />
+            {/* 5. In-App Direct Chat */}
+            <CommunicationSection currentLang={currentLang} onNavigate={handleNavigate} />
 
-              {/* 6. Accordion FAQ (6 questions by default, expandable) */}
-              <FaqSection currentLang={currentLang} />
+            {/* 6. Accordion FAQ (6 questions by default, expandable) */}
+            <FaqSection currentLang={currentLang} />
 
-              {/* 7. Final Download CTA Banner */}
-              <FinalCtaSection currentLang={currentLang} onNavigate={handleNavigate} />
-            </PageTransition>
-          )}
+            {/* 7. Final Download CTA Banner */}
+            <FinalCtaSection currentLang={currentLang} onNavigate={handleNavigate} />
+          </PageTransition>
+        )}
 
           {/* FOR OWNERS & DISCOVER DEDICATED HUB CARD PAGES */}
           {(currentPage === "for-owners" || currentPage === "discover") && (
@@ -320,31 +322,28 @@ export default function App() {
               <NotFoundPage currentLang={currentLang} onNavigate={handleNavigate} />
             </PageTransition>
           )}
-        </Suspense>
       </main>
 
       {/* Global Footer */}
       <Footer currentLang={currentLang} onNavigate={handleNavigate} />
 
-      <Suspense fallback={null}>
-        {/* Floating WhatsApp Support Action */}
-        <FloatingWhatsApp currentLang={currentLang} />
+      {/* Floating WhatsApp Support Action */}
+      <FloatingWhatsApp currentLang={currentLang} />
 
-        {/* Mobile Sticky CTA on Scroll */}
-        <MobileStickyCTA
-          currentLang={currentLang}
-          currentPage={currentPage}
-          onNavigate={handleNavigate}
+      {/* Mobile Sticky CTA on Scroll */}
+      <MobileStickyCTA
+        currentLang={currentLang}
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+      />
+
+      {/* Technical Text Modal (robots.txt / llms.txt preview) */}
+      {technicalModal && (
+        <TechnicalTextModal
+          type={technicalModal}
+          onClose={() => setTechnicalModal(null)}
         />
-
-        {/* Technical Text Modal (robots.txt / llms.txt preview) */}
-        {technicalModal && (
-          <TechnicalTextModal
-            type={technicalModal}
-            onClose={() => setTechnicalModal(null)}
-          />
-        )}
-      </Suspense>
+      )}
     </div>
   );
 }

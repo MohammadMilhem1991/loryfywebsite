@@ -698,7 +698,7 @@ export const DownloadPage: React.FC<SpecialPageProps> = ({ currentLang }) => {
           />
 
           {/* Right Column: Mobile App Showcase */}
-          <div className="lg:col-span-5 flex justify-center items-center relative mt-2 sm:mt-0 py-1 sm:py-0">
+          <FadeInUp className="lg:col-span-5 flex justify-center items-center relative mt-2 sm:mt-0 py-1 sm:py-0">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 max-w-[240px] mx-auto bg-gradient-to-tr from-[#0F58D5]/20 to-[#17B3CD]/25 rounded-full blur-xl -z-10 pointer-events-none" />
 
@@ -714,7 +714,7 @@ export const DownloadPage: React.FC<SpecialPageProps> = ({ currentLang }) => {
                 className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(15,88,213,0.22)] transition-transform duration-300 hover:scale-[1.01] aspect-[1/2]"
               />
             </div>
-          </div>
+          </FadeInUp>
 
         </div>
       </div>
@@ -749,72 +749,74 @@ export const OpportunityDetailPage: React.FC<SpecialPageProps> = ({
         </button>
 
         {/* Opportunity Card */}
-        <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/40 p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-2xs space-y-8">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/60 pb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs sm:text-sm font-bold text-[#0F58D5] shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#17B3CD]" />
-              <span>{currentLang === "en" ? opportunity.categoryLabelEn : opportunity.categoryLabelAr}</span>
-            </span>
-            <span className="text-xs text-[#475467] font-medium">
-              {currentLang === "en" ? `Updated: ${opportunity.updatedDate}` : `تم التحديث: ${opportunity.updatedDate}`}
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
-            {currentLang === "en" ? opportunity.titleEn : opportunity.titleAr}
-          </h1>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs text-xs sm:text-sm">
-            <div className="space-y-1">
-              <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Location" : "الموقع"}</div>
-              <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.locationEn : opportunity.locationAr}</div>
+        <FadeInUp>
+          <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/40 p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-2xs space-y-8">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/60 pb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs sm:text-sm font-bold text-[#0F58D5] shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#17B3CD]" />
+                <span>{currentLang === "en" ? opportunity.categoryLabelEn : opportunity.categoryLabelAr}</span>
+              </span>
+              <span className="text-xs text-[#475467] font-medium">
+                {currentLang === "en" ? `Updated: ${opportunity.updatedDate}` : `تم التحديث: ${opportunity.updatedDate}`}
+              </span>
             </div>
-            <div className="space-y-1">
-              <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Opportunity Type" : "نوع الفرصة"}</div>
-              <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.opportunityTypeEn : opportunity.opportunityTypeAr}</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Industry" : "القطاع"}</div>
-              <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.industryEn : opportunity.industryAr}</div>
-            </div>
-          </div>
 
-          <div className="space-y-3">
-            <h3 className="text-lg font-extrabold text-[#101828]">
-              {currentLang === "en" ? "Public Overview" : "نظرة عامة على الفرصة"}
-            </h3>
-            <p className="text-sm sm:text-base text-[#475467] leading-relaxed font-medium">
-              {currentLang === "en" ? opportunity.descriptionEn : opportunity.descriptionAr}
-            </p>
-          </div>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
+              {currentLang === "en" ? opportunity.titleEn : opportunity.titleAr}
+            </h1>
 
-          {/* App Direct Action Banner */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0F58D5] via-[#0F58D5] to-[#17B3CD] text-white space-y-5 shadow-md">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 border border-white/20">
-                <MessageSquare className="w-6 h-6 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-2xl bg-white border border-slate-200/60 shadow-2xs text-xs sm:text-sm">
+              <div className="space-y-1">
+                <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Location" : "الموقع"}</div>
+                <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.locationEn : opportunity.locationAr}</div>
               </div>
               <div className="space-y-1">
-                <h4 className="font-extrabold text-lg sm:text-xl text-white">
-                  {currentLang === "en" ? "Connect with the Owner" : "تواصل مباشرة مع صاحب الفرصة"}
-                </h4>
-                <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
-                  {currentLang === "en"
-                    ? "Full business documentation, financials, and direct chat are available inside Loryfy."
-                    : "المستندات الكاملة والبيانات والمحادثة المباشرة متوفرة عبر تطبيق لوريفاي."}
-                </p>
+                <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Opportunity Type" : "نوع الفرصة"}</div>
+                <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.opportunityTypeEn : opportunity.opportunityTypeAr}</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-[#475467] font-semibold">{currentLang === "en" ? "Industry" : "القطاع"}</div>
+                <div className="font-extrabold text-[#101828]">{currentLang === "en" ? opportunity.industryEn : opportunity.industryAr}</div>
               </div>
             </div>
 
-            <button
-              onClick={() => onNavigate("download")}
-              className="w-full flex items-center justify-center gap-2.5 py-4 rounded-2xl font-black text-sm text-[#0F58D5] bg-white hover:bg-slate-50 transition-all cursor-pointer shadow-lg active:scale-98"
-            >
-              <Download className="w-4 h-4 text-[#0F58D5]" />
-              <span>{currentLang === "en" ? "View Full Opportunity on Loryfy" : "استعراض الفرصة كاملة عبر لوريفاي"}</span>
-            </button>
+            <div className="space-y-3">
+              <h3 className="text-lg font-extrabold text-[#101828]">
+                {currentLang === "en" ? "Public Overview" : "نظرة عامة على الفرصة"}
+              </h3>
+              <p className="text-sm sm:text-base text-[#475467] leading-relaxed font-medium">
+                {currentLang === "en" ? opportunity.descriptionEn : opportunity.descriptionAr}
+              </p>
+            </div>
+
+            {/* App Direct Action Banner */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0F58D5] via-[#0F58D5] to-[#17B3CD] text-white space-y-5 shadow-md">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 border border-white/20">
+                  <MessageSquare className="w-6 h-6 text-white" />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-extrabold text-lg sm:text-xl text-white">
+                    {currentLang === "en" ? "Connect with the Owner" : "تواصل مباشرة مع صاحب الفرصة"}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
+                    {currentLang === "en"
+                      ? "Full business documentation, financials, and direct chat are available inside Loryfy."
+                      : "المستندات الكاملة والبيانات والمحادثة المباشرة متوفرة عبر تطبيق لوريفاي."}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => onNavigate("download")}
+                className="w-full flex items-center justify-center gap-2.5 py-4 rounded-2xl font-black text-sm text-[#0F58D5] bg-white hover:bg-slate-50 transition-all cursor-pointer shadow-lg active:scale-98"
+              >
+                <Download className="w-4 h-4 text-[#0F58D5]" />
+                <span>{currentLang === "en" ? "View Full Opportunity on Loryfy" : "استعراض الفرصة كاملة عبر لوريفاي"}</span>
+              </button>
+            </div>
           </div>
-        </div>
+        </FadeInUp>
       </div>
     </div>
   );
@@ -1316,53 +1318,55 @@ export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
         </nav>
 
         {/* Standard White Document Container */}
-        <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
-          
-          {/* Header */}
-          <header className="border-b border-slate-100 pb-6 space-y-2">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
-              {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
-            </h1>
-            <p className="text-xs sm:text-sm text-[#64748B]">
-              {currentLang === "en" ? "Last updated: 2026 • UAE Jurisdiction" : "آخر تحديث: 2026 • دولة الإمارات العربية المتحدة"}
-            </p>
-          </header>
+        <FadeInUp>
+          <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
+            
+            {/* Header */}
+            <header className="border-b border-slate-100 pb-6 space-y-2">
+              <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
+                {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
+              </h1>
+              <p className="text-xs sm:text-sm text-[#64748B]">
+                {currentLang === "en" ? "Last updated: 2026 • UAE Jurisdiction" : "آخر تحديث: 2026 • دولة الإمارات العربية المتحدة"}
+              </p>
+            </header>
 
-          {/* Sections */}
-          <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
-            {currentTerms.map((sec, idx) => (
-              <section key={idx} className="space-y-2.5">
-                <h2 className="text-base sm:text-lg font-bold text-[#101828]">
-                  {idx + 1}. {sec.title}
-                </h2>
-                <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
-                  {sec.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="leading-relaxed">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+            {/* Sections */}
+            <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
+              {currentTerms.map((sec, idx) => (
+                <section key={idx} className="space-y-2.5">
+                  <h2 className="text-base sm:text-lg font-bold text-[#101828]">
+                    {idx + 1}. {sec.title}
+                  </h2>
+                  <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
+                    {sec.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="leading-relaxed">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
 
-          {/* Footer Back Link */}
-          <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-            <button
-              onClick={() => onNavigate("home")}
-              className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
-            >
-              {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
-            </button>
-            <button
-              onClick={() => onNavigate("privacy")}
-              className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
-            >
-              {currentLang === "en" ? "View Privacy Policy →" : "سياسة الخصوصية ←"}
-            </button>
-          </div>
+            {/* Footer Back Link */}
+            <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+              <button
+                onClick={() => onNavigate("home")}
+                className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
+              >
+                {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
+              </button>
+              <button
+                onClick={() => onNavigate("privacy")}
+                className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
+              >
+                {currentLang === "en" ? "View Privacy Policy →" : "سياسة الخصوصية ←"}
+              </button>
+            </div>
 
-        </article>
+          </article>
+        </FadeInUp>
       </div>
     </div>
   );
@@ -1736,53 +1740,55 @@ export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
         </nav>
 
         {/* Standard White Document Container */}
-        <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
-          
-          {/* Header */}
-          <header className="border-b border-slate-100 pb-6 space-y-2">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
-              {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
-            </h1>
-            <p className="text-xs sm:text-sm text-[#64748B]">
-              {currentLang === "en" ? "Last updated: 2026 • UAE Federal Data Protection (PDPL) Compliant" : "آخر تحديث: 2026 • متوافق مع معايير حماية البيانات في الإمارات"}
-            </p>
-          </header>
+        <FadeInUp>
+          <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
+            
+            {/* Header */}
+            <header className="border-b border-slate-100 pb-6 space-y-2">
+              <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
+                {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
+              </h1>
+              <p className="text-xs sm:text-sm text-[#64748B]">
+                {currentLang === "en" ? "Last updated: 2026 • UAE Federal Data Protection (PDPL) Compliant" : "آخر تحديث: 2026 • متوافق مع معايير حماية البيانات في الإمارات"}
+              </p>
+            </header>
 
-          {/* Sections */}
-          <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
-            {currentPrivacy.map((sec, idx) => (
-              <section key={idx} className="space-y-2.5">
-                <h2 className="text-base sm:text-lg font-bold text-[#101828]">
-                  {idx > 0 ? `${idx}. ` : ""}{sec.title}
-                </h2>
-                <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
-                  {sec.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="leading-relaxed">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
+            {/* Sections */}
+            <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
+              {currentPrivacy.map((sec, idx) => (
+                <section key={idx} className="space-y-2.5">
+                  <h2 className="text-base sm:text-lg font-bold text-[#101828]">
+                    {idx > 0 ? `${idx}. ` : ""}{sec.title}
+                  </h2>
+                  <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
+                    {sec.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="leading-relaxed">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
 
-          {/* Footer Back Link */}
-          <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-            <button
-              onClick={() => onNavigate("home")}
-              className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
-            >
-              {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
-            </button>
-            <button
-              onClick={() => onNavigate("terms")}
-              className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
-            >
-              {currentLang === "en" ? "View Terms & Conditions →" : "الشروط والأحكام ←"}
-            </button>
-          </div>
+            {/* Footer Back Link */}
+            <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+              <button
+                onClick={() => onNavigate("home")}
+                className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
+              >
+                {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
+              </button>
+              <button
+                onClick={() => onNavigate("terms")}
+                className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
+              >
+                {currentLang === "en" ? "View Terms & Conditions →" : "الشروط والأحكام ←"}
+              </button>
+            </div>
 
-        </article>
+          </article>
+        </FadeInUp>
       </div>
     </div>
   );
@@ -1794,7 +1800,7 @@ export const NotFoundPage: React.FC<SpecialPageProps> = ({ currentLang, onNaviga
 
   return (
     <div id="custom-404-page" className="bg-gradient-to-b from-[#F5F9FF] via-white to-white min-h-[75vh] flex items-center justify-center py-16">
-      <div className="max-w-md mx-auto px-6 text-center space-y-6">
+      <FadeInUp className="max-w-md mx-auto px-6 text-center space-y-6">
         <div className="w-20 h-20 rounded-3xl bg-[#0F58D5]/10 text-[#0F58D5] border border-[#0F58D5]/20 flex items-center justify-center mx-auto shadow-2xs">
           <Compass className="w-10 h-10 text-[#17B3CD]" />
         </div>
@@ -1814,7 +1820,7 @@ export const NotFoundPage: React.FC<SpecialPageProps> = ({ currentLang, onNaviga
         >
           <span>{t.notFound.cta}</span>
         </button>
-      </div>
+      </FadeInUp>
     </div>
   );
 };
@@ -1891,20 +1897,22 @@ export const SitemapPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-start">
         
         {/* Header */}
-        <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs font-bold text-[#0F58D5]">
-            <Globe className="w-3.5 h-3.5 text-[#17B3CD]" />
-            <span>{currentLang === "en" ? "Sitemap Index" : "خريطة الموقع"}</span>
+        <FadeInUp>
+          <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F58D5]/10 border border-[#0F58D5]/20 text-xs font-bold text-[#0F58D5]">
+              <Globe className="w-3.5 h-3.5 text-[#17B3CD]" />
+              <span>{currentLang === "en" ? "Sitemap Index" : "خريطة الموقع"}</span>
+            </div>
+            <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
+              {currentLang === "en" ? "HTML Sitemap & Index" : "خريطة الموقع والفهرس"}
+            </h1>
+            <p className="text-sm sm:text-base text-[#475467] leading-relaxed">
+              {currentLang === "en"
+                ? "Complete crawlable index of official public pages on Loryfy.com."
+                : "فهرس كامل لكافة الصفحات العامة والروابط على موقع لوريفاي."}
+            </p>
           </div>
-          <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
-            {currentLang === "en" ? "HTML Sitemap & Index" : "خريطة الموقع والفهرس"}
-          </h1>
-          <p className="text-sm sm:text-base text-[#475467] leading-relaxed">
-            {currentLang === "en"
-              ? "Complete crawlable index of official public pages on Loryfy.com."
-              : "فهرس كامل لكافة الصفحات العامة والروابط على موقع لوريفاي."}
-          </p>
-        </div>
+        </FadeInUp>
 
         {/* Categorized Sections */}
         <div className="space-y-10">
@@ -1913,25 +1921,26 @@ export const SitemapPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
               <h2 className="text-lg sm:text-xl font-bold text-[#101828] border-b border-slate-200/80 pb-2">
                 {currentLang === "en" ? section.categoryEn : section.categoryAr}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {section.pages.map((p, pIdx) => {
                   const fullUrl = p.path === "" 
                     ? `https://loryfy.com/${currentLang}` 
                     : `https://loryfy.com/${currentLang}/${p.path}`;
                   return (
-                    <button
-                      key={pIdx}
-                      onClick={() => onNavigate(p.route, (p as any).slug)}
-                      className="p-5 rounded-2xl bg-white border border-slate-200/70 hover:border-[#17B3CD]/50 hover:bg-[#F5F8FF]/80 text-start transition-all cursor-pointer shadow-2xs hover:shadow-xs group space-y-1.5"
-                    >
-                      <div className="font-extrabold text-sm text-[#101828] group-hover:text-[#0F58D5] transition-colors">
-                        {currentLang === "en" ? p.titleEn : p.titleAr}
-                      </div>
-                      <div className="text-xs text-slate-400 font-mono truncate">{fullUrl}</div>
-                    </button>
+                    <StaggerItem key={pIdx}>
+                      <button
+                        onClick={() => onNavigate(p.route, (p as any).slug)}
+                        className="w-full p-5 rounded-2xl bg-white border border-slate-200/70 hover:border-[#17B3CD]/50 hover:bg-[#F5F8FF]/80 text-start transition-all cursor-pointer shadow-2xs hover:shadow-xs group space-y-1.5"
+                      >
+                        <div className="font-extrabold text-sm text-[#101828] group-hover:text-[#0F58D5] transition-colors">
+                          {currentLang === "en" ? p.titleEn : p.titleAr}
+                        </div>
+                        <div className="text-xs text-slate-400 font-mono truncate">{fullUrl}</div>
+                      </button>
+                    </StaggerItem>
                   );
                 })}
-              </div>
+              </StaggerContainer>
             </div>
           ))}
         </div>
@@ -2089,7 +2098,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
         </nav>
 
         {/* Hero Header */}
-        <div>
+        <FadeInUp>
           <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs space-y-6 relative overflow-hidden">
             <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
             <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
@@ -2162,7 +2171,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
               </div>
             </div>
           </div>
-        </div>
+        </FadeInUp>
 
         {/* Stories Grid Section */}
         <div id="stories-grid-section" className="space-y-6">
@@ -2219,56 +2228,57 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
               </button>
             </div>
           ) : (
-            <div
+            <StaggerContainer
               id="stories-grid-container"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {filteredStories.map((story) => (
-                <div
-                  key={story.slug}
-                  id={`story-card-${story.slug}`}
-                  onClick={() => onNavigate("story-detail", story.slug)}
-                  className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-[#17B3CD]/60 transition-all duration-200 flex flex-col justify-between group space-y-5 cursor-pointer transform hover:-translate-y-0.5"
-                >
-                  <div className="space-y-3">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F5F8FF] border border-[#0F58D5]/15 text-[11px] font-bold text-[#0F58D5]">
-                      <Sparkles className="w-3 h-3 text-[#17B3CD]" />
-                      <span>
-                        {story.category === "partner"
-                          ? isEn ? "Partnership & Funding" : "شراكة وتمويل"
-                          : story.category === "startup"
-                          ? isEn ? "Startup Co-Founder" : "شريك مؤسس"
-                          : story.category === "company"
-                          ? isEn ? "Corporate Expansion" : "توسع الشركات"
-                          : story.category === "running"
-                          ? isEn ? "Running Business" : "مشروع قائم"
-                          : isEn ? "Trade License" : "رخصة تجارية"}
-                      </span>
+                <StaggerItem key={story.slug}>
+                  <div
+                    id={`story-card-${story.slug}`}
+                    onClick={() => onNavigate("story-detail", story.slug)}
+                    className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-[#17B3CD]/60 transition-all duration-200 flex flex-col justify-between group space-y-5 cursor-pointer transform hover:-translate-y-0.5 h-full"
+                  >
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F5F8FF] border border-[#0F58D5]/15 text-[11px] font-bold text-[#0F58D5]">
+                        <Sparkles className="w-3 h-3 text-[#17B3CD]" />
+                        <span>
+                          {story.category === "partner"
+                            ? isEn ? "Partnership & Funding" : "شراكة وتمويل"
+                            : story.category === "startup"
+                            ? isEn ? "Startup Co-Founder" : "شريك مؤسس"
+                            : story.category === "company"
+                            ? isEn ? "Corporate Expansion" : "توسع الشركات"
+                            : story.category === "running"
+                            ? isEn ? "Running Business" : "مشروع قائم"
+                            : isEn ? "Trade License" : "رخصة تجارية"}
+                        </span>
+                      </div>
+
+                      <h3 className="text-lg font-bold text-[#101828] group-hover:text-[#0F58D5] transition-colors leading-snug">
+                        {story.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#475467] leading-relaxed line-clamp-3">
+                        {story.subtitle || story.intro}
+                      </p>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#101828] group-hover:text-[#0F58D5] transition-colors leading-snug">
-                      {story.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-[#475467] leading-relaxed line-clamp-3">
-                      {story.subtitle || story.intro}
-                    </p>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F58D5] group-hover:text-[#128ca2] transition-colors">
+                        <span>{isEn ? "Read example" : "اعرف المزيد"}</span>
+                        <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                      </span>
+                    </div>
                   </div>
-
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F58D5] group-hover:text-[#128ca2] transition-colors">
-                      <span>{isEn ? "Read example" : "اعرف المزيد"}</span>
-                      <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           )}
         </div>
 
         {/* Bottom CTA */}
-        <div>
+        <FadeInUp>
           <div className="bg-gradient-to-r from-[#0F58D5] to-[#17B3CD] rounded-3xl p-8 sm:p-10 text-white text-center space-y-4 shadow-sm">
             <h2 className="text-2xl sm:text-3xl font-extrabold">
               {isEn
@@ -2290,7 +2300,7 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
               </button>
             </div>
           </div>
-        </div>
+        </FadeInUp>
       </div>
     </div>
   );
