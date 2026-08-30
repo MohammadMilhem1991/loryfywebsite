@@ -169,9 +169,9 @@ interface StaggerContainerProps {
 export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   children,
   className = "",
-  staggerDelay = 0.09,
+  staggerDelay = 0.15,
   id,
-  amount = 0.01,
+  amount = 0.05,
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -181,12 +181,11 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   }
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     show: {
-      opacity: 1,
       transition: {
         staggerChildren: staggerDelay,
-        delayChildren: 0.02,
+        delayChildren: 0.05,
       },
     },
   };
@@ -195,6 +194,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       id={id}
       className={className}
+      style={{ perspective: 1200 }}
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
@@ -210,16 +210,19 @@ interface StaggerItemProps {
   className?: string;
   id?: string;
   index?: number;
+  type?: "slide" | "tumble" | "pop";
 }
 
 /**
  * StaggerItem: Individual card/step item inside StaggerContainer.
- * Uses CSS transforms directly via variants for instant, silky 60fps presentation.
+ * Uses CSS transforms directly via variants for instant, silky 60fps presentation in sequence.
  */
 export const StaggerItem: React.FC<StaggerItemProps> = ({
   children,
   className = "",
   id,
+  index = 0,
+  type = "slide",
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { isAlreadyAnimated } = usePageAnimation();
@@ -228,17 +231,61 @@ export const StaggerItem: React.FC<StaggerItemProps> = ({
     return <div id={id} className={className}>{children}</div>;
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 14 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.35,
-        ease: "easeOut",
-      },
-    },
-  };
+  const tiltZ = index % 3 === 0 ? -3.5 : index % 3 === 1 ? 0 : 3.5;
+
+  const itemVariants = type === "tumble"
+    ? {
+        hidden: {
+          opacity: 0,
+          y: 36,
+          scale: 0.88,
+          rotateX: -18,
+          rotateZ: tiltZ,
+        },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          rotateZ: 0,
+          transition: {
+            type: "spring" as const,
+            stiffness: 280,
+            damping: 19,
+            mass: 0.85,
+          },
+        },
+      }
+    : type === "pop"
+    ? {
+        hidden: {
+          opacity: 0,
+          scale: 0.75,
+          y: 12,
+        },
+        show: {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          transition: {
+            type: "spring" as const,
+            stiffness: 380,
+            damping: 20,
+            mass: 0.8,
+          },
+        },
+      }
+    : {
+        hidden: { opacity: 0, y: 18 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.42,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      };
 
   return (
     <motion.div

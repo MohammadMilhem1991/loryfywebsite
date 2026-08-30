@@ -94,13 +94,13 @@ export const DiscoverOpportunitiesSection: React.FC<DiscoverOpportunitiesSection
           </p>
         </FadeInUp>
 
-        {/* 3 Main Segment Cards Grid - Sequential Stagger */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 pt-2" staggerDelay={0.09}>
-          {categories.map((cat) => {
+        {/* 3 Main Segment Cards Grid - Sequential Stagger with Tumble Animation */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 pt-2" staggerDelay={0.16}>
+          {categories.map((cat, idx) => {
             const Icon = cat.icon;
 
             return (
-              <StaggerItem key={cat.id} className="h-full">
+              <StaggerItem key={cat.id} className="h-full" type="tumble" index={idx}>
                 <div
                   id={`discover-category-card-${cat.id}`}
                   className="group relative bg-white hover:bg-[#F5F8FF]/20 rounded-2xl py-4 px-6 border border-slate-200/80 hover:border-[#17B3CD]/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"

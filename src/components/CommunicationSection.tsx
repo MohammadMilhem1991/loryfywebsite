@@ -211,8 +211,8 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                 </p>
               </FadeInUp>
 
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2" staggerDelay={0.09}>
-                <StaggerItem className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs hover:border-[#0F58D5]/30 transition-all">
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2" staggerDelay={0.15}>
+                <StaggerItem className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs hover:border-[#0F58D5]/30 transition-all" type="tumble" index={0}>
                   <div className="w-9 h-9 rounded-lg bg-[#0F58D5]/10 text-[#0F58D5] flex items-center justify-center shrink-0 mt-0.5">
                     <MessageSquare className="w-5 h-5" />
                   </div>
@@ -228,7 +228,7 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
                   </div>
                 </StaggerItem>
 
-                <StaggerItem className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs hover:border-[#17B3CD]/40 transition-all">
+                <StaggerItem className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs hover:border-[#17B3CD]/40 transition-all" type="tumble" index={1}>
                   <div className="w-9 h-9 rounded-lg bg-[#17B3CD]/15 text-[#0F58D5] flex items-center justify-center shrink-0 mt-0.5">
                     <Share2 className="w-5 h-5" />
                   </div>

@@ -63,14 +63,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLang, onNavigat
     if (disableAnimations) {
       return {
         initial: false as const,
-        animate: { opacity: 1, y: 0 },
+        animate: { opacity: 1, scale: 1, y: 0 },
         transition: { duration: 0 },
       };
     }
     return {
-      initial: { opacity: 0, y: 8 },
-      animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.32, delay, ease: "easeOut" },
+      initial: { opacity: 0, scale: 0.65, y: 10 },
+      animate: { opacity: 1, scale: 1, y: 0 },
+      transition: {
+        type: "spring" as const,
+        stiffness: 420,
+        damping: 22,
+        mass: 0.8,
+        delay,
+      },
     };
   };
 

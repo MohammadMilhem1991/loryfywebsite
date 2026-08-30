@@ -189,9 +189,10 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <StaggerContainer
                   key={`running-${runningObjective}`}
                   className="grid grid-cols-1 md:grid-cols-3 gap-5"
+                  staggerDelay={0.15}
                 >
                   {/* Step 1 */}
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={0}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -210,7 +211,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                   </StaggerItem>
 
                   {/* Step 2 */}
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={1}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -233,7 +234,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                   </StaggerItem>
 
                   {/* Step 3 */}
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs" type="tumble" index={2}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#17B3CD] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -269,8 +270,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <StaggerContainer
                   key="startup-grid"
                   className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2"
+                  staggerDelay={0.15}
                 >
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={0}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -288,7 +290,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                     </div>
                   </StaggerItem>
 
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={1}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -306,7 +308,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                     </div>
                   </StaggerItem>
 
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs" type="tumble" index={2}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#17B3CD] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -342,8 +344,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 <StaggerContainer
                   key="license-grid"
                   className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2"
+                  staggerDelay={0.15}
                 >
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={0}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -361,7 +364,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                     </div>
                   </StaggerItem>
 
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={1}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -379,7 +382,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                     </div>
                   </StaggerItem>
 
-                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs">
+                  <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs" type="tumble" index={2}>
                     <div>
                       <div className="flex items-start gap-3 mb-2.5">
                         <div className="w-8 h-8 rounded-full bg-[#17B3CD] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -418,8 +421,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
             <StaggerContainer
               key="seekers-grid"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+              staggerDelay={0.15}
             >
-              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={0}>
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -437,7 +441,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 </div>
               </StaggerItem>
 
-              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={1}>
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -455,7 +459,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 </div>
               </StaggerItem>
 
-              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs">
+              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#0F58D5]/30 transition-all shadow-2xs" type="tumble" index={2}>
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#0F58D5] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
@@ -473,7 +477,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
                 </div>
               </StaggerItem>
 
-              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs">
+              <StaggerItem className="p-5 rounded-xl bg-[#F5F8FF] border border-slate-100 flex flex-col justify-between h-full hover:border-[#17B3CD]/40 transition-all shadow-2xs" type="tumble" index={3}>
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#17B3CD] text-white font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
