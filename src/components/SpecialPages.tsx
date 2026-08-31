@@ -61,32 +61,56 @@ interface SpecialPageProps {
   currentLang: Language;
   onNavigate: (page: PageRoute, slug?: string) => void;
   selectedOpportunitySlug?: string;
+  isWebView?: boolean;
 }
 
 // 1. ABOUT PAGE (Section 57)
-export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate }) => {
+export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate, isWebView = false }) => {
   const t = translations[currentLang];
   const isRtl = currentLang === "ar";
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
   return (
-    <div id="about-page" className="bg-gradient-to-b from-[#F5F9FF] via-white to-white min-h-screen pt-4 pb-16 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
+    <div
+      id="about-page"
+      className={
+        isWebView
+          ? "bg-white min-h-screen py-2 px-2"
+          : "bg-gradient-to-b from-[#F5F9FF] via-white to-white min-h-screen pt-4 pb-16 sm:py-16"
+      }
+    >
+      <div
+        className={
+          isWebView
+            ? "max-w-7xl mx-auto space-y-6"
+            : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16"
+        }
+      >
         
         {/* Hero Header */}
         <FadeInUp>
-          <div className="bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs text-center space-y-6 relative overflow-hidden">
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
+          <div
+            className={
+              isWebView
+                ? "bg-white p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-3xs text-center space-y-4 relative overflow-hidden"
+                : "bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs text-center space-y-6 relative overflow-hidden"
+            }
+          >
+            {!isWebView && (
+              <>
+                <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#17B3CD]/10 rounded-full blur-lg pointer-events-none" />
+                <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0F58D5]/10 rounded-full blur-lg pointer-events-none" />
+              </>
+            )}
 
             <div className="relative z-10 space-y-4 sm:space-y-6 max-w-4xl mx-auto">
-              <h1 className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
+              <h1 className="text-xl sm:text-2.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
                 {currentLang === "en"
                   ? "Making Business Connections Easier to Discover"
-                  : "نجعل اكتشاف علاقات وفرص الأعمال أسهل"}
+                  : "نربط أصحاب المشاريع بالشركاء والمستثمرين"}
               </h1>
 
-              <p className="text-sm sm:text-base text-[#475467] leading-relaxed pt-1 max-w-3xl mx-auto">
+              <p className="text-xs sm:text-sm text-[#475467] leading-relaxed pt-1 max-w-3xl mx-auto">
                 {t.whatIsLoryfy.description}
               </p>
             </div>
@@ -94,85 +118,89 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
         </FadeInUp>
 
         {/* 3 Core Pillars: Discover, Connect, Opportunity */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <StaggerItem className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-[#17B3CD]/40 transition-all text-start space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0F58D5]/10 text-[#0F58D5] border border-[#0F58D5]/20 flex items-center justify-center font-black text-lg shrink-0">
-                  1
+        {!isWebView && (
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <StaggerItem className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-3xs text-start space-y-3 flex flex-col justify-between" type="tumble" index={0}>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#0F58D5]/10 text-[#0F58D5] border border-[#0F58D5]/20 flex items-center justify-center font-black text-sm shrink-0">
+                    1
+                  </div>
+                  <h3 className="text-base font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Discover" : "اكتشف"}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#101828]">
-                  {currentLang === "en" ? "Discover" : "اكتشف"}
-                </h3>
+                <p className="text-xs sm:text-sm text-[#475467] leading-relaxed">
+                  {currentLang === "en"
+                    ? "Discover running businesses, startup ideas, and commercial trade license opportunities in one structured platform."
+                    : "اكتشف المشاريع القائمة، وأفكار المشاريع، وفرص الرخص التجارية في منصة واحدة منظمة."}
+                </p>
               </div>
-              <p className="text-sm text-[#475467] leading-relaxed">
-                {currentLang === "en"
-                  ? "Discover running businesses, startup ideas, and commercial trade license opportunities in one structured platform."
-                  : "اكتشف المشاريع القائمة، وأفكار المشاريع، وفرص الرخص التجارية في منصة واحدة منظمة."}
-              </p>
-            </div>
-          </StaggerItem>
+            </StaggerItem>
 
-          <StaggerItem className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-[#17B3CD]/40 transition-all text-start space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#17B3CD]/15 text-[#0F58D5] border border-[#17B3CD]/30 flex items-center justify-center font-black text-lg shrink-0">
-                  2
+            <StaggerItem className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-3xs text-start space-y-3 flex flex-col justify-between" type="tumble" index={1}>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#17B3CD]/15 text-[#0F58D5] border border-[#17B3CD]/30 flex items-center justify-center font-black text-sm shrink-0">
+                    2
+                  </div>
+                  <h3 className="text-base font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Connect" : "تواصل"}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#101828]">
-                  {currentLang === "en" ? "Connect" : "تواصل"}
-                </h3>
+                <p className="text-xs sm:text-sm text-[#475467] leading-relaxed">
+                  {currentLang === "en"
+                    ? "Start direct conversations with business owners, funding partners, and operating specialists through instant in-app chat."
+                    : "ابدأ محادثات مباشرة مع أصحاب المشاريع والشركاء الماليين والتنفيذيين عبر المحادثة المباشرة في التطبيق."}
+                </p>
               </div>
-              <p className="text-sm text-[#475467] leading-relaxed">
-                {currentLang === "en"
-                  ? "Start direct conversations with business owners, funding partners, and operating specialists through instant in-app chat."
-                  : "ابدأ محادثات مباشرة مع أصحاب المشاريع والشركاء الماليين والتنفيذيين عبر المحادثة المباشرة في التطبيق."}
-              </p>
-            </div>
-          </StaggerItem>
+            </StaggerItem>
 
-          <StaggerItem className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/70 shadow-2xs hover:shadow-xs hover:border-[#17B3CD]/40 transition-all text-start space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0F58D5]/10 text-[#0F58D5] border border-[#0F58D5]/20 flex items-center justify-center font-black text-lg shrink-0">
-                  3
+            <StaggerItem className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-3xs text-start space-y-3 flex flex-col justify-between" type="tumble" index={2}>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#0F58D5]/10 text-[#0F58D5] border border-[#0F58D5]/20 flex items-center justify-center font-black text-sm shrink-0">
+                    3
+                  </div>
+                  <h3 className="text-base font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Opportunity" : "فرصة"}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#101828]">
-                  {currentLang === "en" ? "Opportunity" : "فرصة"}
-                </h3>
+                <p className="text-xs sm:text-sm text-[#475467] leading-relaxed">
+                  {currentLang === "en"
+                    ? "Unlock new commercial ventures, expand existing businesses, or find the ideal partner to bring business concepts to life."
+                    : "انطلق نحو شراكات تجارية جديدة، وسّع نطاق عملك، أو اعثر على الشريك المناسب لتحويل الأفكار إلى واقع."}
+                </p>
               </div>
-              <p className="text-sm text-[#475467] leading-relaxed">
-                {currentLang === "en"
-                  ? "Unlock new commercial ventures, expand existing businesses, or find the ideal partner to bring business concepts to life."
-                  : "انطلق نحو شراكات تجارية جديدة، وسّع نطاق عملك، أو اعثر على الشريك المناسب لتحويل الأفكار إلى واقع."}
-              </p>
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
+            </StaggerItem>
+          </StaggerContainer>
+        )}
 
         {/* UAE & Regional Focus */}
         <FadeInUp>
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#F5F8FF] to-white border border-slate-200/80 shadow-2xs space-y-4 text-start">
-            <h3 className="text-2xl font-extrabold text-[#101828]">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-3xs space-y-3 text-start">
+            <h3 className="text-lg font-extrabold text-[#101828]">
               {currentLang === "en" ? "Our Geographic Focus" : "نطاق التركيز الجغرافي"}
             </h3>
-            <p className="text-base text-[#475467] leading-relaxed max-w-3xl">
+            <p className="text-xs sm:text-sm text-[#475467] leading-relaxed max-w-3xl">
               {t.whyLoryfy.uaeFocused.description}
             </p>
           </div>
         </FadeInUp>
 
         {/* Action CTA */}
-        <FadeInUp className="text-center pt-2">
-          <button
-            onClick={() => onNavigate("download")}
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-[#0F58D5] hover:bg-[#128ca2] shadow-md shadow-[#0F58D5]/20 hover:shadow-lg hover:shadow-[#17B3CD]/30 transition-all text-base cursor-pointer active:scale-98"
-          >
-            <Download className="w-5 h-5" />
-            <span>{t.nav.downloadApp}</span>
-            <ArrowIcon className="w-4 h-4" />
-          </button>
-        </FadeInUp>
+        {!isWebView && (
+          <FadeInUp className="text-center pt-2">
+            <button
+              onClick={() => onNavigate("download")}
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-[#0F58D5] hover:bg-[#128ca2] shadow-md shadow-[#0F58D5]/20 hover:shadow-lg hover:shadow-[#17B3CD]/30 transition-all text-base cursor-pointer active:scale-98"
+            >
+              <Download className="w-5 h-5" />
+              <span>{t.nav.downloadApp}</span>
+              <ArrowIcon className="w-4 h-4" />
+            </button>
+          </FadeInUp>
+        )}
       </div>
     </div>
   );
@@ -823,7 +851,7 @@ export const OpportunityDetailPage: React.FC<SpecialPageProps> = ({
 };
 
 // 5. TERMS & CONDITIONS
-export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate }) => {
+export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate, isWebView = false }) => {
   const isRtl = currentLang === "ar";
   const ChevronBreadcrumb = isRtl ? ArrowLeft : ChevronRight;
 
@@ -1300,45 +1328,65 @@ export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
   const currentTerms = isRtl ? termsAr : termsEn;
 
   return (
-    <div id="terms-page" className="bg-[#F8FAFC] min-h-screen py-8 sm:py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-start">
-        
+    <div
+      id="terms-page"
+      className={
+        isWebView
+          ? "bg-white min-h-screen py-2 px-2"
+          : "bg-[#F8FAFC] min-h-screen py-8 sm:py-12"
+      }
+    >
+      <div
+        className={
+          isWebView
+            ? "max-w-4xl mx-auto space-y-4 text-start"
+            : "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-start"
+        }
+      >
         {/* Simple Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="hidden sm:flex text-xs sm:text-sm text-[#475467] items-center gap-2">
-          <button
-            onClick={() => onNavigate("home")}
-            className="hover:text-[#0F58D5] transition-colors cursor-pointer"
-          >
-            {currentLang === "en" ? "Home" : "الرئيسية"}
-          </button>
-          <ChevronBreadcrumb className="w-3.5 h-3.5 text-slate-300" />
-          <span className="font-semibold text-[#101828]">
-            {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
-          </span>
-        </nav>
+        {!isWebView && (
+          <nav aria-label="Breadcrumb" className="hidden sm:flex text-xs sm:text-sm text-[#475467] items-center gap-2">
+            <button
+              onClick={() => onNavigate("home")}
+              className="hover:text-[#0F58D5] transition-colors cursor-pointer"
+            >
+              {currentLang === "en" ? "Home" : "الرئيسية"}
+            </button>
+            <ChevronBreadcrumb className="w-3.5 h-3.5 text-slate-300" />
+            <span className="font-semibold text-[#101828]">
+              {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
+            </span>
+          </nav>
+        )}
 
         {/* Standard White Document Container */}
         <FadeInUp>
-          <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
+          <article
+            className={
+              isWebView
+                ? "bg-white p-2 sm:p-4 space-y-6"
+                : "bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8"
+            }
+          >
             
             {/* Header */}
-            <header className="border-b border-slate-100 pb-6 space-y-2">
-              <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
+            <header className="border-b border-slate-100 pb-4 space-y-2">
+              <h1 className="text-xl sm:text-2xl font-bold text-[#101828]">
                 {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B]">
+              <p className="text-[11px] sm:text-xs text-[#64748B]">
                 {currentLang === "en" ? "Last updated: 2026 • UAE Jurisdiction" : "آخر تحديث: 2026 • دولة الإمارات العربية المتحدة"}
               </p>
             </header>
 
             {/* Sections */}
-            <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
+            <div className="space-y-6 text-xs sm:text-sm text-[#334155] leading-relaxed">
               {currentTerms.map((sec, idx) => (
-                <section key={idx} className="space-y-2.5">
-                  <h2 className="text-base sm:text-lg font-bold text-[#101828]">
+                <section key={idx} className="space-y-2">
+                  <h2 className="text-sm sm:text-base font-bold text-[#101828]">
                     {idx + 1}. {sec.title}
                   </h2>
-                  <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
+                  <ul className="space-y-1.5 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
                     {sec.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="leading-relaxed">
                         {bullet}
@@ -1350,20 +1398,22 @@ export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
             </div>
 
             {/* Footer Back Link */}
-            <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-              <button
-                onClick={() => onNavigate("home")}
-                className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
-              >
-                {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
-              </button>
-              <button
-                onClick={() => onNavigate("privacy")}
-                className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
-              >
-                {currentLang === "en" ? "View Privacy Policy →" : "سياسة الخصوصية ←"}
-              </button>
-            </div>
+            {!isWebView && (
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+                <button
+                  onClick={() => onNavigate("home")}
+                  className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
+                >
+                  {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
+                </button>
+                <button
+                  onClick={() => onNavigate("privacy")}
+                  className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
+                >
+                  {currentLang === "en" ? "View Privacy Policy →" : "سياسة الخصوصية ←"}
+                </button>
+              </div>
+            )}
 
           </article>
         </FadeInUp>
@@ -1373,7 +1423,7 @@ export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate 
 };
 
 // 6. PRIVACY POLICY
-export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate }) => {
+export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate, isWebView = false }) => {
   const isRtl = currentLang === "ar";
   const ChevronBreadcrumb = isRtl ? ArrowLeft : ChevronRight;
 
@@ -1722,45 +1772,65 @@ export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
   const currentPrivacy = isRtl ? privacyAr : privacyEn;
 
   return (
-    <div id="privacy-page" className="bg-[#F8FAFC] min-h-screen py-8 sm:py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-start">
-        
+    <div
+      id="privacy-page"
+      className={
+        isWebView
+          ? "bg-white min-h-screen py-2 px-2"
+          : "bg-[#F8FAFC] min-h-screen py-8 sm:py-12"
+      }
+    >
+      <div
+        className={
+          isWebView
+            ? "max-w-4xl mx-auto space-y-4 text-start"
+            : "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-start"
+        }
+      >
         {/* Simple Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="hidden sm:flex text-xs sm:text-sm text-[#475467] items-center gap-2">
-          <button
-            onClick={() => onNavigate("home")}
-            className="hover:text-[#0F58D5] transition-colors cursor-pointer"
-          >
-            {currentLang === "en" ? "Home" : "الرئيسية"}
-          </button>
-          <ChevronBreadcrumb className="w-3.5 h-3.5 text-slate-300" />
-          <span className="font-semibold text-[#101828]">
-            {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
-          </span>
-        </nav>
+        {!isWebView && (
+          <nav aria-label="Breadcrumb" className="hidden sm:flex text-xs sm:text-sm text-[#475467] items-center gap-2">
+            <button
+              onClick={() => onNavigate("home")}
+              className="hover:text-[#0F58D5] transition-colors cursor-pointer"
+            >
+              {currentLang === "en" ? "Home" : "الرئيسية"}
+            </button>
+            <ChevronBreadcrumb className="w-3.5 h-3.5 text-slate-300" />
+            <span className="font-semibold text-[#101828]">
+              {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
+            </span>
+          </nav>
+        )}
 
         {/* Standard White Document Container */}
         <FadeInUp>
-          <article className="bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8">
+          <article
+            className={
+              isWebView
+                ? "bg-white p-2 sm:p-4 space-y-6"
+                : "bg-white rounded-2xl border border-slate-200 shadow-2xs p-6 sm:p-10 lg:p-12 space-y-8"
+            }
+          >
             
             {/* Header */}
-            <header className="border-b border-slate-100 pb-6 space-y-2">
-              <h1 className="text-2xl sm:text-3xl font-bold text-[#101828]">
+            <header className="border-b border-slate-100 pb-4 space-y-2">
+              <h1 className="text-xl sm:text-2xl font-bold text-[#101828]">
                 {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
               </h1>
-              <p className="text-xs sm:text-sm text-[#64748B]">
+              <p className="text-[11px] sm:text-xs text-[#64748B]">
                 {currentLang === "en" ? "Last updated: 2026 • UAE Federal Data Protection (PDPL) Compliant" : "آخر تحديث: 2026 • متوافق مع معايير حماية البيانات في الإمارات"}
               </p>
             </header>
 
             {/* Sections */}
-            <div className="space-y-6 text-sm sm:text-base text-[#334155] leading-relaxed">
+            <div className="space-y-6 text-xs sm:text-sm text-[#334155] leading-relaxed">
               {currentPrivacy.map((sec, idx) => (
-                <section key={idx} className="space-y-2.5">
-                  <h2 className="text-base sm:text-lg font-bold text-[#101828]">
+                <section key={idx} className="space-y-2">
+                  <h2 className="text-sm sm:text-base font-bold text-[#101828]">
                     {idx > 0 ? `${idx}. ` : ""}{sec.title}
                   </h2>
-                  <ul className="space-y-2 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
+                  <ul className="space-y-1.5 pl-4 sm:pl-6 list-disc marker:text-[#0F58D5]">
                     {sec.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="leading-relaxed">
                         {bullet}
@@ -1772,20 +1842,22 @@ export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
             </div>
 
             {/* Footer Back Link */}
-            <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-              <button
-                onClick={() => onNavigate("home")}
-                className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
-              >
-                {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
-              </button>
-              <button
-                onClick={() => onNavigate("terms")}
-                className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
-              >
-                {currentLang === "en" ? "View Terms & Conditions →" : "الشروط والأحكام ←"}
-              </button>
-            </div>
+            {!isWebView && (
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+                <button
+                  onClick={() => onNavigate("home")}
+                  className="text-xs sm:text-sm font-semibold text-[#0F58D5] hover:underline cursor-pointer"
+                >
+                  {currentLang === "en" ? "← Back to Home" : "← العودة إلى الرئيسية"}
+                </button>
+                <button
+                  onClick={() => onNavigate("terms")}
+                  className="text-xs sm:text-sm text-[#64748B] hover:text-[#0F58D5] hover:underline cursor-pointer"
+                >
+                  {currentLang === "en" ? "View Terms & Conditions →" : "الشروط والأحكام ←"}
+                </button>
+              </div>
+            )}
 
           </article>
         </FadeInUp>
@@ -1888,6 +1960,15 @@ export const SitemapPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
       pages: [
         { titleEn: "Terms of Service", titleAr: "شروط الخدمة", route: "terms" as PageRoute, path: "terms" },
         { titleEn: "Privacy Policy", titleAr: "سياسة الخصوصية", route: "privacy" as PageRoute, path: "privacy" },
+      ],
+    },
+    {
+      categoryEn: "Mobile App Webviews (Direct In-App Links)",
+      categoryAr: "واجهات تطبيق الهاتف (روابط مباشرة للتطبيق)",
+      pages: [
+        { titleEn: "About Loryfy (In-App)", titleAr: "عن لوريفاي (داخل التطبيق)", route: "app-about" as PageRoute, path: "app/about" },
+        { titleEn: "Privacy Policy (In-App)", titleAr: "سياسة الخصوصية (داخل التطبيق)", route: "app-privacy" as PageRoute, path: "app/privacy" },
+        { titleEn: "Terms & Conditions (In-App)", titleAr: "الشروط والأحكام (داخل التطبيق)", route: "app-terms" as PageRoute, path: "app/terms" },
       ],
     },
   ];
@@ -2232,8 +2313,8 @@ export const StoriesIndexPage: React.FC<SpecialPageProps> = ({
               id="stories-grid-container"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {filteredStories.map((story) => (
-                <StaggerItem key={story.slug}>
+              {filteredStories.map((story, idx) => (
+                <StaggerItem key={story.slug} type="tumble" index={idx}>
                   <div
                     id={`story-card-${story.slug}`}
                     onClick={() => onNavigate("story-detail", story.slug)}

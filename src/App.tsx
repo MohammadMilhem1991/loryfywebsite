@@ -3,7 +3,7 @@
  * Bilingual (EN / AR RTL), SEO Optimized, Conversion-First Mobile App Discovery.
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Language, PageRoute } from "./types";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -49,8 +49,14 @@ export default function App() {
   const [selectedOpportunitySlug, setSelectedOpportunitySlug] = useState<string | undefined>(initialRoute.slug);
   const [technicalModal, setTechnicalModal] = useState<"robots" | "llms" | null>(null);
 
+  const isWebView = currentPage === "app-about" || currentPage === "app-privacy" || currentPage === "app-terms";
+
   // Initialize language and path based on URL pathname
   useEffect(() => {
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
     const resolved = resolveRoute(window.location.pathname);
     setCurrentLang(resolved.lang);
     if (resolved.slug) {
@@ -79,7 +85,7 @@ export default function App() {
   }, [currentLang]);
 
   // Global scroll-to-top whenever the page or selected opportunity slug changes
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [currentPage, selectedOpportunitySlug]);
 
@@ -97,6 +103,12 @@ export default function App() {
         ? `/real-examples-of-using-loryfy`
         : currentPage === "seo-page" && selectedOpportunitySlug
         ? `/${selectedOpportunitySlug}`
+        : currentPage === "app-about"
+        ? `/app/about`
+        : currentPage === "app-privacy"
+        ? `/app/privacy`
+        : currentPage === "app-terms"
+        ? `/app/terms`
         : `/${currentPage}`;
     window.history.pushState({}, "", `/${newLang}${slugPart}`);
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -132,6 +144,12 @@ export default function App() {
         ? `/${currentLang}/real-examples-of-using-loryfy`
         : page === "seo-page" && slug
         ? `/${currentLang}/${slug}`
+        : page === "app-about"
+        ? `/${currentLang}/app/about`
+        : page === "app-privacy"
+        ? `/${currentLang}/app/privacy`
+        : page === "app-terms"
+        ? `/${currentLang}/app/terms`
         : `/${currentLang}/${page}`;
     window.history.pushState({}, "", pageUrl);
   };
@@ -140,7 +158,11 @@ export default function App() {
     <div
       dir={currentLang === "ar" ? "rtl" : "ltr"}
       lang={currentLang}
-      className="min-h-screen bg-gradient-to-b from-[#F5F9FF] via-[#F8FAFF] to-[#FFFFFF] text-[#101828] flex flex-col justify-between font-sans selection:bg-[#0F58D5]/15 selection:text-[#0F58D5]"
+      className={
+        isWebView
+          ? "min-h-screen bg-white text-[#101828] flex flex-col justify-between font-sans"
+          : "min-h-screen bg-gradient-to-b from-[#F5F9FF] via-[#F8FAFF] to-[#FFFFFF] text-[#101828] flex flex-col justify-between font-sans selection:bg-[#0F58D5]/15 selection:text-[#0F58D5]"
+      }
     >
       {/* SEO Schema and Head Metadata Injection */}
       <SeoStructuredData
@@ -150,15 +172,20 @@ export default function App() {
       />
 
       {/* Sticky Main Navigation */}
-      <Header
-        currentLang={currentLang}
-        onLanguageChange={handleLanguageChange}
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-      />
+      {!isWebView && (
+        <Header
+          currentLang={currentLang}
+          onLanguageChange={handleLanguageChange}
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+        />
+      )}
 
       {/* Main Page Routing & Body Content */}
-      <main id="main-content" className="flex-1 w-full min-h-[calc(100vh-80px)]">
+      <main
+        id="main-content"
+        className={isWebView ? "flex-1 w-full min-h-screen bg-white" : "flex-1 w-full min-h-[calc(100vh-80px)]"}
+      >
         {/* HOMEPAGE */}
         {currentPage === "home" && (
           <PageTransition key="home" pageKey="home">
@@ -316,6 +343,25 @@ export default function App() {
             </PageTransition>
           )}
 
+          {/* APP WEBVIEWS */}
+          {currentPage === "app-about" && (
+            <PageTransition key="app-about" pageKey="app-about" className="bg-white min-h-screen">
+              <AboutPage currentLang={currentLang} onNavigate={handleNavigate} isWebView={true} />
+            </PageTransition>
+          )}
+
+          {currentPage === "app-terms" && (
+            <PageTransition key="app-terms" pageKey="app-terms" className="bg-white min-h-screen">
+              <TermsPage currentLang={currentLang} onNavigate={handleNavigate} isWebView={true} />
+            </PageTransition>
+          )}
+
+          {currentPage === "app-privacy" && (
+            <PageTransition key="app-privacy" pageKey="app-privacy" className="bg-white min-h-screen">
+              <PrivacyPage currentLang={currentLang} onNavigate={handleNavigate} isWebView={true} />
+            </PageTransition>
+          )}
+
           {/* NOT FOUND */}
           {currentPage === "not-found" && (
             <PageTransition key="not-found" pageKey="not-found">
@@ -325,17 +371,19 @@ export default function App() {
       </main>
 
       {/* Global Footer */}
-      <Footer currentLang={currentLang} onNavigate={handleNavigate} />
+      {!isWebView && <Footer currentLang={currentLang} onNavigate={handleNavigate} />}
 
       {/* Floating WhatsApp Support Action */}
-      <FloatingWhatsApp currentLang={currentLang} />
+      {!isWebView && <FloatingWhatsApp currentLang={currentLang} />}
 
       {/* Mobile Sticky CTA on Scroll */}
-      <MobileStickyCTA
-        currentLang={currentLang}
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-      />
+      {!isWebView && (
+        <MobileStickyCTA
+          currentLang={currentLang}
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+        />
+      )}
 
       {/* Technical Text Modal (robots.txt / llms.txt preview) */}
       {technicalModal && (

@@ -41,6 +41,8 @@ export const UserJourneys: React.FC<UserJourneysProps> = ({ currentLang, onNavig
           <StaggerItem
             id="journey-card-a"
             className="bg-white rounded-2xl p-6 sm:p-7 border border-[#0F58D5]/15 shadow-xs hover:shadow-[0_12px_28px_rgba(15,88,213,0.12)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
+            type="tumble"
+            index={0}
           >
             {/* Ambient accent top bar */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-[#0F58D5]" />
@@ -86,6 +88,8 @@ export const UserJourneys: React.FC<UserJourneysProps> = ({ currentLang, onNavig
           <StaggerItem
             id="journey-card-b"
             className="bg-white rounded-2xl p-6 sm:p-7 border border-[#17B3CD]/25 shadow-xs hover:shadow-[0_12px_28px_rgba(23,179,205,0.14)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
+            type="tumble"
+            index={1}
           >
             {/* Ambient accent top bar */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-[#17B3CD]" />

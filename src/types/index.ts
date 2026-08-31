@@ -34,6 +34,9 @@ export type PageRoute =
   | "sitemap"
   | "robots"
   | "llms"
+  | "app-about"
+  | "app-privacy"
+  | "app-terms"
   | "not-found";
 
 export interface FaqItem {

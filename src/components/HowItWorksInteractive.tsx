@@ -18,6 +18,7 @@ interface HowItWorksInteractiveProps {
   hideOwnersTab?: boolean;
   customHeading?: string;
   customSubheading?: string;
+  isWebView?: boolean;
 }
 
 export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
@@ -27,6 +28,7 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
   hideOwnersTab = false,
   customHeading,
   customSubheading,
+  isWebView = false,
 }) => {
   const t = translations[currentLang];
   const isRtl = currentLang === "ar";
@@ -39,13 +41,24 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
   const [runningObjective, setRunningObjective] = useState<"partner" | "sell">("partner");
 
   return (
-    <section id="how-it-works-section" className="py-6 sm:py-8 bg-gradient-to-b from-[#FFFFFF] via-[#F6FAFF] to-[#FFFFFF] relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#0F58D5]/5 blur-xl pointer-events-none rounded-full" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-[#17B3CD]/5 blur-xl pointer-events-none rounded-full" />
-      <div className="absolute inset-0 bg-dot-pattern-light opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)]" />
+    <section
+      id="how-it-works-section"
+      className={
+        isWebView
+          ? "py-2 bg-white relative overflow-hidden"
+          : "py-6 sm:py-8 bg-gradient-to-b from-[#FFFFFF] via-[#F6FAFF] to-[#FFFFFF] relative overflow-hidden"
+      }
+    >
+      {/* Background ambient lighting - only visible in normal web view */}
+      {!isWebView && (
+        <>
+          <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#0F58D5]/5 blur-xl pointer-events-none rounded-full" />
+          <div className="absolute bottom-10 right-0 w-80 h-80 bg-[#17B3CD]/5 blur-xl pointer-events-none rounded-full" />
+          <div className="absolute inset-0 bg-dot-pattern-light opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_60%,transparent_100%)]" />
+        </>
+      )}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={isWebView ? "relative max-w-7xl mx-auto px-1" : "relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"}>
         
         {/* Section Header */}
         <FadeInUp className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">

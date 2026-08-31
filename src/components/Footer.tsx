@@ -10,7 +10,6 @@ import { loryfyConfig } from "../config/loryfyConfig";
 import { trackEvent } from "../utils/analytics";
 import { storiesData, storySlugs } from "../data/storiesData";
 import { Mail } from "lucide-react";
-import { FadeInUp, StaggerContainer, StaggerItem, PageAnimationProvider } from "./ScrollAnimations";
 import {
   TikTokIcon,
   FacebookIcon,
@@ -39,12 +38,11 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
   };
 
   return (
-    <PageAnimationProvider pageKey="footer">
-      <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
+    <footer id="main-footer" className="bg-[#101828] text-white pt-12 pb-24 sm:pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-8 border-b border-slate-800" staggerDelay={0.06}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-8 border-b border-slate-800">
           {/* Col 1: Brand, Direct WhatsApp & Official Channels (2 cols on large screens) */}
-          <StaggerItem className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <button
               onClick={() => handleLinkClick("home", "Footer Logo")}
               className="inline-block text-start cursor-pointer focus:outline-hidden"
@@ -197,10 +195,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                 </a>
               </div>
             </div>
-          </StaggerItem>
+          </div>
 
           {/* Col 2: Navigation Links */}
-          <StaggerItem className="space-y-3">
+          <div className="space-y-3">
             <div className="text-sm font-bold text-white uppercase tracking-wider">
               {t.footer.linksTitle}
             </div>
@@ -266,10 +264,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                 </button>
               </li>
             </ul>
-          </StaggerItem>
+          </div>
 
           {/* Col 3: Opportunities */}
-          <StaggerItem className="space-y-3">
+          <div className="space-y-3">
             <div className="text-sm font-bold text-white uppercase tracking-wider">
               {t.footer.categoriesTitle}
             </div>
@@ -299,10 +297,10 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                 </a>
               </li>
             </ul>
-          </StaggerItem>
+          </div>
 
           {/* Col 4: Legal & Technical Architecture */}
-          <StaggerItem className="space-y-3">
+          <div className="space-y-3">
             <div className="text-sm font-bold text-white uppercase tracking-wider">
               {t.footer.legalTitle}
             </div>
@@ -348,8 +346,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
                 </button>
               </li>
             </ul>
-          </StaggerItem>
-        </StaggerContainer>
+          </div>
+        </div>
 
         {/* Bottom copyright & attribution */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
@@ -365,6 +363,5 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onNavigate }) => {
         </div>
       </div>
     </footer>
-  </PageAnimationProvider>
-);
+  );
 };

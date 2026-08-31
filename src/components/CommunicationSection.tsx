@@ -131,20 +131,6 @@ export const CommunicationSection: React.FC<CommunicationSectionProps> = ({
     }
   }, [isTransitioning]);
 
-  // Smooth Auto-scrolling: Starts after precisely ~1.4s, and advances every 3.0s smoothly
-  useEffect(() => {
-    if (isHovered) return;
-
-    const delayMs = hasStartedRef.current ? 3000 : 1400;
-
-    const timer = setTimeout(() => {
-      hasStartedRef.current = true;
-      handleNext();
-    }, delayMs);
-
-    return () => clearTimeout(timer);
-  }, [isHovered, currentIndex, handleNext]);
-
   // Dot calculation normalized to 0..3
   const activeDotIndex = ((currentIndex % BASE_COUNT) + BASE_COUNT) % BASE_COUNT;
 

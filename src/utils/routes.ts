@@ -31,6 +31,9 @@ export const VALID_PAGE_ROUTES: PageRoute[] = [
   "privacy",
   "real-examples-of-using-loryfy",
   "sitemap",
+  "app-about",
+  "app-privacy",
+  "app-terms",
 ];
 
 export interface ResolvedRoute {
@@ -81,6 +84,17 @@ export function resolveRoute(rawPath: string): ResolvedRoute {
 
   if (segment === "") {
     return { isValid: true, lang, page: "home", statusCode: 200 };
+  }
+
+  // App Webview URLs (Direct Native Integrations)
+  if (segment === "app/about") {
+    return { isValid: true, lang, page: "app-about", statusCode: 200 };
+  }
+  if (segment === "app/privacy") {
+    return { isValid: true, lang, page: "app-privacy", statusCode: 200 };
+  }
+  if (segment === "app/terms") {
+    return { isValid: true, lang, page: "app-terms", statusCode: 200 };
   }
 
   // Check if it's an opportunity detail route: opportunity/:slug

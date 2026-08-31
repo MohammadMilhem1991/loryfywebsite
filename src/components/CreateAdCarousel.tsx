@@ -211,20 +211,6 @@ export const CreateAdCarousel: React.FC<CreateAdCarouselProps> = ({
     }
   }, [isTransitioning]);
 
-  // Smooth Auto-scrolling: Starts after precisely ~1.4s, and advances every 3.0s smoothly
-  useEffect(() => {
-    if (isHovered) return;
-
-    const delayMs = hasStartedRef.current ? 3000 : 1400;
-
-    const timer = setTimeout(() => {
-      hasStartedRef.current = true;
-      handleNext();
-    }, delayMs);
-
-    return () => clearTimeout(timer);
-  }, [isHovered, currentIndex, handleNext]);
-
   const activeDotIndex = ((currentIndex % baseCount) + baseCount) % baseCount;
 
   // Touch swipe support for mobile

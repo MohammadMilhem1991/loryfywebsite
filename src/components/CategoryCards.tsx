@@ -75,13 +75,15 @@ export const CategoryCards: React.FC<CategoryCardsProps> = ({ currentLang, onNav
 
         {/* 3 Main Cards Grid */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6" staggerDelay={0.09}>
-          {categories.map((cat) => {
+          {categories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <StaggerItem
                 key={cat.id}
                 id={`category-card-${cat.id}`}
                 className="group relative bg-[#F5F8FF]/70 hover:bg-white rounded-2xl p-5 sm:p-6 border border-[#0F58D5]/15 hover:border-[#17B3CD]/40 shadow-xs hover:shadow-[0_10px_25px_rgba(23,179,205,0.12)] transition-all duration-300 flex flex-col justify-between"
+                type="tumble"
+                index={idx}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">

@@ -492,7 +492,7 @@ export const translations: Record<"en" | "ar", TranslationContent> = {
       home: "Home",
       discover: "Discover",
       howItWorks: "How It Works",
-      about: "About",
+      about: "About Loryfy",
       faq: "FAQ",
       contact: "Contact",
       terms: "Terms & Conditions",
