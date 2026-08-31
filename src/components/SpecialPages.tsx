@@ -75,14 +75,14 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
       id="about-page"
       className={
         isWebView
-          ? "bg-white min-h-screen py-2 px-2"
+          ? "bg-[#FAFAFA] min-h-screen py-4 px-4"
           : "bg-gradient-to-b from-[#F5F9FF] via-white to-white min-h-screen pt-4 pb-16 sm:py-16"
       }
     >
       <div
         className={
           isWebView
-            ? "max-w-7xl mx-auto space-y-6"
+            ? "max-w-xl mx-auto space-y-5"
             : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16"
         }
       >
@@ -92,7 +92,7 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
           <div
             className={
               isWebView
-                ? "bg-white p-4 sm:p-6 rounded-2xl border border-slate-100 shadow-3xs text-center space-y-4 relative overflow-hidden"
+                ? "bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-3xs text-center space-y-3 relative overflow-hidden"
                 : "bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0FDFA]/60 p-6 sm:p-10 lg:p-12 rounded-3xl border border-[#0F58D5]/15 shadow-2xs text-center space-y-6 relative overflow-hidden"
             }
           >
@@ -103,8 +103,8 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
               </>
             )}
 
-            <div className="relative z-10 space-y-4 sm:space-y-6 max-w-4xl mx-auto">
-              <h1 className="text-xl sm:text-2.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
+            <div className="relative z-10 space-y-3 max-w-4xl mx-auto">
+              <h1 className="text-lg sm:text-2.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight">
                 {currentLang === "en"
                   ? "Making Business Connections Easier to Discover"
                   : "نربط أصحاب المشاريع بالشركاء والمستثمرين"}
@@ -118,7 +118,7 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
         </FadeInUp>
 
         {/* 3 Core Pillars: Discover, Connect, Opportunity */}
-        {!isWebView && (
+        {!isWebView ? (
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StaggerItem className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-3xs text-start space-y-3 flex flex-col justify-between" type="tumble" index={0}>
               <div className="space-y-2">
@@ -174,17 +174,89 @@ export const AboutPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
               </div>
             </StaggerItem>
           </StaggerContainer>
+        ) : (
+          /* Mobile App Native Benefits List */
+          <div className="space-y-3">
+            <h2 className="text-xs font-bold text-slate-400 tracking-wider uppercase px-1">
+              {currentLang === "en" ? "Our App Benefits" : "مزايا التطبيق الأساسية"}
+            </h2>
+            <div className="grid grid-cols-1 gap-3">
+              {/* Benefit 1 */}
+              <div className="p-4 rounded-xl border border-slate-100/80 bg-white shadow-3xs flex items-start gap-3.5 text-start">
+                <div className="p-2.5 rounded-xl bg-[#0F58D5]/5 text-[#0F58D5] border border-[#0F58D5]/10 shrink-0">
+                  <MessageSquare className="w-5 h-5" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-sm font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Direct Messaging" : "محادثات مباشرة فورية"}
+                  </h4>
+                  <p className="text-xs text-[#475467] leading-relaxed">
+                    {currentLang === "en" 
+                      ? "Connect immediately with business owners, founders, and specialized partners in-app."
+                      : "تواصل فوراً وبشكل مباشر مع أصحاب المشاريع والشركاء من خلال المحادثة الفورية."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Benefit 2 */}
+              <div className="p-4 rounded-xl border border-slate-100/80 bg-white shadow-3xs flex items-start gap-3.5 text-start">
+                <div className="p-2.5 rounded-xl bg-[#17B3CD]/10 text-[#0F58D5] border border-[#17B3CD]/20 shrink-0">
+                  <Search className="w-5 h-5" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-sm font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Smart Discovery" : "اكتشاف ذكي للفرص"}
+                  </h4>
+                  <p className="text-xs text-[#475467] leading-relaxed">
+                    {currentLang === "en" 
+                      ? "Browse running companies, commercial licenses, and active startup opportunities in the UAE."
+                      : "تصفح الشركات القائمة والرخص التجارية والفرص الاستثمارية الفعالة في الإمارات."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Benefit 3 */}
+              <div className="p-4 rounded-xl border border-slate-100/80 bg-white shadow-3xs flex items-start gap-3.5 text-start">
+                <div className="p-2.5 rounded-xl bg-[#0F58D5]/5 text-[#0F58D5] border border-[#0F58D5]/10 shrink-0">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-sm font-extrabold text-[#101828]">
+                    {currentLang === "en" ? "Verified Security" : "أمان وموثوقية تامة"}
+                  </h4>
+                  <p className="text-xs text-[#475467] leading-relaxed">
+                    {currentLang === "en" 
+                      ? "We ensure high standards of verification for all business partners and opportunities listed."
+                      : "نحرص على تطبيق معايير تحقق عالية وموثوقية تامة لجميع شركاء ومشاريع لوريفاي."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
 
         {/* UAE & Regional Focus */}
         <FadeInUp>
-          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-3xs space-y-3 text-start">
-            <h3 className="text-lg font-extrabold text-[#101828]">
-              {currentLang === "en" ? "Our Geographic Focus" : "نطاق التركيز الجغرافي"}
-            </h3>
-            <p className="text-xs sm:text-sm text-[#475467] leading-relaxed max-w-3xl">
-              {t.whyLoryfy.uaeFocused.description}
-            </p>
+          <div
+            className={
+              isWebView
+                ? "p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-3xs space-y-2 text-start flex items-start gap-3.5"
+                : "p-6 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-3xs space-y-3 text-start"
+            }
+          >
+            {isWebView && (
+              <div className="p-2 rounded-xl bg-[#0F58D5]/5 text-[#0F58D5] border border-[#0F58D5]/10 shrink-0 mt-0.5">
+                <Globe className="w-5 h-5" />
+              </div>
+            )}
+            <div className="space-y-1">
+              <h3 className="text-sm sm:text-base font-black text-[#101828]">
+                {currentLang === "en" ? "Our Geographic Focus" : "نطاق التركيز الجغرافي"}
+              </h3>
+              <p className="text-xs text-[#475467] leading-relaxed max-w-3xl">
+                {t.whyLoryfy.uaeFocused.description}
+              </p>
+            </div>
           </div>
         </FadeInUp>
 
@@ -1374,9 +1446,6 @@ export const TermsPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigate,
               <h1 className="text-xl sm:text-2xl font-bold text-[#101828]">
                 {currentLang === "en" ? "Terms & Conditions" : "الشروط والأحكام"}
               </h1>
-              <p className="text-[11px] sm:text-xs text-[#64748B]">
-                {currentLang === "en" ? "Last updated: 2026 • UAE Jurisdiction" : "آخر تحديث: 2026 • دولة الإمارات العربية المتحدة"}
-              </p>
             </header>
 
             {/* Sections */}
@@ -1819,7 +1888,7 @@ export const PrivacyPage: React.FC<SpecialPageProps> = ({ currentLang, onNavigat
                 {currentLang === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
               </h1>
               <p className="text-[11px] sm:text-xs text-[#64748B]">
-                {currentLang === "en" ? "Last updated: 2026 • UAE Federal Data Protection (PDPL) Compliant" : "آخر تحديث: 2026 • متوافق مع معايير حماية البيانات في الإمارات"}
+                {currentLang === "en" ? "UAE Federal Data Protection (PDPL) Compliant" : "متوافق مع معايير حماية البيانات في الإمارات"}
               </p>
             </header>
 
