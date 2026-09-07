@@ -455,7 +455,7 @@ export const translations: Record<"en" | "ar", TranslationContent> = {
         id: "faq-13",
         question: "Is Loryfy free to use?",
         answer:
-          "Registration and exploring opportunities on Loryfy are free. During Loryfy’s launch period, listing a running business, startup idea, or trade license is also free. Loryfy offers flexible, competitively priced listing options suitable for different users and business types, including time-based and Pay per Chat packages.",
+          "Registration and exploring opportunities on Loryfy are free. During Loryfy’s launch period, listing a running business, startup idea, or trade license is also free. Loryfy offers flexible, competitively priced listing options suitable for different users and business types, including time-based packages and packages based on the number of times interested users contact you about your advertisement.",
       },
       {
         id: "faq-14",
@@ -692,7 +692,7 @@ export const translations: Record<"en" | "ar", TranslationContent> = {
     faqs: [
       {
         id: "faq-1",
-        question: "ما هي لوريفاي (Loryfy)؟",
+        question: "ما هو تطبيق لوريفاي ؟",
         answer:
           "لوريفاي هي منصة عبر تطبيق الهاتف تساعد المستخدمين على اكتشاف المشاريع القائمة، وأفكار المشاريع الناشئة، وفرص الشراكة، والرخص التجارية في الإمارات. كما تساعد أصحاب المشاريع والمشاريع الناشئة وأصحاب الأفكار التجارية على التواصل مع شركاء ومستثمرين ومشترين محتملين.",
       },
@@ -766,7 +766,7 @@ export const translations: Record<"en" | "ar", TranslationContent> = {
         id: "faq-13",
         question: "هل استخدام لوريفاي مجاني؟",
         answer:
-          "التسجيل واستكشاف الفرص على لوريفاي مجانيان. وخلال فترة إطلاق لوريفاي، سيكون نشر إعلان لمشروع قائم أو فكرة مشروع ناشئ أو رخصة تجارية مجانيًا أيضًا. وتوفر لوريفاي خيارات إعلانات مرنة وبأسعار تنافسية تناسب مختلف المستخدمين وأنواع المشاريع، بما في ذلك الباقات المحددة بمدة وباقات الدفع حسب المحادثة (Pay per Chat).",
+          "التسجيل واستكشاف الفرص على لوريفاي مجانيان. وخلال فترة إطلاق لوريفاي، سيكون نشر إعلان لمشروع قائم أو فكرة مشروع ناشئ أو رخصة تجارية مجانيًا أيضًا. وتوفر لوريفاي خيارات إعلانات مرنة وبأسعار تنافسية تناسب مختلف المستخدمين وأنواع المشاريع، بما في ذلك الباقات المحددة بمدة وباقات الدفع حسب عدد تواصل المهتمين باعلانك.",
       },
       {
         id: "faq-14",

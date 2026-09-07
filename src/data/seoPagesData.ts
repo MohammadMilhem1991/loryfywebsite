@@ -53,7 +53,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "Loryfy serves as a discovery and connection platform. We encourage all business owners and prospective partners to independently verify all documentation, financial statements, and operational metrics before making binding commitments or signing legal contracts.",
         },
         {
-          heading: "Explore business partnerships by emirate",
+          heading: "How can I explore business partnerships by emirate?",
           content:
             "Find strategic co-founders, operating managers, and equity investors in specific emirates:",
           bulletPoints: [
@@ -118,7 +118,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "Owners of running businesses on Loryfy typically list for one of two reasons: bringing in partners/investors to accelerate expansion, or listing the business for sale. Listings detail key parameters such as premises, visas, status, and partner requirements.",
         },
         {
-          heading: "Explore running businesses by emirate",
+          heading: "How can I explore running businesses across the UAE by emirate?",
           content:
             "Browse active commercial and industrial operations by location:",
           bulletPoints: [
@@ -234,7 +234,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "Browse early-stage startup ideas across tech, e-commerce, consumer goods, and specialized services in the UAE. Find passionate creators seeking your skill set or capital.",
         },
         {
-          heading: "Explore startup opportunities by emirate",
+          heading: "How can I explore startup opportunities across the UAE by emirate?",
           content:
             "Discover innovation ecosystems and early-stage ventures across the UAE:",
           bulletPoints: [
@@ -321,7 +321,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           ],
         },
         {
-          heading: "Explore trade license opportunities by emirate",
+          heading: "How can I explore trade license opportunities across the UAE by emirate?",
           content:
             "Browse trade licenses available for takeover and transfer across key emirates:",
           bulletPoints: [
@@ -659,7 +659,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "يعمل لوريفاي كمنصة للاكتشاف والتواصل. ننصح جميع أصحاب المشاريع والشركاء المحتملين بإجراء التحقق المستقل من كافة المستندات والبيانات المالية قبل إبرام أي اتفاقات ملزمة.",
         },
         {
-          heading: "استكشف فرص الشراكة حسب الإمارة",
+          heading: "كيف يمكنني استكشاف فرص الشراكة حسب الإمارة؟",
           content:
             "ابحث عن شركاء استراتيجيين وممولين ومدراء تشغيل في مختلف إمارات الدولة:",
           bulletPoints: [
@@ -718,7 +718,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           ],
         },
         {
-          heading: "استكشف المشاريع القائمة حسب الإمارة",
+          heading: "كيف يمكنني استكشاف المشاريع التجارية القائمة في مختلف إمارات الدولة؟",
           content:
             "تصفح الأنشطة التجارية والصناعية القائمة بحسب الإمارة:",
           bulletPoints: [
@@ -818,7 +818,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
             "هل لديك فكرة مشروع مدروسة وتبحث عن شريك مالي أو إداري أو تنفيذي؟ سواء كنت داخل الإمارات أو خارجها، يتيح لك لوريفاي عرض فكرتك الموجهة للسوق الإماراتي وتحديد نوع الشركاء والمستثمرين المطلوبين.",
         },
         {
-          heading: "استكشف أفكار ومشاريع ناشئة حسب الإمارة",
+          heading: "كيف يمكنني استكشاف أفكار المشاريع والفرص الناشئة في مختلف إمارات الدولة؟",
           content:
             "تصفح بيئات الابتكار والمشاريع الناشئة بحسب الإمارة:",
           bulletPoints: [
@@ -900,7 +900,7 @@ export const seoPagesData: Record<"en" | "ar", Record<string, SeoPageData>> = {
           ],
         },
         {
-          heading: "استكشف فرص الرخص التجارية حسب الإمارة",
+          heading: "كيف يمكنني استكشاف فرص الرخص التجارية المتاحة في مختلف إمارات الدولة؟",
           content:
             "تصفح الرخص التجارية المعروضة للتنازل بحسب الإمارة ونطاق الاختصاص:",
           bulletPoints: [
