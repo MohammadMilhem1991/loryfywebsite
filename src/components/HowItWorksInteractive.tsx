@@ -19,6 +19,7 @@ interface HowItWorksInteractiveProps {
   customHeading?: string;
   customSubheading?: string;
   isWebView?: boolean;
+  headingAs?: "h1" | "h2";
 }
 
 export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
@@ -29,7 +30,9 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
   customHeading,
   customSubheading,
   isWebView = false,
+  headingAs = "h2",
 }) => {
+  const HeadingTag = headingAs;
   const t = translations[currentLang];
   const isRtl = currentLang === "ar";
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
@@ -62,12 +65,12 @@ export const HowItWorksInteractive: React.FC<HowItWorksInteractiveProps> = ({
         
         {/* Section Header */}
         <FadeInUp className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <h2
+          <HeadingTag
             id="how-it-works-heading"
             className="text-2xl sm:text-3.5xl lg:text-4xl font-black text-[#101828] leading-tight tracking-tight"
           >
             {customHeading || t.howItWorks.heading}
-          </h2>
+          </HeadingTag>
           <p className="mt-3 text-sm sm:text-base text-[#475467] leading-relaxed max-w-2xl mx-auto">
             {customSubheading || t.howItWorks.subheading}
           </p>

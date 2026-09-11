@@ -131,66 +131,7 @@ export const SeoStructuredData: React.FC<SeoStructuredDataProps> = ({
     }
   }, [currentLang, currentPage, selectedOpportunitySlug, seoData]);
 
-  if (seoData.isNoIndex) {
-    return null;
-  }
-
-  // Structured schemas
-  const orgSchema = generateOrganizationSchema();
-  const webSiteSchema = generateWebSiteSchema();
-  const appSchema = generateSoftwareApplicationSchema();
-  const story =
-    currentPage === "story-detail" && selectedOpportunitySlug
-      ? storiesData[currentLang]?.[selectedOpportunitySlug]
-      : null;
-  const articleSchema = story
-    ? generateArticleSchema(story, currentLang, seoData.canonicalUrl)
-    : null;
-  const faqSchema = seoData.faqs ? generateFaqSchema(seoData.faqs) : null;
-  const breadcrumbSchema =
-    seoData.breadcrumbs.length > 0 ? generateBreadcrumbSchema(seoData.breadcrumbs) : null;
-  const itemListSchema =
-    seoData.itemList && seoData.itemList.length > 0 ? generateItemListSchema(seoData.itemList) : null;
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-      />
-      {articleSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-      )}
-      {/* Strict condition: FAQPage schema is ONLY rendered if visible FAQs exist on this specific page */}
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      {breadcrumbSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-      )}
-      {itemListSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-        />
-      )}
-    </>
-  );
+  // JSON-LD schemas are injected into <head> by src/utils/htmlInjector.ts (build + server).
+  // Rendering them here too would duplicate every schema in the prerendered HTML.
+  return null;
 };

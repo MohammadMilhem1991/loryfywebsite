@@ -26,6 +26,7 @@ interface FaqSectionProps {
   title?: string;
   sectionId?: string;
   className?: string;
+  headingAs?: "h1" | "h2";
 }
 
 function renderFormattedContent(text: string): React.ReactNode {
@@ -68,6 +69,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
   title,
   sectionId = "faq-section",
   className = "py-5 sm:py-7 bg-gradient-to-b from-white via-[#F8FAFC] to-white relative overflow-hidden",
+  headingAs = "h2",
 }) => {
   const t = translations[currentLang];
   const [openIds, setOpenIds] = useState<string[]>([]);
@@ -102,7 +104,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
     }));
   }, [t.faqs, customFaqs]);
 
-  const actualDisplayedFaqs = showAll ? combinedFaqs : combinedFaqs.slice(0, 3);
+  const HeadingTag = headingAs;
 
   return (
     <section id={sectionId} className={className}>
@@ -113,17 +115,17 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
         
         {/* Header */}
         <FadeInUp className="text-center mb-8 sm:mb-10">
-          <h2
+          <HeadingTag
             id="faq-main-heading"
             className="text-2xl sm:text-3xl font-extrabold text-[#101828] tracking-tight"
           >
             {title || (currentLang === "en" ? "Frequently Asked Questions" : "الأسئلة الشائعة")}
-          </h2>
+          </HeadingTag>
         </FadeInUp>
 
         {/* Single Column Accordion Cards (SEO FAQ Style) */}
         <div className="space-y-3">
-          {actualDisplayedFaqs.map((faq, idx) => {
+          {combinedFaqs.map((faq, idx) => {
             const isOpen = openIds.includes(faq.id);
 
             return (
@@ -148,7 +150,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
                 whileTap={{ scale: 0.995 }}
                 className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen ? "border-[#17B3CD]/30 shadow-xs" : "border-slate-100 hover:border-[#17B3CD]/40 shadow-2xs"
-                }`}
+                }${!showAll && idx >= 3 ? " hidden" : ""}`}
               >
                 <button
                   onClick={() => toggleFaq(faq.id, faq.question)}

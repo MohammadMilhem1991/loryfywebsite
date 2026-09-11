@@ -315,7 +315,14 @@ async function startServer() {
     console.log("[Server] Vite middleware mounted for development with dynamic SEO injection & 404 handling");
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath, { index: false }));
+    // Pristine Vite template (empty #root) written by scripts/prerender.ts — used for non-prerendered responses
+    const templatePath = fs.existsSync(path.join(distPath, "_template.html"))
+      ? path.join(distPath, "_template.html")
+      : path.join(distPath, "index.html");
+
+    // Static assets only. index:false + redirect:false stops Express from 301-redirecting
+    // /en/faq → /en/faq/ just because a prerendered folder exists.
+    app.use(express.static(distPath, { index: false, redirect: false }));
 
     app.get("*", async (req, res) => {
       try {
@@ -323,8 +330,18 @@ async function startServer() {
         const { injectSeoIntoHtml } = await import("./src/utils/htmlInjector");
 
         const resolved = resolveRoute(req.path);
-        const templatePath = path.join(distPath, "index.html");
 
+        // 1. Serve the fully prerendered page (head + body) when one exists for this URL
+        if (resolved.statusCode === 200) {
+          const cleanPath = decodeURIComponent(req.path).toLowerCase().replace(/\/+$/, "");
+          const prerenderedFile = path.resolve(distPath, "." + (cleanPath || "/"), "index.html");
+          if (prerenderedFile.startsWith(distPath + path.sep) && fs.existsSync(prerenderedFile)) {
+            res.status(200).set({ "Content-Type": "text/html; charset=utf-8" }).sendFile(prerenderedFile);
+            return;
+          }
+        }
+
+        // 2. Fallback: inject SEO head tags into the empty template (client renders the body)
         if (fs.existsSync(templatePath)) {
           const template = await fs.promises.readFile(templatePath, "utf-8");
           const html = injectSeoIntoHtml(
@@ -333,7 +350,7 @@ async function startServer() {
             resolved.page,
             resolved.slug
           );
-          res.status(resolved.statusCode).set({ "Content-Type": "text/html" }).send(html);
+          res.status(resolved.statusCode).set({ "Content-Type": "text/html; charset=utf-8" }).send(html);
         } else {
           res.status(resolved.statusCode).sendFile(path.join(distPath, "index.html"));
         }

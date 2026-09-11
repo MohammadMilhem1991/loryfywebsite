@@ -36,8 +36,11 @@ import { PageTransition } from "./components/ScrollAnimations";
 import { resolveRoute } from "./utils/routes";
 import { scheduleIdleImagePreloads } from "./utils/idlePreloader";
 
-export default function App() {
+export default function App({ initialPath }: { initialPath?: string } = {}) {
   const [initialRoute] = useState(() => {
+    if (initialPath) {
+      return resolveRoute(initialPath);
+    }
     if (typeof window !== "undefined") {
       return resolveRoute(window.location.pathname);
     }
@@ -259,7 +262,7 @@ export default function App() {
           {/* HOW IT WORKS PAGE */}
           {currentPage === "how-it-works" && (
             <PageTransition key="how-it-works" pageKey="how-it-works" className="pt-3 pb-8 sm:py-8 bg-gradient-to-b from-[#F5F9FF] via-[#F8FAFF] to-[#FFFFFF] min-h-screen">
-              <HowItWorksInteractive currentLang={currentLang} onNavigate={handleNavigate} />
+              <HowItWorksInteractive currentLang={currentLang} onNavigate={handleNavigate} headingAs="h1" />
               <RegistrationBanner currentLang={currentLang} onNavigate={handleNavigate} />
               <CommunicationSection currentLang={currentLang} onNavigate={handleNavigate} />
               <FinalCtaSection currentLang={currentLang} onNavigate={handleNavigate} />
@@ -269,7 +272,7 @@ export default function App() {
           {/* FAQ PAGE */}
           {currentPage === "faq" && (
             <PageTransition key="faq" pageKey="faq" className="pt-3 pb-8 sm:py-8 bg-gradient-to-b from-[#F5F9FF] via-[#F8FAFF] to-[#FFFFFF] min-h-screen">
-              <FaqSection currentLang={currentLang} />
+              <FaqSection currentLang={currentLang} headingAs="h1" />
               <FinalCtaSection currentLang={currentLang} onNavigate={handleNavigate} />
             </PageTransition>
           )}
