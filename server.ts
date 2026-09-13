@@ -320,8 +320,16 @@ async function startServer() {
       ? path.join(distPath, "_template.html")
       : path.join(distPath, "index.html");
 
-    // Static assets only. index:false + redirect:false stops Express from 301-redirecting
-    // /en/faq → /en/faq/ just because a prerendered folder exists.
+    // Strip trailing slashes BEFORE express.static sees the request.
+    app.use((req, res, next) => {
+      const p = req.path;
+      if (p.length > 1 && p.endsWith('/') && p !== '/en/' && p !== '/ar/') {
+        const qs = req.url.slice(p.length);
+        return res.redirect(301, p.slice(0, -1) + qs);
+      }
+      next();
+    });
+
     app.use(express.static(distPath, { index: false, redirect: false }));
 
     app.get("*", async (req, res) => {

@@ -1,0 +1,11 @@
+services:
+  - name: loryfy-web
+    run_command: node dist/server.cjs
+    http_port: 3000
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    routes:
+      - path: /
+    envs:
+      - key: NODE_ENV
+        value: production
