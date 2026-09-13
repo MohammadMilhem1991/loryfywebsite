@@ -325,6 +325,7 @@ async function startServer() {
       const p = req.path;
       if (p.length > 1 && p.endsWith('/') && p !== '/en/' && p !== '/ar/') {
         const qs = req.url.slice(p.length);
+        res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';");
         return res.redirect(301, p.slice(0, -1) + qs);
       }
       next();
